@@ -46,7 +46,7 @@ const Sidebar = () => {
                   </li>
                  
             </ul></Menu.Items></Menu>
-         </li> */}
+         </li> 
          <li>
             <Menu>
             <Menu.Button type="button" class="flex items-center p-2 w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-dark dark:text-gray-300 " aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
