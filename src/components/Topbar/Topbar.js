@@ -1,0 +1,80 @@
+import React from 'react'
+import {Menu} from '@headlessui/react'
+const topbar = () => {
+  return (
+
+
+    
+    <div className="text-center bg-dark py-1 flex justify-center">
+      <p className="ml-auto text-sm truncate text-gray-400">
+        Volume 24h:<span className="text-pink-600 mx-2">71,229 SOL</span>
+        Volume total:
+        <span className="text-pink-600 mx-2">30,730,498 SOL</span>
+        SOL/USD:
+        <span className="text-pink-600 mx-2">$32.91</span>
+        Solana Network:
+        <span className="text-pink-600 mx-2">3,682 TPS</span>
+      </p>
+
+      <Menu as="div" class=" ml-auto relative inline-block text-left mr-2">
+        <div>
+          <Menu.Button
+            type="button"
+            className=" inline-flex w-full justify-center text-sm font-medium text-white shadow-sm "
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+          >
+            English
+            <svg
+              className="-mr-1 ml-2 h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </Menu.Button>
+        </div>
+
+        <Menu.Items
+          className="absolute right-0 z-10 mt-2 w-24 origin-top-right rounded-md  bg-black shadow-lg text-white ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabindex="-1"
+        >
+          <div className="py-1" role="none">
+            <a
+              href="#"
+              className="text-white block px-4 py-2 text-sm "
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-0"
+            >
+              한국어
+            </a>
+            <a
+              href="#"
+              className="text-white block px-4 py-2 text-sm"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-1"
+            >
+              日本語
+            </a>
+           
+            
+          </div>
+        </Menu.Items>
+      </Menu>
+    </div>
+  );
+}
+
+export default topbar
