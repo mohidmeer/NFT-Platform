@@ -8,9 +8,9 @@ const navbar = () => {
         <img src={Logo} className="" width={160} alt="" />
       </div>
 
-      <div className="w-1/3 ">
+      <div className="w-1/3 hidden sm:block   ">
         <div className="relative flex items-center w-full h-10 rounded-full focus-within:shadow-lg bg-dark overflow-hidden">
-          <div className="grid place-items-center h-full w-12 text-gray-300">
+          <div className="grid place-items-center h-full w-12 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -28,7 +28,7 @@ const navbar = () => {
           </div>
 
           <input
-            className="peer h-full w-full outline-none text-sm bg-dark text-gray-700 pr-2"
+            className=" autofill:bg-slate-600     h-full w-full outline-none text-sm bg-dark text-gray-700 pr-2"
             type="text"
             id="search"
             placeholder="Search something.."
@@ -36,7 +36,7 @@ const navbar = () => {
         </div>
       </div>
 
-      <button className=" truncate flex bg-transparent hover:bg-pink-600 text-blue-dark font-semibold hover:text-white py-2 px-4 border border-pink-600 hover:border-transparent rounded  ">
+      <button className=" truncate flex bg-transparent hover:bg-pink-600 text-blue-dark font-semibold hover:text-gray-700 py-2 px-4 border border-pink-600 hover:border-transparent rounded  ">
         <span className='border-r mr-2 border-pink-600'>
         <FaWallet className='mt-1  mr-2'/>
         </span>

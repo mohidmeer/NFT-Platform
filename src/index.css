@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .sidebar {
+      @apply absolute  lg:relative md:relative sm:absolute rounded-2xl  bg-dark-2    ;
+    }
+  }

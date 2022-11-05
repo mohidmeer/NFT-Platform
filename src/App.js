@@ -24,7 +24,7 @@ function App() {
       <Route path= "/">
         <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
-        <Route path="*" element={<Error/>} />
+        <Route path="*" element={<>404</>} />
       </Route>
     </Routes>
 
