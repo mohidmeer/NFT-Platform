@@ -9,6 +9,7 @@ const Launchpad = () => {
   const [isLive, setIsLive] = useState(true);
   return (
     <div className=" mt-7 p-4 ">
+    
       <Hero />
 
       <div className="mt-4">

@@ -21,17 +21,17 @@ const Sidebar = () => {
   
 
     <aside className={`sidebar ${isOpen ? 'w-72' : 'w-16'} `} aria-label="Sidebar">
-    <button className={` text-gray-300 text-3xl absolute   ${isOpen ? 'right-[-15px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
+    <button className={` text-gray-300 text-3xl absolute    ${isOpen ? 'right-[-15px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
         
         
-        {isOpen ? <BsFillArrowLeftCircleFill/> : <GiHamburgerMenu/> }
+        {isOpen ? <BsFillArrowLeftCircleFill / > : <GiHamburgerMenu/> }
         
    </button>
     
 
-    <div class={` ${isOpen ? '' : 'hidden'}  overflow-hidden py-4 px-3 bg-dark-2 rounded dark:bg-gray-800 mt-4 `}>
+    <div class={` ${isOpen ? '' : 'hidden'}  overflow-hidden py-4 px-3 bg-dark-2 rounded  mt-4 `}>
       <ul class="space-y-2 ">
-         
+       
          <li>
             <Menu>
             <Menu.Button type="button" class="flex items-center p-2 w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-dark dark:text-gray-300 " aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
