@@ -5,34 +5,33 @@ import Live from './Live/Live';
 import SDays from './SDays/SDays';
 const LaunchPadDrops = () => {
 
-    const [plan, setPlan] = useState('startup')
+    const [plan, setPlan] = useState('live')
   return (
     <div>
-        <div className="flex justify-start gap-5 ">
-        <h2 className="text-3xl font-bold">Launchpad Drops</h2>
+        <div className="flex justify-start gap-5 lg:flex-row flex-col ">
+        <h2 className="lg:text-3xl md:text-2xl text-lg  font-bold">Launchpad Drops</h2>
         <RadioGroup as='div' className={'flex justify-between border p-1 border-dark justify-items-center mt-1     rounded-full  '}  value={plan} onChange={setPlan}>
       
-        <RadioGroup.Option value="Solana">
+        <RadioGroup.Option value="sdays">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full ${checked ? 'bg-pink-600' : ''}`}>Next 7 days</span>
+          <span className={`text-sm px-4 py-1 rounded-full ${checked ? 'bg-pink-600' : ''}`}>Next 7 days</span>
         )}
       </RadioGroup.Option>
-      <RadioGroup.Option value="ethereium">
+      <RadioGroup.Option value="comingsoon">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Coming soon</span>
+          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Coming soon</span>
         )}
       </RadioGroup.Option>
-      <RadioGroup.Option value="all">
+      <RadioGroup.Option value="live">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Live</span>
+          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Live</span>
         )}
       </RadioGroup.Option>
         </RadioGroup>
-
         </div>
-      <ComingSoon/>
-      <Live/>
-      <SDays/>
+      {plan=='live'   ? <Live/>: ''}
+      {plan=='sdays'  ? <SDays/>: ''         }
+      {plan=='comingsoon'  ? <ComingSoon/>: ''}
 
 
     </div>

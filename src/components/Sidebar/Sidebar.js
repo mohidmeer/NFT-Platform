@@ -3,7 +3,7 @@ import {Menu} from '@headlessui/react'
 import { MdInsights } from "react-icons/md";
 import { FaRocket } from "react-icons/fa";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { MdCancelPresentation } from "react-icons/md";
 import { GiWhiteBook } from "react-icons/gi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
@@ -21,10 +21,10 @@ const Sidebar = () => {
   
 
     <aside className={`sidebar ${isOpen ? 'w-72' : 'w-16'} `} aria-label="Sidebar">
-    <button className={` text-gray-300 text-3xl absolute    ${isOpen ? 'right-[-15px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
+    <button className={` text-gray-300 text-3xl absolute    ${isOpen ? 'right-[1px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
         
         
-        {isOpen ? <BsFillArrowLeftCircleFill / > : <GiHamburgerMenu/> }
+        {isOpen ? <MdCancelPresentation / > : <GiHamburgerMenu/> }
         
    </button>
     

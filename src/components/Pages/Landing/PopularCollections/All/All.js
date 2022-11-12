@@ -3,7 +3,9 @@ import Item from '../Item'
 
 const All = () => {
   return (
-    <div class="mt-2 grid grid-rows-4 gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
+    <div className=''>
+      <h3 className='font-bold text-center text-3xl'>All</h3> 
+    <div class=" mt-4 grid grid-rows-5 gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
       
             <Item/>
             <Item/>
@@ -18,7 +20,13 @@ const All = () => {
             <Item/>
             <Item/>
             <Item/>
-     </div>
+            <Item/>
+            <Item/>
+       
+           
+        
+          
+     </div></div>
   )
 }
 

@@ -14,17 +14,17 @@ const timeline = [
   
 ];
 const PopularCollection = () => {
-  const [selectedTime, setSelectedTime] = useState(timeline[0]);
+  const [selectedTime, setSelectedTime] = useState(timeline[3]);
   const [plan, setPlan] = useState('solana')
   return (
     <div>
-      <div className="flex justify-start gap-x-5 ">
-        <h2 className="text-3xl font-bold">Popular Collections</h2>
+      <div className="flex justify-start gap-x-5 lg:flex-row flex-col ">
+        <h2 className="lg:text-3xl md:text-2xl text-lg font-bold">Popular Collections</h2>
          <div className="mt-1">
         <Listbox
           as="div"
           className={
-            "  relative  text-left border px-4 py-1  rounded"
+            " hidden lg:block  relative  text-left border px-6 py-1  rounded"
           }
           value={selectedTime}
           onChange={setSelectedTime}>
@@ -48,21 +48,22 @@ const PopularCollection = () => {
       
         <RadioGroup.Option value="solana">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full ${checked ? 'bg-pink-600' : ''}`}>Solana</span>
+          <span className={`text-sm px-4 py-1 rounded-full ${checked ? 'bg-pink-600' : ''}`}>Solana</span>
         )}
       </RadioGroup.Option>
       <RadioGroup.Option value="ethereium">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Ethereium</span>
+          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Ethereium</span>
         )}
       </RadioGroup.Option>
       <RadioGroup.Option value="all">
         {({ checked }) => (
-          <span className={`px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Show all</span>
+          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Show all</span>
         )}
       </RadioGroup.Option>
         </RadioGroup>
-         <a className="ml-auto text-xl border border-dark px-2 rounded-xl">See All</a>
+        <div className="ml-auto"><a className="hidden lg:block text-sm border border-dark  rounded-xl"><span>See All</span></a> </div>
+         
       </div>
 
       {plan=='solana' ? <Solana/> : ''}

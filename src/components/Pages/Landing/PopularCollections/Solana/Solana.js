@@ -3,7 +3,9 @@ import Item from '../Item'
 
 const Solana = () => {
   return (
-    <div class="grid grid-rows-4 gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
+    <div className=''>
+      <h3 className='font-bold text-center text-3xl'>Solana</h3> 
+    <div class="grid mt-4  grid-rows-5     gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
             <Item/>
             <Item/>
             <Item/>
@@ -16,7 +18,7 @@ const Solana = () => {
             <Item/>
             <Item/>
             <Item/>
-    </div>
+    </div></div>
   )
 }
 

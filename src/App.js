@@ -16,9 +16,9 @@ function App() {
    <div className=' '>
     <Topbar/>
     <Navbar/>
-    <div className='flex'>
+    <div className='lg:flex md:flex '>
     <Sidebar/>
-     <div className='container  mx-auto  text-white bg-black h-full'>
+     <div className='container mx-auto    text-white bg-black h-full '>
     <Routes>
     
         <Route path="/" element={<Landing/>} />
