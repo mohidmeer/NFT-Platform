@@ -5,6 +5,7 @@
 
 @layer components {
     .sidebar {
-      @apply absolute  lg:relative md:relative sm:absolute sm:z-50 z-50 rounded-2xl  bg-dark-2    ;
+      @apply absolute  lg:relative md:relative sm:absolute border-r-2 border-dark  sm:z-50 z-50 
+        bg-dark-2    ;
     }
   }

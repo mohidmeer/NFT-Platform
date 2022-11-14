@@ -3,7 +3,7 @@ import Item from '../items'
 
 const Live = () => {
   return (
-    <div className=' mt-4 grid  grid-cols-2 md:grid-cols-3     lg:grid-cols-6 gap-x-3 '>
+    <div className=' grid mt-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-7 gap-2 '>
     <Item/>
     <Item/>
     <Item/>

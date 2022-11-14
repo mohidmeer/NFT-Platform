@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react'
 
-const items = () => {
+const Item = () => {
   return (
+
     <a className="" >
       <div class="relative rounded-xl bg-dark p-1 border border-dark-2 overflow-hidden">
       <img
           draggable="false"
           loading="lazy"
           class="  rounded-xl"
-          src="https://img-cdn.magiceden.dev/rs:fill:252:189:0:0/plain/https://bafybeicgmccd4nno5zoc2lm6ypvzntzj7dcekfstjfbnp7oanhtfb4eirq.ipfs.dweb.link/"
+          src="https://img-cdn.magiceden.dev/rs:fill:252:189:0:0/plain/https://bafybeiecbnwxqtasgaowivu3b7xqjmvc44amxdcvjo3rmxxcgprm63bdby.ipfs.dweb.link/"
         />
         
         <div class="w-full text-sm  flex flex-col items-center rounded-b-xl ">
@@ -22,7 +23,7 @@ const items = () => {
         </div>
       </div>
     </a>
-  );
-};
+  )
+}
 
-export default items;
+export default Item
