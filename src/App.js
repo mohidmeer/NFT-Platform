@@ -9,6 +9,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import PopularCollections from './components/Pages/PopularCollections/PopularCollections';
+import UpcomingDrops from './components/Pages/UpcomingDrops/UpcomingDrops';
 
 function App() {
   return (
@@ -18,12 +20,14 @@ function App() {
     <Navbar/>
     <div className='lg:flex md:flex '>
     <Sidebar/>
-     <div className='container mx-auto    text-white bg-black h-full '>
+     <div className='container mx-auto    text-white bg-app h-full '>
     <Routes>
     
         <Route path="/" element={<Landing/>} />
         <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
+        <Route path="popular-collection" element={<PopularCollections/>} />
+        <Route path="drops" element={<UpcomingDrops/>} />
         <Route path="*" element={<>404</>} />
      
     </Routes>

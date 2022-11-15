@@ -8,12 +8,9 @@ module.exports = {
       colors: {
         'dark': '#1c1326',
         'dark-2': '#120c18',
-        'primary': '#7e5bef',
-        'secondary': '#e1a2c9',
-        'success': '#94c23d',
-        'danger': '#f1553d',
-        'warning': '#f59120',
-        'info': '#69b5e1',
+        'pink-600': '#00A300',
+        'pink-700': '#00A300',
+        
       },
 
       spacing: {
