@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Menu} from '@headlessui/react'
 import { HiHome } from "react-icons/hi";
 import { HiCollection } from "react-icons/hi";
+import { HiTicket } from "react-icons/hi";
 import { FaRocket } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 import { RiAuctionFill} from "react-icons/ri";
@@ -69,6 +70,12 @@ const Sidebar = () => {
          <Link to="drops" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
          <ImCalendar class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
           <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Drop Calender</span>
+            </Link>
+         </li>
+         <li>
+         <Link to="tickets" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
+         <HiTicket class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+          <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Ticketing</span>
             </Link>
          </li>
 

@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import PopularCollections from './components/Pages/PopularCollections/PopularCollections';
 import UpcomingDrops from './components/Pages/UpcomingDrops/UpcomingDrops';
+import Tickets from './components/Pages/Tickets/Tickets';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="auctions" element={<Auction/>} />
         <Route path="popular-collection" element={<PopularCollections/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
+        <Route path="tickets" element={<Tickets/>} />
         <Route path="*" element={<>404</>} />
      
     </Routes>
