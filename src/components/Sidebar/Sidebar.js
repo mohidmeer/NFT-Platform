@@ -25,7 +25,7 @@ const Sidebar = () => {
   
 
     <aside className={`sidebar ${isOpen ? 'w-64' : 'w-16'}  `} aria-label="Sidebar">
-    <button className={` text-gray-300 text-3xl absolute    ${isOpen ? 'right-[1px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
+    <button className={`  text-3xl absolute    ${isOpen ? 'right-[1px]' : 'left-5'}    `} onClick={()=>setIsOpen(!isOpen)}>
         
         
         {isOpen ? <MdCancelPresentation / > : <GiHamburgerMenu/> }
@@ -37,22 +37,22 @@ const Sidebar = () => {
       <ul class="space-y-2  ">
        
          <li >
-         <Link to='' class="flex items-center p-2 text-sm font-normal text-gray-300 rounded-lg dark:text-gray-300 hover:bg-green-500 ">
-             <HiHome class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to='' class="flex items-center p-2 text-sm font-normal  rounded-lg dark: hover:bg-green-500 ">
+             <HiHome class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold  ` }>Landing</span>
             </Link>
         
          </li>
          <li >
-         <Link to='auctions' class="flex items-center p-2 text-sm font-normal text-gray-300 rounded-lg dark:text-gray-300 hover:bg-green-500 ">
-             <RiAuctionFill class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to='auctions' class="flex items-center p-2 text-sm font-normal  rounded-lg dark: hover:bg-green-500 ">
+             <RiAuctionFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Auctions</span>
             </Link>
         
          </li>
          <li >
-         <Link to="launchpad" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
-         <IoIosRocket class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to="launchpad" class="flex items-center p-2  w-full text-sm font-normal  rounded-lg transition duration-75 group hover:bg-green-500 dark: ">
+         <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Launchpad</span>
             </Link>
                
@@ -60,29 +60,29 @@ const Sidebar = () => {
          </li>
 
          <li>
-         <Link to="popular-collection" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
-         <HiCollection class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to="popular-collection" class="flex items-center p-2  w-full text-sm font-normal  rounded-lg transition duration-75 group hover:bg-green-500 dark: ">
+         <HiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Popular Colections</span>
             </Link>
          </li>
 
          <li>
-         <Link to="drops" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
-         <ImCalendar class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to="drops" class="flex items-center p-2  w-full text-sm font-normal  rounded-lg transition duration-75 group hover:bg-green-500 dark: ">
+         <ImCalendar class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Drop Calender</span>
             </Link>
          </li>
          <li>
-         <Link to="tickets" class="flex items-center p-2  w-full text-sm font-normal text-gray-300 rounded-lg transition duration-75 group hover:bg-green-500 dark:text-gray-300 ">
-         <HiTicket class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+         <Link to="tickets" class="flex items-center p-2  w-full text-sm font-normal  rounded-lg transition duration-75 group hover:bg-green-500 dark: ">
+         <HiTicket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Ticketing</span>
             </Link>
          </li>
 
          <li >
             
-            <a href="#" class="flex items-center p-2 text-sm font-normal text-gray-300 rounded-lg dark:text-gray-300 hover:bg-green-500 ">
-             <AiFillPicture class="flex-shrink-0 w-6 h-6 text-gray-300  transition duration-75 group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-300" />
+            <a href="#" class="flex items-center p-2 text-sm font-normal  rounded-lg dark: hover:bg-green-500 ">
+             <AiFillPicture class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 ${isOpen ? '' : 'hidden'} font-bold `}>Intro To NFT</span>
             </a>
          </li>

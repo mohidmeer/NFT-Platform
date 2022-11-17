@@ -9,7 +9,7 @@ const Hero = () => {
         <p className="text-sm  text-gray-400 ">
           CREATED BY <span className="ml-1 text-pink-600">Owner Name</span>
         </p>
-        <p className="lg:w-3/4 md:w-4/5 mt-3 text-gray-300">
+        <p className="lg:w-3/4 md:w-4/5 mt-3 text-gray-600">
        
           Dinodawgs presents: Limited Editions - a special series of 1:1 OG
           Dinodawg characters exclusively for auction. Acquire your piece of the
@@ -18,22 +18,22 @@ const Hero = () => {
         <div class="p-4 mt-2 lg:w-3/4 md:w-3/4 bg-dark-2 rounded-md flex justify-between gap-5 flex-col md:flex-row">
           <div class="flex flex-col">
             <span class="text-gray-500 fs-14px">CURRENT BID</span>
-            <span class="text-white  font-extrabold text-3xl">1.50 SOL</span>
+            <span class="  font-extrabold text-3xl">1.50 SOL</span>
             <span class="text-gray-500 fs-12px">~$46.66</span>
           </div>
           <div class="flex flex-col">
             <span class="text-gray-500 fs-14px">AUCTION ENDS IN</span>
             <div class="flex flex-row basis-0 gap-4">
               <div class="flex flex-col">
-                <span class="text-white font-extrabold text-3xl">02</span>
+                <span class=" font-extrabold text-3xl">02</span>
                 <span class="text-gray-500 fs-12px">Days</span>
               </div>
               <div class="flex flex-col">
-                <span class="text-white font-extrabold text-3xl">01</span>
+                <span class=" font-extrabold text-3xl">01</span>
                 <span class="text-gray-500 fs-12px">Hours</span>
               </div>
               <div class="flex flex-col">
-                <span class="text-white font-extrabold text-3xl">37</span>
+                <span class=" font-extrabold text-3xl">37</span>
                 <span class="text-gray-500 fs-12px">Minutes</span>
               </div>
             </div>

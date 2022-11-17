@@ -3,7 +3,7 @@ import { FaDiscord ,FaTwitter} from "react-icons/fa";
 import { TfiWorld } from "react-icons/tfi";
 const Item = () => {
   return (
-    <div className="bg-dark-2 border-dark border p-3"> 
+    <div className="bg-dark border-dark-2 border p-3 rounded-xl"> 
     <div class="relative h-48">
       <img
         src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/degencups_pfp_1667145432580.png"
@@ -12,10 +12,10 @@ const Item = () => {
       />
     </div>
     <div class="mt-6 flex-col flex gap-y-2">
-      <div class="w-fit p-2 bg-dark inline-block rounded w-fit-content text-white-2 text-xs font-medium">
+      <div class="w-fit p-2 bg-dark-2 inline-block rounded w-fit-content text-white-2 text-xs font-medium">
         AUG 28, 11:00 PM
       </div>
-      <h5 class="font-extrabold text-white text-3xl truncate cursor-pointer hover:opacity-80 ">
+      <h5 class="font-extrabold  text-3xl truncate cursor-pointer hover:opacity-80 ">
         Flip.GG
       </h5>
     </div>
@@ -29,9 +29,9 @@ const Item = () => {
        <div class="bg-pink-600 h-1 " style={{width:'40%'}} ></div>
       </div>
       <div class="flex items-center justify-between text-sm">
-      <span class="text-white">Number of Spots</span>
+      <span class="">Number of Spots</span>
       <span class="flex items-center gap-1">
-      <span class="text-white font-bold">3%</span>
+      <span class=" font-bold">3%</span>
       <span class="text-gray-400">(152/4525)</span>
       </span>
 

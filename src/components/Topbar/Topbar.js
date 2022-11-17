@@ -5,7 +5,7 @@ const topbar = () => {
 
 
     
-    <div className="text-center bg-dark py-1 flex justify-center">
+    <div className="text-center  py-1 flex justify-center">
       <p className="ml-auto text-sm truncate text-gray-400">
         Volume 24h:<span className="text-pink-600 mx-2">71,229 SOL</span>
         Volume total:
@@ -20,7 +20,7 @@ const topbar = () => {
         <div>
           <Menu.Button
             type="button"
-            className=" inline-flex w-full justify-center text-sm font-medium text-white shadow-sm "
+            className=" inline-flex w-full justify-center text-sm font-medium  shadow-sm "
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
@@ -43,7 +43,7 @@ const topbar = () => {
         </div>
 
         <Menu.Items
-          className="absolute right-0 z-10 mt-2 w-24 origin-top-right rounded-md  bg-black shadow-lg text-white ring-opacity-5 focus:outline-none"
+          className="absolute right-0 z-10 mt-2 w-24 origin-top-right rounded-md  bg-dark shadow-lg  ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
@@ -52,7 +52,7 @@ const topbar = () => {
           <div className="py-1" role="none">
             <a
               href="#"
-              className="text-white block px-4 py-2 text-sm "
+              className=" block px-4 py-2 text-sm "
               role="menuitem"
               tabindex="-1"
               id="menu-item-0"
@@ -61,7 +61,7 @@ const topbar = () => {
             </a>
             <a
               href="#"
-              className="text-white block px-4 py-2 text-sm"
+              className=" block px-4 py-2 text-sm"
               role="menuitem"
               tabindex="-1"
               id="menu-item-1"

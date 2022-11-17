@@ -16,9 +16,9 @@ const Items = () => {
         <span class="text-pink-600 flex items-center space-x-2 text-xs">
           <span>Star Atlas: CORE Epi...</span>
         </span>
-        <div class=" text-xs py-1 px-2 mt-3 gap-2 flex text-white space-x-2">
+        <div class=" text-xs py-1 px-2 mt-3 gap-2 flex  space-x-2">
           <span class="bg-dark-2 p-1 px-2 rounded flex text-pink-600"><AiFillHeart className='mt-[2px] mr-1 ' / > <span>56877</span> </span>
-          <span class="bg-dark-2 p-1 px-2 rounded text-gray-200">Jan 12, 2023</span>
+          <span class="bg-dark-2 p-1 px-2 rounded ">Jan 12, 2023</span>
         </div>
       </div>
     </div>

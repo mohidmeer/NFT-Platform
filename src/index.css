@@ -8,4 +8,16 @@
       @apply absolute  lg:relative md:relative sm:absolute border-r-2 border-dark  sm:z-50 z-50 
         bg-dark-2    ;
     }
+    .app-text {
+      @apply  text-black    ;
+    }
+
+
   }
+@layer base{
+
+  body{
+
+    @apply bg-app
+  }
+}

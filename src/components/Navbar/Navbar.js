@@ -3,7 +3,7 @@ import { FaWallet } from 'react-icons/fa';
 import Logo from '../../logo.png'
 const navbar = () => {
   return (
-    <div className="p-4 bg-dark-2 text-white flex  justify-between">
+    <div className="p-4 bg-dark-2  flex  justify-between">
       <div>
         <img src={Logo} className="" width={160} alt="" />
       </div>

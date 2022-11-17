@@ -24,16 +24,16 @@ const PopularCollection = () => {
         <Listbox
           as="div"
           className={
-            " hidden lg:block  relative  text-left border px-6 py-1  rounded"
+            " hidden lg:block  relative  text-left border  border-dark px-6 py-1  rounded"
           }
           value={selectedTime}
           onChange={setSelectedTime}>
 
-          <Listbox.Button className={'justify-center text-sm font-medium text-white shadow-sm '}>  {selectedTime.name}</Listbox.Button>
-          <Listbox.Options as="div" className={'absolute right-0 z-10 mt-2 w-full origin-top-right rounded-md  bg-dark-2 shadow-lg text-white ring-opacity-5 focus:outline-none'}>
+          <Listbox.Button className={'justify-center text-sm font-medium border rounded  shadow-sm '}>  {selectedTime.name}</Listbox.Button>
+          <Listbox.Options as="div" className={'absolute right-0 z-10 mt-2 w-full origin-top-right rounded-md  bg-dark-2 shadow-lg  ring-opacity-5 focus:outline-none'}>
             {timeline.map((timeline) => (
               <Listbox.Option 
-                className={'text-white block px-4 py-1 text-sm hover:bg-dark'}
+                className={' block px-4 py-1 text-sm hover:bg-dark'}
                 key={timeline.id}
                 value={timeline}
                 disabled={timeline.unavailable}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = () => {
   return (
-    <div className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 rounded-lg border border-dark'>
+    <div className='bg-dark transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 rounded-lg border border-dark'>
     <div className='flex justify-center'>
     <img  width={400} className='rounded-lg' src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeifjwmcqpoupj5twbe6nryi5vd3zliyz7n3gdhdp36dhgqzu3aqwkm.ipfs.dweb.link/"/>
     </div>

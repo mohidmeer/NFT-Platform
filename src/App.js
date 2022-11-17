@@ -21,7 +21,7 @@ function App() {
     <Navbar/>
     <div className='lg:flex md:flex '>
     <Sidebar/>
-     <div className='container mx-auto    text-white bg-app h-full '>
+     <div className='container mx-auto  h-full app-text '>
     <Routes>
     
         <Route path="/" element={<Landing/>} />
