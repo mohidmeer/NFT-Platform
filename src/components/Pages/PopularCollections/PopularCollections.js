@@ -18,7 +18,7 @@ const PopularCollections = () => {
       <h3 className="text-2xl font-bold">Popular Collection</h3>
 
       <div className="flex justify-between lg:flex-row flex-col">
-        <Disclosure as="div" className={`w-2/3 bg-dark-2`}>
+        <Disclosure as="div" className={`w-2/3 bg-dark-2 rounded-lg`}>
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-sm font-medium text-gray-400 hover:bg-dark focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">

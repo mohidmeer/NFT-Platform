@@ -2,9 +2,9 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='lg:px-24'>
+    <div className='lg:px-24 border-b-2 pb-4 lg:pb-8 border-white '>
     <div class="grid lg:grid-cols-2 gap-4  mb-20 border border-dark p-4 rounded-xl ">
-        <div className="order-last lg:order-first md:order-last">
+        <div className="order-last lg:order-first md:order-last flex flex-col justify-center">
         <div className="  w-fit rounded   text-pink-600 px-3 border border-pink-600"> Featured Item </div>
         <h2 class="text-5xl mt-1">Mushroom Party <br/> Soldiers </h2>
 
@@ -20,7 +20,7 @@ const Hero = () => {
 
         </div>
         <div className=" mt-4">
-        <img  loading="lazy" className="lg:w-[500px] rounded-xl " alt="" src="https://img-cdn.magiceden.dev/rs:fill:800:800:0:0/plain/https://bafybeifjwmcqpoupj5twbe6nryi5vd3zliyz7n3gdhdp36dhgqzu3aqwkm.ipfs.dweb.link/" />
+        <img  loading="lazy" className=" rounded-xl " alt="" src="https://img-cdn.magiceden.dev/rs:fill:800:800:0:0/plain/https://bafybeifjwmcqpoupj5twbe6nryi5vd3zliyz7n3gdhdp36dhgqzu3aqwkm.ipfs.dweb.link/" />
         </div>
       </div>
       </div>

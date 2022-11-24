@@ -12,6 +12,7 @@ import {
 import PopularCollections from './components/Pages/PopularCollections/PopularCollections';
 import UpcomingDrops from './components/Pages/UpcomingDrops/UpcomingDrops';
 import Tickets from './components/Pages/Tickets/Tickets';
+import Error from './components/Pages/404/Error';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="popular-collection" element={<PopularCollections/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
         <Route path="tickets" element={<Tickets/>} />
-        <Route path="*" element={<>404</>} />
+        <Route path="*" element={<Error/>} />
      
     </Routes>
 

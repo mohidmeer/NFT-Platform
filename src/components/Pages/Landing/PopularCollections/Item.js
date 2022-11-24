@@ -2,7 +2,7 @@ import React from 'react'
 
 const Item = () => {
   return (
-    <a class="grid grid-cols-[20px,68px,1fr] items-center gap-x-2" href="/marketplace/y00ts">
+    <a class="bg-dark rounded-xl p-2 grid grid-cols-[20px,68px,1fr] items-center gap-x-2" href="/marketplace/y00ts">
       <div class=" text-white-1 font-bold justify-self-end mr-1">2</div>
       <img draggable="false" loading="lazy" class="rounded-full w-16 h-16" src="https://img-cdn.magiceden.dev/rs:fill:64:64:0:0/plain/https://bafkreidc5co72clgqor54gpugde6tr4otrubjfqanj4vx4ivjwxnhqgaai.ipfs.dweb.link/" />
       <div class="flex flex-col gap-1 overflow-hidden">

@@ -5,7 +5,7 @@ const topbar = () => {
 
 
     
-    <div className="text-center  py-1 flex justify-center">
+    <div className="text-center  py-1 flex justify-center border-b-2 border-white">
       <p className="ml-auto text-sm truncate text-gray-400">
         Volume 24h:<span className="text-pink-600 mx-2">71,229 SOL</span>
         Volume total:

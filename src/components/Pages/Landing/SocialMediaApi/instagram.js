@@ -1,9 +1,9 @@
 import React from 'react'
 
-const instagram = () => {
+const Instagram = () => {
   return (
-    <div>instagram</div>
+    <div className= 'rounded-lg bg-green-300 h-72 flex text-white text-lg font-bold  justify-center   items-center  '>Instagram </div>
   )
 }
 
-export default instagram
+export default Instagram

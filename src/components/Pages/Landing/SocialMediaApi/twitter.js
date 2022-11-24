@@ -1,9 +1,9 @@
 import React from 'react'
 
-const twitter = () => {
+const Twitter = () => {
   return (
-    <div>twitter</div>
+    <div className= 'rounded-lg bg-green-300 h-72 flex text-white text-lg font-bold  justify-center   items-center  '>Twitter</div>
   )
 }
 
-export default twitter
+export default Twitter

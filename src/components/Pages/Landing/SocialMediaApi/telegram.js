@@ -1,9 +1,9 @@
 import React from 'react'
 
-const telegram = () => {
+const Telegram = () => {
   return (
-    <div>telegram</div>
+    <div className= 'rounded-lg bg-green-300 h-72 flex text-white text-lg font-bold  justify-center   items-center  '>Telegram </div>
   )
 }
 
-export default telegram
+export default Telegram

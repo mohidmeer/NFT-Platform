@@ -29,11 +29,11 @@ const Launchpad = () => {
         >
           Claim
         </button>
-        <div className="mt-8">{isLive ? <Live /> : <Claims />}</div>
-        <div className="mt-8">
+        <div className="mt-8 border-2 p-4 lg:pb-8 border-white ">{isLive ? <Live /> : <Claims />}</div>
+        <div className="mt-8 border-2 p-4 lg:pb-8 border-white ">
           <Upcomming />
         </div>
-        <div className="mt-8">
+        <div className="mt-8 border-2 p-4 lg:pb-8 border-white ">
           <Ended />
         </div>
       </div>
