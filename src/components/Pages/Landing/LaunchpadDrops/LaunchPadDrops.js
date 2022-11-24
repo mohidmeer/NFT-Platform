@@ -9,7 +9,7 @@ const LaunchPadDrops = () => {
   return (
     <div>
         <div className="flex justify-start gap-5 lg:flex-row flex-col ">
-        <h2 className="lg:text-3xl md:text-2xl text-lg  font-bold">Launchpad Drops</h2>
+        <h2 className="lg:text-3xl md:text-2xl text-lg  font-bold">Drops</h2>
         <RadioGroup as='div' className={'flex justify-between border p-1 border-dark justify-items-center mt-1     rounded-full  '}  value={plan} onChange={setPlan}>
       
         <RadioGroup.Option value="sdays">

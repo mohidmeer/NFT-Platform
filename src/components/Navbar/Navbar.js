@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="p-4 bg-app  flex  justify-between border-b-2 border-white">
       <div>
-        <img src={Logo} className="  " width={160} alt="" />
+        <img src={Logo}  width={160} alt="" />
       </div>
 
       <div className="w-1/3 hidden sm:block rounded-full  border border-pink-600    ">

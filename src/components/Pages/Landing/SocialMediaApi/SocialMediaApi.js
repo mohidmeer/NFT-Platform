@@ -8,7 +8,7 @@ import Telegram from './telegram'
 import Twitter from './twitter'
 const SocialMediaApi = () => {
   return (
-    <div>
+    <div id='#SocialMintShare'>
      <h2 className='text-4xl text-center font-bold '>Social Accounts</h2>
 
     <div className='grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 mt-4'>
@@ -19,10 +19,6 @@ const SocialMediaApi = () => {
         <Reddit/>
         <Telegram/>
         <Discord/>
-      
-        
-        
-
 
     </div>
 </div>

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 
 import {Menu} from '@headlessui/react'
-import { FaInfinity, FaShareAlt ,FaDiscord} from "react-icons/fa";
+import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram} from "react-icons/fa";
 import { HiCollection } from "react-icons/hi";
 import { HiTicket } from "react-icons/hi";
 import { HiHome } from "react-icons/hi";
 import { FaRocket } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
-import { RiAuctionFill} from "react-icons/ri";
+import { RiAuctionFill, RiInstagramFill} from "react-icons/ri";
 import { BiListPlus} from "react-icons/bi";
-import { BsFillBookmarkFill} from "react-icons/bs";
+import { BsDiscord, BsFillBookmarkFill,BsTwitter} from "react-icons/bs";
 import { MdClose,MdAddBusiness,MdCollectionsBookmark} from "react-icons/md";
 import { IoIosRocket,IoIosCreate} from "react-icons/io";
 import { AiFillPicture} from "react-icons/ai";
@@ -29,22 +29,20 @@ const Sidebar = () => {
     <>
   
 
-    {/* <aside className={`sidebar ${isOpen ? 'w-64' : 'w-16'}  `} aria-label="Sidebar"> */}
-    <aside className={`sidebar  lg:w-64  }  `} aria-label="Sidebar">
-    {/* <button className={`   absolute    ${isOpen ? 'text-xl right-[1px]' : 'left-5 text-3xl'}    `} onClick={()=>setIsOpen(!isOpen)}> */}
     
-        
-        
+    <aside className={`sidebar h-screen sticky top-0   lg:w-64  }  `} >
+    
+   
         {/* {isOpen ? <MdClose / > : <GiHamburgerMenu/> } */}
         
    {/* </button> */}
     
 
-    <div class={`   overflow-hidden py-4 px-3  rounded  mt-4 `}>
+    <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded  mt-4 `}>
       <ul class="space-y-2 flex justify-between lg:block md:block    ">
 
 
-         <li className=' font-bold flex gap-x-1 text-gray-600  '>
+         <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600    '>
              {/* <FaInfinity class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" /> */}
             Communities
          </li><hr className='bg-dark h-[2px] '/>
@@ -77,7 +75,7 @@ const Sidebar = () => {
 
 
 
-         <li className=' font-bold flex gap-x-1 text-gray-600  mt-1 '>
+         <li className=' font-bold  gap-x-1 lg:flex hidden text-gray-600  mt-1 '>
              {/* <MdAddBusiness class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" /> */}
             Marketplace
          </li><hr className='bg-dark h-[2px] '/>
@@ -106,7 +104,7 @@ const Sidebar = () => {
          
 
 
-         <li className=' font-bold flex gap-x-1 text-gray-600  mt-1 '>
+         <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
             Creator
          </li><hr className='bg-dark h-[2px] '/>
 
@@ -134,13 +132,13 @@ const Sidebar = () => {
 
 
 
-         <li className=' font-bold flex gap-x-1 text-gray-600  mt-1 '>
+         <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
             Launch
          </li><hr className='bg-dark h-[2px] '/>
 
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')} to="auctions">
-         <ImCalendar class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+         <RiAuctionFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3  hidden lg:block font-bold `}>Auction</span>
             </NavLink>
          </li>
@@ -161,14 +159,31 @@ const Sidebar = () => {
 
 
 
-         <li>
-            <a href="#" class="flex items-center p-2 text-xs font-normal  rounded-lg dark: hover:bg-dark ">
-            <AiFillPicture class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-            <span class={`ml-3 hidden lg:block font-bold `}>Intro To NFT</span>   
-            </a>
-         </li>
+       
         
       </ul>
+      
+      <div className=' mt-10 grid grid-cols-2 gap-2 '>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <BsTwitter className=' mt-1 '/><span>Twitter</span>
+         </Link>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <FaDiscord className=' mt-1 '/><span>Discord</span>
+         </Link>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <FaYoutube className=' mt-1 '/><span>Youtube</span>
+         </Link>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <RiInstagramFill className=' mt-1 '/><span>Instagram</span>
+         </Link>
+    
+         
+        
+
+         
+         
+
+      </div>
    </div>
    </aside>
    </>
