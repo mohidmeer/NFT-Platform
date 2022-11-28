@@ -60,7 +60,7 @@ const Sidebar = () => {
         
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}  smooth       to='/#SocialMintShare' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}  smooth       to='/socialmint-share' >
              <FaShareAlt class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Share</span>
                  

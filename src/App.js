@@ -4,6 +4,8 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Launchpad from './components/Pages/Launchpad/Launchpad';
 import Auction from './components/Pages/Auction/Auction';
 import Landing from './components/Pages/Landing/Landing';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   BrowserRouter,
   Routes,
@@ -20,6 +22,7 @@ import CreateC from './components/Pages/Creator/CreateC';
 import BlueChips from './components/Pages/BlueChips/BlueChips';
 import Celebrity from './components/Pages/Celebrity/Celebrity';
 import LaunchServices from './components/Pages/LaunchServices/LaunchServices';
+import SocialMintShare from './components/Pages/SocialMintShare/SocialMintShare';
 
 function App( ) {
  
@@ -32,6 +35,7 @@ function App( ) {
 
    <div className=' '>
     <Topbar/>
+    
     <Navbar/>
     <div className='lg:flex md:flex '>
     <Sidebar/>
@@ -44,8 +48,9 @@ function App( ) {
         <Route path="collection" element={<PopularCollections tindex={0} />} />
         <Route path="collections" element={<PopularCollections tindex={1}  />} />
         <Route path="createwhitelist" element={<Whitelist/>} />
-        <Route path="createcollection" element={<CreateC/>} />
         <Route path="blue-chips" element={<BlueChips/>} />
+        <Route path="createcollection" element={<CreateC/>} />
+        <Route path="socialmint-share" element={<SocialMintShare/>} />
         <Route path="celebrity" element={<Celebrity/>} />
         <Route path="launch-services" element={<LaunchServices/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
@@ -59,7 +64,7 @@ function App( ) {
     
 
     </div>
-     
+    <ToastContainer />
    </div>
    
   );
