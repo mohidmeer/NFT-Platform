@@ -7,15 +7,18 @@ import { HiTicket } from "react-icons/hi";
 import { HiHome } from "react-icons/hi";
 import { FaRocket } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
-import { RiAuctionFill, RiInstagramFill} from "react-icons/ri";
-import { BiListPlus} from "react-icons/bi";
-import { BsDiscord, BsFillBookmarkFill,BsTwitter} from "react-icons/bs";
-import { MdClose,MdAddBusiness,MdCollectionsBookmark} from "react-icons/md";
+import { RiAuctionFill, RiInstagramFill, RiLinkedinFill, RiPinterestFill, RiRedditFill} from "react-icons/ri";
+import { BiCollection, BiListPlus} from "react-icons/bi";
+import { BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
+import { MdClose,MdAddBusiness,MdCollectionsBookmark,MdPhotoAlbum} from "react-icons/md";
 import { IoIosRocket,IoIosCreate} from "react-icons/io";
-import { AiFillPicture} from "react-icons/ai";
+import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrAssistListening } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-import {  NavLink } from 'react-router-dom';
+// import {  NavLink } from 'react-router-dom';
+import { NavHashLink as NavLink} from 'react-router-hash-link';
+import { TicketIcon } from '@heroicons/react/20/solid';
 
 
 
@@ -30,7 +33,7 @@ const Sidebar = () => {
   
 
     
-    <aside className={`sidebar h-screen sticky top-0   lg:w-64  }  `} >
+    <aside className={`sidebar lg:h-screen sticky top-0  lg:w-64  }  `} >
     
    
         {/* {isOpen ? <MdClose / > : <GiHamburgerMenu/> } */}
@@ -38,26 +41,26 @@ const Sidebar = () => {
    {/* </button> */}
     
 
-    <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded  mt-4 `}>
+    <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded   bg-white lg:bg-transparent `}>
       <ul class="space-y-2 flex justify-between lg:block md:block    ">
 
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600    '>
              {/* <FaInfinity class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" /> */}
             Communities
-         </li><hr className='bg-dark h-[2px] '/>
+         </li><hr className='lg:flex hidden bg-dark h-[2px] '/>
        
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/communities' >
              <FaInfinity class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Trending Communities</span>
+               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Communities</span>
                  
             </NavLink        >
         
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/share#SocialMintShare' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}  smooth       to='/#SocialMintShare' >
              <FaShareAlt class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Share</span>
                  
@@ -65,7 +68,7 @@ const Sidebar = () => {
         
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/discord' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/discord' >
              <FaDiscord class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Discord</span>
             
@@ -76,29 +79,42 @@ const Sidebar = () => {
 
 
          <li className=' font-bold  gap-x-1 lg:flex hidden text-gray-600  mt-1 '>
-             {/* <MdAddBusiness class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" /> */}
             Marketplace
-         </li><hr className='bg-dark h-[2px] '/>
+         </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='popular-collection' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection' >
              <MdCollectionsBookmark class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Top Collections</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collections?#trending' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collections#trending' >
              <HiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Trending Collections</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='watchlist' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/blue-chips' >
+             <MdPhotoAlbum class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+               <span class={`ml-3 hidden lg:block font-bold `}>Blue Chips</span>
+                            </NavLink>
+        
+         </li>
+         <li className='ml-2'>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/celebrity' >
+             <MdPhotoAlbum class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+               <span class={`ml-3 hidden lg:block font-bold `}>Celebrity</span>
+                            </NavLink>
+        
+         </li>
+         <li className='ml-2'>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='watchlist' >
              <BsFillBookmarkFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Watchlist</span>
-                            </NavLink>
+         </NavLink>
         
          </li>
          
@@ -106,23 +122,33 @@ const Sidebar = () => {
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
             Creator
-         </li><hr className='bg-dark h-[2px] '/>
+         </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createcollection' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createcollection' >
          <IoIosCreate class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3   hidden lg:block font-bold `}>Create Collection</span>
            
             </NavLink>
          </li>
 
+
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createwhitelist' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createwhitelist' >
          <BiListPlus class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3   hidden lg:block font-bold `}>Create Whitelist</span>
            
             </NavLink>
          </li>
+         <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='whitelist' >
+         <BiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Whitelisted Collection</span>
+           
+            </NavLink>
+         </li>
+
+        
         
 
 
@@ -134,28 +160,65 @@ const Sidebar = () => {
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
             Launch
-         </li><hr className='bg-dark h-[2px] '/>
+         </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')} to="auctions">
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="auctions">
          <RiAuctionFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3  hidden lg:block font-bold `}>Auction</span>
             </NavLink>
          </li>
 
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')} to="drops">
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="drops">
          <ImCalendar class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3  hidden lg:block font-bold `}>Drop</span>
             </NavLink>
          </li>
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-2 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launchpad' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launchpad' >
          <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3   hidden lg:block font-bold `}>Launch</span>
             </NavLink>
          </li>
+         {/* <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='tickets' >
+         <TicketIcon class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Ticketing</span>
+            </NavLink>
+         </li> */}
+
+         <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
+            Support
+         </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
+         <li className='ml-2' >
+         <a className={`flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark `} href='https://www.youtube.com'  >
+         <FaYoutube class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Youtube</span>
+           
+            </a>
+         </li>
+         <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='artist-assist' >
+         <GrAssistListening class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Artist Assist</span>
+            </NavLink>
+         </li>
+         <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launch-services' >
+         <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Launch Services</span>
+            </NavLink>
+         </li>
+         <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark text-orange-600' : 'flex items-center p-1 text-xs font-normal  rounded-lg text-orange-600  hover:bg-dark')}        to='hints' >
+         <AiFillQuestionCircle class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3   hidden lg:block font-bold `}>Hints & Tips</span>
+            </NavLink>
+         </li>
+
+        
 
 
 
@@ -163,7 +226,10 @@ const Sidebar = () => {
         
       </ul>
       
-      <div className=' mt-10 grid grid-cols-2 gap-2 '>
+      <div className='  hidden grid-cols-2 gap-1 lg:grid '>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <BsFacebook className=' mt-1 '/><span>Facebook</span>
+         </Link>
          <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
             <BsTwitter className=' mt-1 '/><span>Twitter</span>
          </Link>
@@ -175,6 +241,16 @@ const Sidebar = () => {
          </Link>
          <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
             <RiInstagramFill className=' mt-1 '/><span>Instagram</span>
+         </Link>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <RiRedditFill className=' mt-1 '/><span>Reddit</span>
+         </Link>
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <RiLinkedinFill className=' mt-1 '/><span>Linkden</span>
+         </Link>
+    
+         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
+            <RiPinterestFill className=' mt-1 '/><span>Pintrest</span>
          </Link>
     
          

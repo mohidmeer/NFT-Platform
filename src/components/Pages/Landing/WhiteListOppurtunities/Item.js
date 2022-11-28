@@ -1,45 +1,28 @@
 import React from 'react'
 import { FaDiscord ,FaTwitter} from "react-icons/fa";
 import { TfiWorld } from "react-icons/tfi";
+import Auction from '../../../../Assets/NFTs/Auctionsgif.gif'
 const Item = () => {
   return (
-    <div className="bg-dark border-dark-2 border p-3 rounded-xl"> 
-    <div class="relative h-48">
+    <a className="" >
+      <div class="relative rounded-xl bg-dark p-1 border border-dark-2 overflow-hidden">
       <img
-        src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/degencups_pfp_1667145432580.png"
-        draggable="false"
-        class=" h-48 object-cover w-full absolute rounded-xl"
-      />
-    </div>
-    <div class="mt-6 flex-col flex gap-y-2">
-      <div class="w-fit p-2 bg-dark-2 inline-block rounded w-fit-content text-white-2 text-xs font-medium">
-        AUG 28, 11:00 PM
+          draggable="false"
+          loading="lazy"
+          class="  rounded-xl"
+          src={Auction}        />
+        
+        <div class="w-full text-sm  flex flex-col items-center rounded-b-xl ">
+          <span class="text-white-1">Star Atlas: CORE Epi...</span>
+          <span class="text-pink-600 flex items-center space-x-2 text-xs">
+            <span>Star Atlas: CORE Epi...</span>
+          </span>
+          <div class="bg-dark-2 text-xs py-1 px-2 mt-3 text-white space-x-2">
+            <span class="text-green-500">LIVE</span>
+          </div>
+        </div>
       </div>
-      <h5 class="font-extrabold  text-3xl truncate cursor-pointer hover:opacity-80 ">
-        Flip.GG
-      </h5>
-    </div>
-    <div className='hidden gap-1 mt-3 sm:hidden md:hidden lg:flex'>
-         <a className='flex justify-items-center text-sm gap-1 border border-dark p-1 rounded-xl   '><FaDiscord className=' mt-1'/><span className=''>Discord</span></a>
-         <a className='flex justify-items-center text-sm gap-1 border border-dark p-1 rounded-xl   '><FaTwitter className=' mt-1'/><span className=''>Twitter</span></a>
-         <a className='flex justify-items-center text-sm gap-1 border border-dark p-1 rounded-xl   '><TfiWorld className=' mt-1'/><span className=''>Website</span></a>
-    </div>
-    <div class="flex flex-col gap-y-2 pt-6">
-      <div class="w-full bg-gray-200 h-1">
-       <div class="bg-pink-600 h-1 " style={{width:'40%'}} ></div>
-      </div>
-      <div class="flex items-center justify-between text-sm">
-      <span class="">Number of Spots</span>
-      <span class="flex items-center gap-1">
-      <span class=" font-bold">3%</span>
-      <span class="text-gray-400">(152/4525)</span>
-      </span>
-
-     </div>
-   </div>
-   <button type="button" class="inline-flex bg-pink-600 w-full p-2 justify-center items-center rounded-md text-white mt-4 font-bold text-sm">Register for WL</button>
-
-   </div>
+    </a>
   )
 }
 

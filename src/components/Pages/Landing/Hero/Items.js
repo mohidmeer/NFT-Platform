@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Core from '../../../../Assets/NFTs/Core.jfif'
 const Items = () => {
   return (
     <div className='item'>
@@ -25,7 +25,7 @@ const Items = () => {
               </div>
              </div>
             <div className=" col-span-2  ">
-              <img className='rounded-2xl ' src="https://bafybeicfiqoobfmip34dv3o553cmyl6yl5ifsp5377ie36y57nte7bpd74.ipfs.nftstorage.link/"/>
+              <img className='rounded-2xl ' src={Core}/>
             </div>
      </div>
 

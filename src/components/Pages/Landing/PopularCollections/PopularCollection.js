@@ -19,7 +19,7 @@ const PopularCollection = () => {
   return (
     <div>
       <div className="flex justify-start gap-x-5 lg:flex-row flex-col ">
-        <h2 className="lg:text-3xl md:text-2xl text-lg font-bold">Trending Communities</h2>
+        <h2 className="lg:text-3xl md:text-2xl text-lg font-bold">Trending Collection</h2>
          <div className="mt-1">
         <Listbox
           as="div"

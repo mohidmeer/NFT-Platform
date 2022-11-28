@@ -3,7 +3,7 @@ import Item from '../Item'
 
 const Etherium = () => {
   return (
-    <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4 gap-4 ">
+    <div className="grid mt-4 grid-cols-1 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-7 gap-2 ">
 
 
      <Item/>

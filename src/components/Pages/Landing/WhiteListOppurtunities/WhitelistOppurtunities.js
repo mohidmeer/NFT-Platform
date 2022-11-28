@@ -9,7 +9,7 @@ const WhitelistOppurtunities = () => {
   return (
     <div>
       <div className="flex justify-start gap-x-5 lg:flex-row flex-col ">
-        <h2 className="lg:text-3xl md:text-2xl text-lg font-bold">Whitelist Oppurtunities</h2>
+        <h2 className="lg:text-3xl md:text-2xl text-lg font-bold">Whitelist Upcoming Collections</h2>
         
         <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
       

@@ -4,8 +4,15 @@
 
 
 @layer components {
+
+  .tab-menu {
+
+    @apply text-xl font-bold border-b-4  ui-selected:border-black ;
+  }
+
+
     .sidebar {
-      @apply        border-r-2 border-dark  
+      @apply  z-10       border-r-2 border-dark  
            ;
     }
     .app-text {

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Auction from '../../../../../Assets/NFTs/Auctionsgif.gif'
 const item = () => {
   return (
     <a className="" >
@@ -8,7 +8,7 @@ const item = () => {
         draggable="false"
         loading="lazy"
         class="  rounded-xl"
-        src="https://img-cdn.magiceden.dev/rs:fill:252:189:0:0/plain/https://bafybeiecbnwxqtasgaowivu3b7xqjmvc44amxdcvjo3rmxxcgprm63bdby.ipfs.dweb.link/"
+        src={Auction}
       />
       
       <div class="w-full text-sm  flex flex-col items-center rounded-b-xl ">
