@@ -5,6 +5,7 @@ import Launchpad from './components/Pages/Launchpad/Launchpad';
 import Auction from './components/Pages/Auction/Auction';
 import Landing from './components/Pages/Landing/Landing';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-tippy/dist/tippy.css'
 import 'react-toastify/dist/ReactToastify.css';
 import {
   BrowserRouter,

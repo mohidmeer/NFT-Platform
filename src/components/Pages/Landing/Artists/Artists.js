@@ -1,19 +1,23 @@
 import React from 'react'
-import Items from './Items'
+import DesignCrowd from './DesignCrowd'
+import Fiver from './Fiver'
+import Freelance from './Freelance'
+import Toptal from './Toptal'
+import Upwork from './Upwork'
 
 const Artists = () => {
   return (
     <div className=''>
-      <h2 className="lg:text-3xl md:text-2xl text-lg  font-bold inline">Artists Assist</h2><span className='ml-2 font-medium' >Need an artist to draw your collection</span>
-      <div className='grid mt-4 grid-cols-1 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-7 gap-2'>
+      <h2 className="lg:text-3xl md:text-2xl text-lg  font-bold inline">Freelance</h2><span className='ml-2 font-medium' >NFT Artist Market for your Community </span>
+      <div className='grid mt-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-2'>
 
-        <Items/>
-        <Items/>
-        <Items/>
-        <Items/>
-        <Items/>
-        <Items/>
-        <Items/>
+        <Fiver/>
+        <Freelance/>
+        <Upwork/>
+        <Toptal/>
+        <DesignCrowd/>
+        
+     
 
       </div>
     </div>
