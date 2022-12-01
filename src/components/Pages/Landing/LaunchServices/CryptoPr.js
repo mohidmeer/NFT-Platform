@@ -10,7 +10,13 @@ const CryptoPr = () => {
         loading="lazy"
         class="  rounded-xl"
 src={Auction}      />
-      
+      <div class="w-full text-sm  flex flex-col items-center rounded-b-xl mt-auto  ">
+        
+        <button className=' block bg-pink-600 mt-2 w-full font-bold rounded-lg py-1 px-3'>
+        <div className='flex justify-center  text-white '>Connect </div>
+ 
+        </button>
+       </div>
       
     </div>
   </Link>

@@ -24,6 +24,7 @@ import BlueChips from './components/Pages/BlueChips/BlueChips';
 import Celebrity from './components/Pages/Celebrity/Celebrity';
 import LaunchServices from './components/Pages/LaunchServices/LaunchServices';
 import SocialMintShare from './components/Pages/SocialMintShare/SocialMintShare';
+import Discord from './components/Pages/Discord/Discord';
 
 function App( ) {
  
@@ -56,6 +57,7 @@ function App( ) {
         <Route path="launch-services" element={<LaunchServices/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
         <Route path="communities" element={<Communities/>} />
+        <Route path="discord" element={<Discord/>} />
         <Route path="tickets" element={<Tickets/>} />
         <Route path="*" element={<Error/>} />
      
