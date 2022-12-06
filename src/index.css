@@ -7,7 +7,10 @@
 
   .tab-menu {
 
-    @apply text-xl font-bold border-b-4  ui-selected:border-black ;
+    @apply text-xl font-bold border-b-4  ui-selected:border-black  ;
+  }
+  .tab-listing{
+    @apply text-sm font-bold p-2 rounded-lg ui-not-selected:text-gray-500  ui-not-selected:bg-white ui-selected:bg-app
   }
 
 

@@ -9,7 +9,7 @@ import { FaRocket } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 import { RiAuctionFill, RiInstagramFill, RiLinkedinFill, RiPinterestFill, RiRedditFill} from "react-icons/ri";
 import { BiCollection, BiListPlus} from "react-icons/bi";
-import { BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
+import { BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsListUl,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
 import { MdClose,MdAddBusiness,MdCollectionsBookmark,MdPhotoAlbum} from "react-icons/md";
 import { IoIosRocket,IoIosCreate} from "react-icons/io";
 import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
@@ -161,6 +161,12 @@ const Sidebar = () => {
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
             Launch
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
+         <li className='ml-2'>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="list">
+         <BsListUl class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+          <span class={`ml-3  hidden lg:block font-bold `}>List</span>
+            </NavLink>
+         </li>
 
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="auctions">
@@ -202,13 +208,13 @@ const Sidebar = () => {
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='artist-assist' >
          <GrAssistListening class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Artist Assist</span>
+          <span class={`ml-3   hidden lg:block font-bold `}>Artist Services</span>
             </NavLink>
          </li>
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launch-services' >
          <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Launch Services</span>
+          <span class={`ml-3   hidden lg:block font-bold `}>Marketing Services</span>
             </NavLink>
          </li>
          <li className='ml-2' >
