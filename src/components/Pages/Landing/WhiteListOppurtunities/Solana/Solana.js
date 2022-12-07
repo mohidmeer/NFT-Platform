@@ -11,6 +11,8 @@ const Solana = () => {
      <Item/>
      <Item/>
      <Item/>
+     <Item/>
+     <Item/>
     
       
 

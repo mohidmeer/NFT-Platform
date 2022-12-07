@@ -11,6 +11,8 @@ const Etherium = () => {
      <Item/>
      <Item/>
      <Item/>
+     <Item/>
+     <Item/>
 
     </div>
   )
