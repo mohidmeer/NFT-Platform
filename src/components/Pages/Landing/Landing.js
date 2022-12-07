@@ -23,8 +23,8 @@ const Landing = () => {
     {/* <div className='mt-8 border-2  rounded-xl p-4 lg:pb-8 border-white '> <CreatorCommunities /> </div> */}
     <div className='mt-24 border-2 rounded-xl      p-4 lg:pb-8 border-white '><PopularCollection name={'Top Collections'}/></div>
     <div className='mt-24 border-2 rounded-xl      p-4 lg:pb-8 border-white '><PopularCollection name={'Trending Collections'}/></div>
-    <div className='mt-16 border-2   rounded-xl    p-4 lg:pb-8 border-white '><LaunchPadDrops/></div>
     <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Auctions /> </div>
+    <div className='mt-16 border-2   rounded-xl    p-4 lg:pb-8 border-white '><LaunchPadDrops/></div>
     <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <WhitelistOppurtunities /> </div>
     <div className='mt-8 border-2  rounded-xl p-4 lg:pb-8 border-white '> <Youtube/> </div>
     <div className='mt-8 border-2  rounded-xl p-4 lg:pb-8 border-white '> <Artists /> </div>

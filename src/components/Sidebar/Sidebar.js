@@ -85,7 +85,7 @@ const Sidebar = () => {
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection' >
              <MdCollectionsBookmark class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Top Collections</span>
+               <span class={`ml-3 hidden lg:block font-bold `}>Explore Collections</span>
                             </NavLink>
         
          </li>
@@ -143,7 +143,7 @@ const Sidebar = () => {
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='whitelist' >
          <BiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Whitelisted Collection</span>
+          <span class={`ml-3   hidden lg:block font-bold `}>Whitelist Register</span>
            
             </NavLink>
          </li>
