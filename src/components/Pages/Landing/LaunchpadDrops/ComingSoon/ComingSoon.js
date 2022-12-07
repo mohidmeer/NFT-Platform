@@ -12,6 +12,12 @@ const ComingSoon = () => {
       <Item/>
       <Item/>
       <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/> 
+      <Item/> 
 
 
 

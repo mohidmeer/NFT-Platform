@@ -1,15 +1,13 @@
 import React from "react";
-
+import Drops from '../../../../Assets/NFTs/Drops.gif'
 const items = () => {
   return (
     <a className="" >
       <div class="relative rounded-xl bg-dark p-1 border border-dark-2 overflow-hidden">
-      <img
-          draggable="false"
-          loading="lazy"
-          class="  rounded-xl"
-          src="https://img-cdn.magiceden.dev/rs:fill:252:189:0:0/plain/https://bafybeicgmccd4nno5zoc2lm6ypvzntzj7dcekfstjfbnp7oanhtfb4eirq.ipfs.dweb.link/"
-        />
+      <img class="rounded-xl" 
+      draggable="false" 
+      loading="lazy" 
+      src={Drops} />
         
         <div class="w-full text-sm  flex flex-col items-center rounded-b-xl ">
           <span class="text-white-1">Star Atlas: CORE Epi...</span>

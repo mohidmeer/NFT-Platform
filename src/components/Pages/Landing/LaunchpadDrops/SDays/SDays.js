@@ -11,10 +11,8 @@ const SDays = () => {
     <Item/>
     <Item/>
     <Item/>
-    <Item/>
-    <Item/>
-    <Item/>
-    <Item/>
+
+    
     
 
 
