@@ -3,7 +3,7 @@ import React from 'react'
 const Hashlist = ({stateChanger}) => {
   return (
     <div className='w-2/3'>
-       <p className='font-bold text-sm text-gray-700'>Step 4 of 5</p>
+       <p className='font-bold text-sm text-gray-700'>Step 4 of 6</p>
         <h3 className='font-bold text-4xl'>Hash List Finder</h3>
         <p className='font-bold mt-2'>Use the tool below to reterive your Mint Hash List</p>
         <div class="mb-6 mt-6">

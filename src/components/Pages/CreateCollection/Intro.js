@@ -8,7 +8,7 @@ const Intro = ( {stateChanger}) => {
     let [plan, setPlan] = useState('startup')
   return (
     <div className='w-1/3'>
-        <p className='font-bold text-sm text-gray-700'>Step 1 of 5</p>
+        <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p>
         <h3 className='font-bold text-3xl'>Let's list your collection!</h3>
         <p className='font-bold'>Which blockchain is your collection on?</p>
         <Tab.Group  >
