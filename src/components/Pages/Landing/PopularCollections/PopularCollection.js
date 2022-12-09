@@ -4,8 +4,9 @@ import { Listbox,RadioGroup } from "@headlessui/react";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import Item from "./Item";
 import All from "./All/All";
-import Etherium from "./Ethereuim/Etherium";
-import Solana from "./Solana/Solana";
+import Ether from "./Ether/Ether";
+import Binance from "./Binance/Binance";
+import Polygon from "./Polygon/Polygon";
 const timeline = [
   { id: 1, name: "Last 24 hours", unavailable: false },
   { id: 2, name: "Last 12 hours", unavailable: false },
@@ -15,7 +16,7 @@ const timeline = [
 ];
 const PopularCollection = ({name}) => {
   const [selectedTime, setSelectedTime] = useState(timeline[3]);
-  const [plan, setPlan] = useState('solana')
+  const [plan, setPlan] = useState('ether')
   return (
     <div>
       <div className="flex justify-start gap-x-5 lg:flex-row flex-col ">
@@ -46,19 +47,24 @@ const PopularCollection = ({name}) => {
         </div>
         <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
       
-        <RadioGroup.Option value="solana">
+        <RadioGroup.Option value="ether">
         {({ checked }) => (
-          <span className={`text-sm px-4 py-1 rounded-full ${checked ? 'bg-pink-600' : ''}`}>Solana</span>
+          <span className={`text-sm px-4 py-1 font-bold  rounded-full ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Ether</span>
         )}
       </RadioGroup.Option>
-      <RadioGroup.Option value="ethereium">
+      <RadioGroup.Option value="binance">
         {({ checked }) => (
-          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Ethereium</span>
+          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Binance</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="polygon">
+        {({ checked }) => (
+          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Polygon</span>
         )}
       </RadioGroup.Option>
       <RadioGroup.Option value="all">
         {({ checked }) => (
-          <span className={`text-sm px-4 py-1 rounded-full  ${checked ? 'bg-pink-600' : ''}`}>Show all</span>
+          <span className={`text-sm px-4 py-1 rounded-full font-bold  ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Show all</span>
         )}
       </RadioGroup.Option>
         </RadioGroup>
@@ -66,8 +72,9 @@ const PopularCollection = ({name}) => {
          
       </div>
 
-      {plan=='solana' ? <Solana/> : ''}
-      {plan=='ethereium' ? <Etherium/> : ''}
+      {plan=='ether' ? <Ether/> : ''}
+      {plan=='binance' ? <Binance/> : ''}
+      {plan=='polygon' ? <Polygon/> : ''}
       {plan=='all' ? <All/> : ''}
 
 

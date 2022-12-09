@@ -10,7 +10,7 @@ import { ImCalendar } from "react-icons/im";
 import { RiAuctionFill, RiInstagramFill, RiLinkedinFill, RiPinterestFill, RiRedditFill} from "react-icons/ri";
 import { BiCollection, BiListPlus} from "react-icons/bi";
 import { BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsListUl,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
-import { MdClose,MdAddBusiness,MdCollectionsBookmark,MdPhotoAlbum} from "react-icons/md";
+import { MdClose,MdAddBusiness,MdCollectionsBookmark,MdPhotoAlbum, MdCelebration} from "react-icons/md";
 import { IoIosRocket,IoIosCreate} from "react-icons/io";
 import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -85,7 +85,7 @@ const Sidebar = () => {
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection' >
              <MdCollectionsBookmark class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Explore Collections</span>
+               <span class={`ml-3 hidden lg:block font-bold `}>Our Collections</span>
                             </NavLink>
         
          </li>
@@ -105,7 +105,7 @@ const Sidebar = () => {
          </li>
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/celebrity' >
-             <MdPhotoAlbum class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
+             <MdCelebration class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Celebrity</span>
                             </NavLink>
         
@@ -164,7 +164,7 @@ const Sidebar = () => {
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="list">
          <BsListUl class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3  hidden lg:block font-bold `}>List</span>
+          <span class={`ml-3  hidden lg:block font-bold `}>Collection</span>
             </NavLink>
          </li>
 

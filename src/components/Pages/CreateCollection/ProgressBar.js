@@ -15,7 +15,7 @@ const ProgressBar = ({page ,stateChanger}) => {
 
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
 			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-			 	<div className={` ${page==2 || page>2   ? 'w-100' :'w-0'}  bg-pink-600 text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
+			 	<div className={` ${page==2 || page>2   ? 'bg-pink-600 ' :' bg-gray-300'}   w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
 			</div>
 		</div>
 		<div  class="flex-1">
@@ -27,7 +27,7 @@ const ProgressBar = ({page ,stateChanger}) => {
 
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
 			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-			 	<div className={` ${page==3 || page>3 ? 'w-100' :'w-0'}  bg-pink-600 text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
+			 	<div className={` ${page==3 || page>3 ? 'bg-pink-600' :'bg-gray-300'}  w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
 			</div>
 		</div>
 	
@@ -40,7 +40,7 @@ const ProgressBar = ({page ,stateChanger}) => {
 	
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
 			<div  class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-			 	<div className={` ${page==4 || page>4  ? 'w-100' :'w-0'}  bg-pink-600 text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
+			 	<div className={` ${page==4 || page>4  ? 'bg-pink-600' :'bg-gray-300'}  w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
 			</div>
 		</div>
 	
@@ -53,7 +53,7 @@ const ProgressBar = ({page ,stateChanger}) => {
 	
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
 			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-			 	<div className={` ${page==5 || page>5  ? 'w-100' :'w-0'}  bg-pink-600 text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
+			 	<div className={` ${page==5 || page>5  ? 'bg-pink-600' :'bg-gray-300'}  w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
 			</div>
 		</div>
 
@@ -66,7 +66,7 @@ const ProgressBar = ({page ,stateChanger}) => {
 
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
 			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-			 	<div className={` ${page==6  ? 'w-100' :'w-0'}  bg-pink-600 text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
+			 	<div className={` ${page==6  ? 'bg-pink-600' :'bg-gray-300'}  w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
 			</div>
 		</div>
 

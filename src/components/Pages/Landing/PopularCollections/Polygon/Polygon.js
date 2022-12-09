@@ -1,10 +1,10 @@
 import React from 'react'
 import Item from '../Item'
 
-const Etherium = () => {
+const Polygon = () => {
   return (
     <div className=''>
-      <h3 className='font-bold text-center text-3xl'>Ethereium</h3>   
+      <h3 className='font-bold text-center text-3xl'>Polygon</h3>   
     <div class="grid mt-4 grid-rows-2 gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
             <Item/>
             <Item/>
@@ -19,4 +19,4 @@ const Etherium = () => {
   )
 }
 
-export default Etherium
+export default Polygon
