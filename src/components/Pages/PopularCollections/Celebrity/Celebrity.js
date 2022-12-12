@@ -7,7 +7,7 @@ const timeline = [
     { id: 2, name: "Last 12 hours", unavailable: false },
     { id: 3, name: "Last 7 days", unavailable: false },
     { id: 4, name: "Last 30 days", unavailable: false },]
-const Top = () => {
+const Celebrity = () => {
     const [selectedTime, setSelectedTime] = useState(timeline[3]);
     const [plan, setPlan] = useState('ether')
   return (
@@ -38,27 +38,27 @@ const Top = () => {
         <div>
         <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
       
-        <RadioGroup.Option value="ether">
-        {({ checked }) => (
-          <span className={`text-sm px-4 py-1 font-bold  rounded-full ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Ether</span>
-        )}
-      </RadioGroup.Option>
-      <RadioGroup.Option value="binance">
-        {({ checked }) => (
-          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Binance</span>
-        )}
-      </RadioGroup.Option>
-      <RadioGroup.Option value="polygon">
-        {({ checked }) => (
-          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Polygon</span>
-        )}
-      </RadioGroup.Option>
-      <RadioGroup.Option value="all">
-        {({ checked }) => (
-          <span className={`text-sm px-4 py-1 rounded-full font-bold  ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Show all</span>
-        )}
-      </RadioGroup.Option>
-        </RadioGroup>
+      <RadioGroup.Option value="ether">
+      {({ checked }) => (
+        <span className={`text-sm px-4 py-1 font-bold  rounded-full ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Ether</span>
+      )}
+    </RadioGroup.Option>
+    <RadioGroup.Option value="binance">
+      {({ checked }) => (
+        <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Binance</span>
+      )}
+    </RadioGroup.Option>
+    <RadioGroup.Option value="polygon">
+      {({ checked }) => (
+        <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Polygon</span>
+      )}
+    </RadioGroup.Option>
+    <RadioGroup.Option value="all">
+      {({ checked }) => (
+        <span className={`text-sm px-4 py-1 rounded-full font-bold  ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Show all</span>
+      )}
+    </RadioGroup.Option>
+      </RadioGroup>
         </div>
 
         <div>
@@ -164,4 +164,4 @@ const Top = () => {
   )
 }
 
-export default Top
+export default Celebrity

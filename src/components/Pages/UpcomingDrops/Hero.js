@@ -1,5 +1,5 @@
 import React from 'react'
-import Sybrus from '../../../../Assets/NFTs/Syberus.gif'
+import Sybrus from '../../../Assets/NFTs/Syberus.gif'
 const Hero = () => {
   return (
     <div class="flex flex-1 flex-col-reverse md:flex-row mx-auto gap-8 justify-between">

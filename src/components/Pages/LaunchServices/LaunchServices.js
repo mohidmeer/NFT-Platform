@@ -12,7 +12,7 @@ const LaunchServices = () => {
     <div className=' p-4  '>
    <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Auctions /> </div>
    <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Community /> </div>
-   <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Launch /> </div>
+   {/* <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Launch /> </div> */}
 
    <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Youtube /> </div>
    <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Artists /> </div>

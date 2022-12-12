@@ -20,13 +20,14 @@ import { useEffect } from 'react';
 import Communities from './components/Pages/Communities/Communities';
 import Whitelist from './components/Pages/WhiteList/Whitelist';
 import CreateC from './components/Pages/Creator/CreateC';
-import BlueChips from './components/Pages/BlueChips/BlueChips';
-import Celebrity from './components/Pages/Celebrity/Celebrity';
 import LaunchServices from './components/Pages/LaunchServices/LaunchServices';
 import SocialMintShare from './components/Pages/SocialMintShare/SocialMintShare';
 import Discord from './components/Pages/Discord/Discord';
 import Listing from './components/Pages/Listing/Listing';
 import CreateCollection from './components/Pages/CreateCollection/CreateCollection';
+import Watchlist from './components/Pages/Watchlist/Index';
+import WhitelistRegister from './components/Pages/WhitelistRegister/WhitelistRegister';
+import WhitelistRegisterItem from './components/Pages/WhitelistRegister/WhitelistRegisterItem';
 
 function App( ) {
  
@@ -49,13 +50,16 @@ function App( ) {
         <Route path="/" element={<Landing/>} />
         <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
-        <Route path="collection" element={<PopularCollections tindex={0} />} />
-        <Route path="collections" element={<PopularCollections tindex={1}  />} />
+        <Route path="collection"   element={<PopularCollections tindex={0} />} />
+        <Route path="collection-t" element={<PopularCollections tindex={1}  />} />
+        <Route path="collection-b" element={<PopularCollections tindex={2}  />} />
+        <Route path="collection-c" element={<PopularCollections tindex={3}  />} />
         <Route path="createwhitelist" element={<Whitelist/>} />
-        <Route path="blue-chips" element={<BlueChips/>} />
         <Route path="createcollection" element={<CreateC/>} />
+        <Route path="watchlist" element={<Watchlist/>} />
+        <Route path="whitelist" element={<WhitelistRegister/>} />
+        <Route path="whitelist/Galactic-Robots" element={<WhitelistRegisterItem  name={"Galactic Robots"}  />}/>
         <Route path="socialmint-share" element={<SocialMintShare/>} />
-        <Route path="celebrity" element={<Celebrity/>} />
         <Route path="launch-services" element={<LaunchServices/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
         <Route path="communities" element={<Communities/>} />

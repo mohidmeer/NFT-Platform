@@ -14,7 +14,7 @@ const Communities = () => {
       <div className=''> <Community /> </div>
       {/* <div className='lg:px-24 px-0 rounded-xl         p-4  lg:pb-8  border-2 border-white  mt-12'> <SocialMediaApi /> </div>
       <div className='lg:px-24 px-0 rounded-xl bg-green-300        p-4  lg:pb-8  border-2 border-white  mt-12'> <Discord /> </div> */}
-      <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Youtube /> </div>
+      {/* <div className='mt-8 border-2 rounded-xl  p-4 lg:pb-8 border-white '> <Youtube /> </div> */}
 
 
     </div>

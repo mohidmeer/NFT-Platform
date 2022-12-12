@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Detail = ({stateChanger}) => {
   return (
     <div className="w-1/3">
-      <p className="font-bold text-sm text-gray-700">Step 3 of 6</p>
+      <p className="font-bold text-sm text-gray-700">Step 3 of 5</p>
       <h3 className="font-bold text-4xl">Listing details</h3>
       <p className="font-bold mt-2">
         Enter in the details on your collection that will be used for your

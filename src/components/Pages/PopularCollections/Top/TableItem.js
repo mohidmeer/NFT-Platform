@@ -6,7 +6,7 @@ const TableItem = () => {
                 <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
                  <span className='mr-2 flex'><span className='mr-2 mt-1'>1</span>
                   <img className='rounded-full' src='https://img-cdn.magiceden.dev/rs:fill:32:32:0:0/plain/https://bafkreidc5co72clgqor54gpugde6tr4otrubjfqanj4vx4ivjwxnhqgaai.ipfs.nftstorage.link/'/>
-                  <span className='mt-1 ml-2'>Space Cartoons</span>
+                  <span className='mt-1 ml-2'>Top</span>
                  </span>
                 </th>
                 <td class="py-4 px-6">

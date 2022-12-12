@@ -1,49 +1,16 @@
 import { RadioGroup } from '@headlessui/react'
 import { React,  useState } from 'react'
 import { Link } from 'react-router-dom'
-import Hero from '../Landing/Hero/Hero'
-import Launchpad from '../Launchpad/Launchpad'
 import TableItem from './TableItem'
-import Her from './Hero'
-const UpcomingDrops = () => {
 
-  const [plan, setPlan] = useState('ether')
+const WhitelistRegister = () => {
+
+    const [plan, setPlan] = useState('ether')
   return (
     <div className="mt-7 p-4 ">
-      <Hero/>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <h2 className='text-5xl font-bold text-center lg:mt-32'>Upcoming Drops</h2>
-        <p className='text-center mt-4  font-semibold text-gray-500'>Mark your calendars. Get ready to mint the latest NFT projects<br/>
-         Minting across <span><Link to='/launchpad' className='text-pink-600'>Launchpad</Link></span> on a Blockchain near you!</p>
-   
-         <div className='flex'>
+        <h2 className='text-5xl font-bold '>Whitelist Register</h2>
+       
+         <div className='flex mt-4'>
          <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
       
       <RadioGroup.Option value="ether">
@@ -68,32 +35,31 @@ const UpcomingDrops = () => {
     </RadioGroup.Option>
       </RadioGroup>
 
+         
          </div>
 
          <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4 border border-dark ">
     <table class="w-full text-sm text-left  ">
         <thead class="text-xs  uppercase bg-dark ">
             <tr>
-                <th scope="col" class="py-3 px-6">
-                    #Upvotes
-                </th>
+                
                 <th scope="col" class="py-3 px-6">
                     Project Name
                 </th>
                 <th scope="col" class="py-3 px-6">
-                   Community
+                    Social Links
                 </th>
                 <th scope="col" class="py-3 px-6">
-                  When 
+                   Mint Date
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Blockchain
+                  Blockchain
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Mint Link
+                    No of Spots
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Description
+                    Action
                 </th>
                
             </tr>
@@ -101,24 +67,7 @@ const UpcomingDrops = () => {
         <tbody>
             <TableItem/>
             <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
+            
             
             
             
@@ -127,9 +76,6 @@ const UpcomingDrops = () => {
            
         </tbody>
     </table>
-</div>
-<div className='mt-8'>
-<Her />
 </div>
 
    
@@ -148,4 +94,4 @@ const UpcomingDrops = () => {
   )
 }
 
-export default UpcomingDrops
+export default WhitelistRegister

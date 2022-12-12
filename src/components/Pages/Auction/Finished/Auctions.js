@@ -13,9 +13,9 @@ const FAuctions = () => {
         <AuctionCard/>
         <AuctionCard/>
         <AuctionCard/>
+        {/* <AuctionCard/>
         <AuctionCard/>
-        <AuctionCard/>
-        <AuctionCard/>
+        <AuctionCard/> */}
 
 
 

@@ -70,7 +70,7 @@ const Sidebar = () => {
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/discord' >
              <FaDiscord class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Discord</span>
+               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Messenger</span>
             
             </NavLink        >
         
@@ -90,21 +90,21 @@ const Sidebar = () => {
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collections#trending' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-t#trending' >
              <HiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Trending Collections</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/blue-chips' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-b#trending' >
              <MdPhotoAlbum class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Blue Chips</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/celebrity' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-c#trending' >
              <MdCelebration class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
                <span class={`ml-3 hidden lg:block font-bold `}>Celebrity</span>
                             </NavLink>
@@ -182,12 +182,12 @@ const Sidebar = () => {
             </NavLink>
          </li>
 
-         <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launchpad' >
+         {/* <li className='ml-2' >
+         <NavLink disabled className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launchpad' >
          <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
           <span class={`ml-3   hidden lg:block font-bold `}>Launch</span>
             </NavLink>
-         </li>
+         </li> */}
          {/* <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='tickets' >
          <TicketIcon class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />

@@ -20,10 +20,10 @@ const CreateCollection = () => {
     } else if ( page===3){
       return <Detail stateChanger={setPage}/>;
     }else if ( page===4){
-      return <Hashlist stateChanger={setPage}/>;
+      return <Socials stateChanger={setPage}/>;
     }
     else if ( page===5){
-      return <Socials stateChanger={setPage}/>;
+      return <Kyc stateChanger={setPage}/>;
     }
     else if ( page===6){
       return <Kyc stateChanger={setPage}/>;

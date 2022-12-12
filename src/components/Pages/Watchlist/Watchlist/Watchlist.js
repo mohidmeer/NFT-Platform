@@ -1,20 +1,18 @@
-import { Disclosure, Listbox, RadioGroup } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import React, { useState } from 'react'
+import { Disclosure, Listbox, RadioGroup, Tab } from '@headlessui/react'
+import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import TableItem from './TableItem'
 const timeline = [
     { id: 1, name: "Last 24 hours", unavailable: false },
     { id: 2, name: "Last 12 hours", unavailable: false },
     { id: 3, name: "Last 7 days", unavailable: false },
     { id: 4, name: "Last 30 days", unavailable: false },]
-const Celebrity = () => {
-
+const Watchlist = () => {
     const [selectedTime, setSelectedTime] = useState(timeline[3]);
-    const [currency, setCurrency] = useState('solana')
+    const [plan, setPlan] = useState('ether')
   return (
-    <div className="mt-7 p-4 ">
-
-      <div className="flex justify-between lg:flex-row flex-col">
+    <div>
+         <div className="flex justify-between lg:flex-row flex-col">
         <Disclosure as="div" className={`w-2/3 bg-dark-2 rounded-lg`}>
           {({ open }) => (
             <>
@@ -37,89 +35,13 @@ const Celebrity = () => {
           )}
         </Disclosure>
 
-        <div>
-          <RadioGroup
-            as="div"
-            className={
-              "flex justify-between p-1 border border-dark   justify-items-center mt-1 rounded-full  "
-            }
-            value={currency}
-            onChange={setCurrency}
-          >
-            <RadioGroup.Option value="solana">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Solana
-                </span>
-              )}
-            </RadioGroup.Option>
-            <RadioGroup.Option value="ethereium">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full  ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Ethereium
-                </span>
-              )}
-            </RadioGroup.Option>
-            <RadioGroup.Option value="all">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full  ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Show all
-                </span>
-              )}
-            </RadioGroup.Option>
-          </RadioGroup>
-        </div>
+        
 
-        <div>
-          <Listbox
-            as="div"
-            className={
-              "  lg:block  relative  text-left border border-dark   px-6 py-1  rounded"
-            }
-            value={selectedTime}
-            onChange={setSelectedTime}
-          >
-            <Listbox.Button
-              className={
-                "justify-center text-sm font-medium  shadow-sm "
-              }
-            >
-              {" "}
-              {selectedTime.name}
-            </Listbox.Button>
-            <Listbox.Options
-              as="div"
-              className={
-                "absolute right-0 z-10 mt-2 w-full origin-top-right rounded-md bg-dark-2   shadow-lg  ring-opacity-5 focus:outline-none"
-              }
-            >
-              {timeline.map((timeline) => (
-                <Listbox.Option
-                  className={" block px-4 py-1 text-sm hover:bg-dark"}
-                  key={timeline.id}
-                  value={timeline}
-                  disabled={timeline.unavailable}
-                >
-                  {timeline.name}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
-          </Listbox>
-        </div>
+        
       </div>
-      <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4 border border-dark">
+
+      
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4 border border-dark">
     <table class="w-full text-sm text-left  ">
         <thead class="text-xs  uppercase bg-dark ">
             <tr>
@@ -178,12 +100,9 @@ const Celebrity = () => {
            
         </tbody>
     </table>
-      </div>
-
-
-
+</div>
     </div>
   )
 }
 
-export default Celebrity
+export default Watchlist

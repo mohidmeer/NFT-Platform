@@ -12,9 +12,9 @@ const Auctions = () => {
         <AuctionCard/>
         <AuctionCard/>
         <AuctionCard/>
+        {/* <AuctionCard/>
         <AuctionCard/>
-        <AuctionCard/>
-        <AuctionCard/>
+        <AuctionCard/> */}
       </div>
 
 

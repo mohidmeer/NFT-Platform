@@ -9,7 +9,7 @@ const timeline = [
     { id: 4, name: "Last 30 days", unavailable: false },]
 const Trending = () => {
     const [selectedTime, setSelectedTime] = useState(timeline[3]);
-    const [currency, setCurrency] = useState('solana')
+    const [plan, setPlan] = useState('ether')
   return (
     <div>
 
@@ -37,48 +37,29 @@ const Trending = () => {
         </Disclosure>
 
         <div>
-          <RadioGroup
-            as="div"
-            className={
-              "flex justify-between p-1 border border-dark   justify-items-center mt-1 rounded-full  "
-            }
-            value={currency}
-            onChange={setCurrency}
-          >
-            <RadioGroup.Option value="solana">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Solana
-                </span>
-              )}
-            </RadioGroup.Option>
-            <RadioGroup.Option value="ethereium">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full  ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Ethereium
-                </span>
-              )}
-            </RadioGroup.Option>
-            <RadioGroup.Option value="all">
-              {({ checked }) => (
-                <span
-                  className={`text-sm px-4 py-1 rounded-full  ${
-                    checked ? "bg-pink-600" : ""
-                  }`}
-                >
-                  Show all
-                </span>
-              )}
-            </RadioGroup.Option>
-          </RadioGroup>
+        <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
+      
+        <RadioGroup.Option value="ether">
+        {({ checked }) => (
+          <span className={`text-sm px-4 py-1 font-bold  rounded-full ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Ether</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="binance">
+        {({ checked }) => (
+          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Binance</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="polygon">
+        {({ checked }) => (
+          <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white':'text-black'}`}>Polygon</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="all">
+        {({ checked }) => (
+          <span className={`text-sm px-4 py-1 rounded-full font-bold  ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Show all</span>
+        )}
+      </RadioGroup.Option>
+        </RadioGroup>
         </div>
 
         <div>
