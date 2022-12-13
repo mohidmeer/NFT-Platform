@@ -30,6 +30,7 @@ import WhitelistRegister from './components/Pages/WhitelistRegister/WhitelistReg
 import WhitelistRegisterItem from './components/Pages/WhitelistRegister/WhitelistRegisterItem';
 import AuctionItem from './components/Pages/Auction/AuctionItem';
 import LiveDropItem from './components/Pages/Auction/LiveDrops/LiveDropItem';
+import CollectionItem from './components/Pages/PopularCollections/CollectionItem/CollectionItem';
 
 function App( ) {
  
@@ -55,6 +56,7 @@ function App( ) {
         <Route path="auctions/:name" element={<AuctionItem   name={"Rifter Demigod Solana"}  />}  />
 
         <Route path="collection"   element={<PopularCollections tindex={0} />}  />
+        <Route path="collection/:name" element={<CollectionItem />}  />
         <Route path="collection-t" element={<PopularCollections tindex={1}  />} />
         <Route path="collection-b" element={<PopularCollections tindex={2}  />} />
         <Route path="collection-c" element={<PopularCollections tindex={3}  />} />

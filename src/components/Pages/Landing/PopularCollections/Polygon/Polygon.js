@@ -5,7 +5,7 @@ const Polygon = () => {
   return (
     <div className=''>
       <h3 className='font-bold text-center text-3xl'>Polygon</h3>   
-    <div class="grid mt-4 grid-rows-2 gap-y-8 gap-x-16 max-w-screen-3xl xl:grid-flow-col xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
+      <div class=" mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4">
             <Item/>
             <Item/>
             <Item/>
