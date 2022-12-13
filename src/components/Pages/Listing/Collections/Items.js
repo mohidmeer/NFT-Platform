@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const AuctionCard = () => {
+const Items = () => {
   return (
     <div className="bg-dark rounded-xl transition ease-in-out delay-150 hover:translate-x-1 hover:translate-y-1 hover:scale-110  border-dark-2 border-2 ">
           <Link to="/auctions/sol_prince">
@@ -42,4 +42,4 @@ const AuctionCard = () => {
   )
 }
 
-export default AuctionCard
+export default Items

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Disclosure, Listbox, RadioGroup, Tab } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import TableItem from './TableItem'
 import Trending from './Trending/Trending'
 import Top from './Top/Top'
 import BlueChips from './BlueChips/BlueChips'

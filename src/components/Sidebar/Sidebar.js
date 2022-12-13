@@ -70,7 +70,7 @@ const Sidebar = () => {
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/discord' >
              <FaDiscord class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Messenger</span>
+               <span class={`ml-3 hidden lg:block font-bold  ` }>Mint Messenger</span>
             
             </NavLink        >
         
@@ -164,7 +164,7 @@ const Sidebar = () => {
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="list">
          <BsListUl class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3  hidden lg:block font-bold `}>Collection</span>
+          <span class={`ml-3  hidden lg:block font-bold `}>List</span>
             </NavLink>
          </li>
 

@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AuctionCard = () => {
   return (
   
     <div className="bg-dark rounded-xl transition ease-in-out delay-150 hover:translate-x-1 hover:translate-y-1 hover:scale-110 border-dark-2 border-2 ">
-          <a href="/auction/sol_princess_weekly_wish_2">
+          <Link to="/auction/sol_princess_weekly_wish_2">
             
               <img 
                 draggable="false"
@@ -37,7 +38,7 @@ const AuctionCard = () => {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
   )
 }

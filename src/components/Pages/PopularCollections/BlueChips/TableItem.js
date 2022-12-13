@@ -2,36 +2,48 @@ import React from 'react'
 
 const TableItem = () => {
   return (
-    <tr class=" border-b border-dark">
-                <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
-                 <span className='mr-2 flex'><span className='mr-2 mt-1'>1</span>
-                  <img className='rounded-full' src='https://img-cdn.magiceden.dev/rs:fill:32:32:0:0/plain/https://bafkreidc5co72clgqor54gpugde6tr4otrubjfqanj4vx4ivjwxnhqgaai.ipfs.nftstorage.link/'/>
-                  <span className='mt-1 ml-2'>Blue Chips</span>
-                 </span>
-                </th>
-                <td class="py-4 px-6">
-                    44.23 K
-                </td>
-                <td class="py-4 px-6">
-                   4.2 K
-                </td>
-                <td class="py-4 px-6 text-green-500">
-                    144.05%
-                </td>
-                <td class="py-4 px-6">
-                    333
-                </td>
-                <td class="py-4 px-6">
-                    50.69
-                </td>
-                <td class="py-4 px-6">
-                   6.4K
-                </td>
-                <td class="py-4 px-6">
-                   10K
-                </td>
+    <div className="bg-dark rounded-xl transition ease-in-out delay-150 hover:translate-x-1 hover:translate-y-1 hover:scale-110  border-dark-2 border-2 ">
+          <a href="/auction/sol_princess_weekly_wish_2">
+            
+              <img 
+                draggable="false"
+                loading="lazy"
+                className='rounded-2xl  '
+                src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://dweb.link/ipfs/bafybeig36are2osw5oztd4bop7ssdccab42zodpeva4agrxrc3wofnuj5a"
+              />
+           
+            <div className=' lg:w-full md:w-full'>
+            <h5 class="mb-2 text-center px-5 font-bold" title="Rifters Demigod Solana Princess's Weekly Wish #2">Blue Chips</h5>
+            <p className='text-center px-5 text-sm text-pink-600'>  Princes (Rifters)</p>
+              
+               <div className='p-3'>
+               <div className='flex justify-between'>
+                    <p className='font-bold '>Floor Price</p>
+                    <p className='font-bold text-pink-600'>125 K</p>
+                </div>
+               <div className='flex justify-between'>
+                    <p className='font-bold '>Owners</p>
+                    <p className='font-bold text-pink-600'>10 K</p>
+                </div>
+               <div className='flex justify-between'>
+                    <p className='font-bold '>Supply</p>
+                    <p className='font-bold text-pink-600'>6.4 K</p>
+                </div>
+               <div className='flex justify-between'>
+                    <p className='font-bold '>Last 30 days</p>
+                    <p className='font-bold text-pink-600'>145 %</p>
+                </div>
                 
-            </tr>
+
+               </div>
+                
+
+
+
+              </div>
+            
+          </a>
+        </div>
   )
 }
 

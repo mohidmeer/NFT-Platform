@@ -28,6 +28,8 @@ import CreateCollection from './components/Pages/CreateCollection/CreateCollecti
 import Watchlist from './components/Pages/Watchlist/Index';
 import WhitelistRegister from './components/Pages/WhitelistRegister/WhitelistRegister';
 import WhitelistRegisterItem from './components/Pages/WhitelistRegister/WhitelistRegisterItem';
+import AuctionItem from './components/Pages/Auction/AuctionItem';
+import LiveDropItem from './components/Pages/Auction/LiveDrops/LiveDropItem';
 
 function App( ) {
  
@@ -50,18 +52,23 @@ function App( ) {
         <Route path="/" element={<Landing/>} />
         <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
-        <Route path="collection"   element={<PopularCollections tindex={0} />} />
+        <Route path="auctions/:name" element={<AuctionItem   name={"Rifter Demigod Solana"}  />}  />
+
+        <Route path="collection"   element={<PopularCollections tindex={0} />}  />
         <Route path="collection-t" element={<PopularCollections tindex={1}  />} />
         <Route path="collection-b" element={<PopularCollections tindex={2}  />} />
         <Route path="collection-c" element={<PopularCollections tindex={3}  />} />
+
         <Route path="createwhitelist" element={<Whitelist/>} />
         <Route path="createcollection" element={<CreateC/>} />
         <Route path="watchlist" element={<Watchlist/>} />
         <Route path="whitelist" element={<WhitelistRegister/>} />
-        <Route path="whitelist/Galactic-Robots" element={<WhitelistRegisterItem  name={"Galactic Robots"}  />}/>
+        <Route path="whitelist/:name" element={<WhitelistRegisterItem  name={"Galactic Robots"}  />}/>
         <Route path="socialmint-share" element={<SocialMintShare/>} />
         <Route path="launch-services" element={<LaunchServices/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
+        <Route path="drops/:name" element={<LiveDropItem name={"Glactic Robots"} />}  />
+
         <Route path="communities" element={<Communities/>} />
         <Route path="list" element={<Listing/>}/>
         <Route path="create-collection" element={<CreateCollection/>}/>

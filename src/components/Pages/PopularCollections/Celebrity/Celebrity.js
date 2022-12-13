@@ -13,27 +13,7 @@ const Celebrity = () => {
   return (
     <div>
          <div className="flex justify-between lg:flex-row flex-col">
-        <Disclosure as="div" className={`w-2/3 bg-dark-2 rounded-lg`}>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-sm font-medium text-gray-400 hover:bg-dark focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span className="">Search</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? "rotate-180 transform" : ""
-                  } h-5 w-5 `}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="mt-2 px-4 pt-4 pb-2 rounded  text-lg ">
-              Select collections which match the following conditions:
-              <div className='mt-2'>
-                <button type="button" class="border border-pink-600 py-1 px-2  inline-flex justify-center items-center rounded-md ">+ Add filter</button>
-                <button type="button" class=" bg-pink-600 py-1 px-2 inline-flex justify-center items-center rounded-md  ml-3 ">Search</button>
-            </div>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
+        
 
         <div>
         <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '}  value={plan} onChange={setPlan}> 
@@ -100,66 +80,16 @@ const Celebrity = () => {
       </div>
 
       
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4 border border-dark">
-    <table class="w-full text-sm text-left  ">
-        <thead class="text-xs  uppercase bg-dark ">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    Collection
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Volume Total
-                </th>
-                <th scope="col" class="py-3 px-6">
-                   {selectedTime.name}
-                </th>
-                <th scope="col" class="py-3 px-6">
-                  {selectedTime.name} %
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Sales
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Floor Price
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Owners
-                </th>
-                <th scope="col" class="py-3 px-6">
-                   Total Supply
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            <TableItem/>
-            
-            
-            
-            
-            
-           
-        </tbody>
-    </table>
-</div>
+      <div className="grid  lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2  gap-8  mt-6 ">
+        <TableItem/>
+        <TableItem/>
+        <TableItem/>
+        <TableItem/>
+        <TableItem/>
+        {/* <AuctionCard/>
+        <AuctionCard/>
+        <AuctionCard/> */}
+      </div>
     </div>
   )
 }

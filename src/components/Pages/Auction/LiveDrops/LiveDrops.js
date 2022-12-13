@@ -1,20 +1,13 @@
 import { RadioGroup } from '@headlessui/react'
 import { React,  useState } from 'react'
 import { Link } from 'react-router-dom'
-import Hero from '../Landing/Hero/Hero'
 import TableItem from './TableItem'
-import Her from './Hero'
-import Auctions from './Live/Auctions'
-const UpcomingDrops = () => {
+const LiveDrops = () => {
 
   const [plan, setPlan] = useState('ether')
   return (
     <div className="mt-7 p-4 ">
-      <Auctions/>
-
-
-
-        <h2 className='text-5xl font-bold text-center lg:mt-32'>Upcoming Drops</h2>
+        <h2 className='text-5xl font-bold text-center lg:mt-32'>Live Drops</h2>
         <p className='text-center mt-4  font-semibold text-gray-500'>Mark your calendars. Get ready to mint the latest NFT projects<br/>
          Minting across <span><Link to='/launchpad' className='text-pink-600'>Launchpad</Link></span> on a Blockchain near you!</p>
    
@@ -98,8 +91,12 @@ const UpcomingDrops = () => {
            
         </tbody>
     </table>
-</div>   
 </div>
+
+
+   
+   
+    </div>
 
 
    
@@ -113,4 +110,4 @@ const UpcomingDrops = () => {
   )
 }
 
-export default UpcomingDrops
+export default LiveDrops
