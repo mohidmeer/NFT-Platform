@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import Background from './Background'
 import Collection from './Collection'
 import Detail from './Detail'
 import Hashlist from './Hashlist'
 import Intro from './Intro'
 import Kyc from './Kyc'
+import Launch from './Launch'
 import ProgressBar from './ProgressBar'
 import Socials from './Socials'
 
@@ -23,10 +25,10 @@ const CreateCollection = () => {
       return <Socials stateChanger={setPage}/>;
     }
     else if ( page===5){
-      return <Kyc stateChanger={setPage}/>;
+      return <Background stateChanger={setPage}/>;
     }
     else if ( page===6){
-      return <Kyc stateChanger={setPage}/>;
+      return <Launch stateChanger={setPage}/>;
     }
     
 

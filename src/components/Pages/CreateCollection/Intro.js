@@ -5,112 +5,73 @@ import { FiCheck } from 'react-icons/fi'
 import { HiShieldCheck } from 'react-icons/hi'
 
 const Intro = ( {stateChanger}) => {
-    let [plan, setPlan] = useState('startup')
+    let [blockchain, setBlockchain] = useState('startup')
+    let [copyright, setCopyright] = useState('startup')
   return (
     <div className='w-1/3'>
         <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p>
-        <h3 className='font-bold text-3xl'>Let's list your collection!</h3>
-        <p className='font-bold'>Which blockchain is your collection on?</p>
-        <Tab.Group  >
-    
-      <Tab.List>
-      <Tab as={Fragment}>
-          {({ selected }) => (
-            /* Use the `selected` state to conditionally style the selected tab. */
-            <button
-              className={` ${selected ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2
-                
-                `
-              }
-            >
-              Etherium {selected ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}
-            </button>
-          )}
-      </Tab>
-      <Tab as={Fragment}>
-          {({ selected }) => (
-            /* Use the `selected` state to conditionally style the selected tab. */
-            <button
-              className={` ${selected ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2
-                
-                `
-              }
-            >
-              BNB Matic {selected ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}
-            </button>
-          )}
-      </Tab>
-      </Tab.List>
-      <p className='font-bold'>Is the artwork in your collection, profile picture, and banner either your original artwork or artwork you have legal permission to use, distribute, and sell?</p>
-
-      <RadioGroup value={plan} onChange={setPlan}>
+        <h3 className='font-bold text-3xl mt-4'>Blockchain</h3>
+        
+      <RadioGroup value={blockchain} onChange={setBlockchain}>
       <RadioGroup.Label></RadioGroup.Label>
       <RadioGroup.Option value="startup">
         {({ checked }) => (
-          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Yes,I am Author {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Etherium {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
         )}
       </RadioGroup.Option>
       <RadioGroup.Option value="business">
         {({ checked }) => (
-          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Yes,I have License to use art {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Polygon {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
         )}
       </RadioGroup.Option>
       <RadioGroup.Option value="enterprise">
         {({ checked }) => (
-          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>No {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>BNB {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
         )}
       </RadioGroup.Option>
     </RadioGroup>
-      <Tab.Panels>
-        <Tab.Panel>
-            <button onClick={() => stateChanger(2)} className=' mt-2 p-3 w-36 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600'>
-              Lets Go 
-            </button>
-
-            <div className='flex mt-6 gap-2'>
-                <HiShieldCheck className='font-bold text-2xl '/>
-                <p className='font-bold'>Process protection</p>
-            </div>
-            <small>Use of our website and Service are subject to our
-                 <a href="https://socialmint/terms-of-service.pdf" class=" font-bold text-pink-600">Terms of Service</a> and 
-                 <a href="https://socialmint/privacy-policy.pdf" class="font-bold text-pink-600">Privacy Policy</a>.
-            </small>
-
-
-        </Tab.Panel>
-        <Tab.Panel>
-            <div>
-                <h2 className='text-2xl font-bold'>
-                Does your collection adopt the Metaplex Certified Collections standard?
-                </h2>
-                <label class="inline-flex relative items-center mb-5 mt-3 cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer"/>
-                  <div class="w-9 h-5 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-              </label><br/>
-              <p className='font-bold text-sm text-gray-600'>List Immediately with Metaplex Certified Collections standard</p>
+        <h3 className='font-bold text-3xl mt-4'>Copyright</h3>
+        
+      <RadioGroup value={copyright} onChange={setCopyright}>
+      <RadioGroup.Label></RadioGroup.Label>
+      <RadioGroup.Option value="startup">
+        {({ checked }) => (
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Creater {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="business">
+        {({ checked }) => (
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Licensed {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="enterprise">
+        {({ checked }) => (
+          <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Non Licensed {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
+        )}
+      </RadioGroup.Option>
+    </RadioGroup>
 
 
-            </div>
+    <div class="mb-6 mt-6">
+          <label for="default-input" class="block mb-2 text-xl font-bold text-gray-900 dark:text-white">External Link</label>
+          <p className='font-bold text-xs mb-2'>Providing and eternal link allows Buyers to find out more about you and helps to promote your community efforts</p>
+          <input placeholder='https://yoursite.io' type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+    </div>
 
+
+
+    
            <button onClick={() => stateChanger(2)} className=' mt-2 p-3 w-36 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600'>
               Lets Go 
             </button>
 
-            <div className='flex mt-6 gap-2'>
-                <HiShieldCheck className='font-bold text-2xl '/>
-                <p className='font-bold'>Process protection</p>
-            </div>
+            <p className='font-bold text-gray-700 mt-2'>By launching an NFT and or Collection on our Marketplace you have read and agree to abide by our Term of Service and Privacy Policy</p>
             <small>Use of our website and Service are subject to our
                  <a href="https://socialmint/terms-of-service.pdf" class=" font-bold text-pink-600">Terms of Service</a> and 
                  <a href="https://socialmint/privacy-policy.pdf" class="font-bold text-pink-600">Privacy Policy</a>.
             </small>
-
-
-        </Tab.Panel>
-        
-      </Tab.Panels>
-    </Tab.Group>
+        {/* <p className='font-bold'>Which blockchain is your collection on?</p> */}
+       
 
 
 

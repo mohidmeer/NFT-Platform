@@ -5,9 +5,9 @@ const Top = () => {
   return (
     <div className='grid grid-cols-12   '>
         <div className='ml-10 mt-4 md:col-start-4 md:col-span-4 lg:col-span-3  '>
-            <img className=' w-52 rounded-full' src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://res.cloudinary.com/coin-nft/image/upload/c_limit,q_auto,w_1200/f_auto/v1/cache/1/20/56/2056928ce1412f15a5193f740e3630c176ec580d8bd47076b4166d091bac36e2-MjJiYjdmM2QtOTJiMC00M2Q3LTkxMzQtOGFiMmM5MjhjYzE3"/>
+            <img className=' w-52 ' src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://res.cloudinary.com/coin-nft/image/upload/c_limit,q_auto,w_1200/f_auto/v1/cache/1/20/56/2056928ce1412f15a5193f740e3630c176ec580d8bd47076b4166d091bac36e2-MjJiYjdmM2QtOTJiMC00M2Q3LTkxMzQtOGFiMmM5MjhjYzE3"/>
         </div>
-        <div className=' border col-span-full  lg:col-span-4   mt-8 p-4 '>
+        <div className=' border col-span-full  lg:col-span-4   mt-4 p-4 '>
             <p className=' font-extrabold text-4xl mb-2'>Mutant Ape Yacht Club </p>
             <div className='flex flex-col gap-2'>
             <div className='grid grid-cols-2 gap-2 shadow-2xl'>

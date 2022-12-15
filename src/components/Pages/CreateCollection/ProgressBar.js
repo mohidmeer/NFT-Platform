@@ -65,16 +65,16 @@ const ProgressBar = ({page ,stateChanger}) => {
 		</div>
 
 		<div class="w-1/6 align-center items-center align-middle content-center flex">
-			{/* <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
 			 	<div className={` ${page==6  ? 'bg-pink-600' :'bg-gray-300'}  w-full text-xs leading-none py-1 text-center text-grey-darkest rounded `} ></div>
-			</div> */}
+			</div>
 		</div>
 
 
 		<div class="flex-1">
-			{/* <div onClick={() => stateChanger(6)} className={` ${ page==6   ? 'bg-pink-600 text-white' :'bg-white text-black'}  w-10 h-10  border mx-auto rounded-full text-lg text-white flex items-center`}>
+			<div onClick={() => stateChanger(6)} className={` ${ page==6   ? 'bg-pink-600 text-white' :'bg-white text-black'}  w-10 h-10  border mx-auto rounded-full text-lg text-white flex items-center`}>
 				<span class="font-bold text-center w-full">6</span>
-			</div> */}
+			</div>
 		</div>
 		
 	
@@ -98,11 +98,11 @@ const ProgressBar = ({page ,stateChanger}) => {
 			 Socials
 		</div>
 		
-		<div class="font-bold  text-right mr-12">
-			KYC
+		<div class="font-bold  text-right mr-6">
+			Background
 		</div>			
 		<div class="font-bold  text-right">
-			
+			Launch
 		</div>			
 	</div>
 

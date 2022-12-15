@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Items = () => {
   return (
-    <div className='bg-white rounded-lg  h-fit p-2 shadow-xl  '>
+    <div className='bg-white rounded-xl  h-fit p-2 shadow-xl  '>
        
         <img draggable="false" src="https://img-cdn.magiceden.dev/rs:fill:250:250:0:0/plain/https://bafybeieiycmvexxoqy5u4ddfzosqkhoq6yrjk7jhhrkgd36sm4blhcimue.ipfs.nftstorage.link" />
        <div className='flex justify-between'>

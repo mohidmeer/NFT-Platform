@@ -1,4 +1,5 @@
 import React from 'react'
+import Cart from './Cart'
 import Content from './Content'
 import Items from './Items'
 import SideFilter from './SideFilter'
@@ -19,12 +20,15 @@ const CollectionItem = () => {
        
         
         
-        <div className='flex gapx-10 '>
+        <div className='flex  '>
             <div>
                 <SideFilter/>
             </div>
-            <div className=''>
+            <div >
                 <Content/>
+            </div>
+            <div >
+                <Cart/>
             </div>
          
 

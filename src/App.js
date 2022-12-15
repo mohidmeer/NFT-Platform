@@ -55,11 +55,11 @@ function App( ) {
         <Route path="auctions" element={<Auction/>} />
         <Route path="auctions/:name" element={<AuctionItem   name={"Rifter Demigod Solana"}  />}  />
 
-        <Route path="collection"   element={<PopularCollections tindex={0} />}  />
-        <Route path="collection/:name" element={<CollectionItem />}  />
-        <Route path="collection-t" element={<PopularCollections tindex={1}  />} />
-        <Route path="collection-b" element={<PopularCollections tindex={2}  />} />
-        <Route path="collection-c" element={<PopularCollections tindex={3}  />} />
+        <Route path="collection"       element={<PopularCollections tindex={0}  />} />
+        <Route path="collection/:name" element={<CollectionItem                 />} />
+        <Route path="collection-t"     element={<PopularCollections tindex={1}  />} />
+        <Route path="collection-b"     element={<PopularCollections tindex={2}  />} />
+        <Route path="collection-c"     element={<PopularCollections tindex={3}  />} />
 
         <Route path="createwhitelist" element={<Whitelist/>} />
         <Route path="createcollection" element={<CreateC/>} />

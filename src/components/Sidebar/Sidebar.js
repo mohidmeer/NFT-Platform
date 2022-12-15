@@ -15,27 +15,26 @@ import { IoIosRocket,IoIosCreate} from "react-icons/io";
 import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrAssistListening } from "react-icons/gr";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import {  NavLink } from 'react-router-dom';
 import { NavHashLink as NavLink} from 'react-router-hash-link';
 import { TicketIcon } from '@heroicons/react/20/solid';
-
+import { useParams } from "react-router-dom";
 
 
 
 const Sidebar = () => {
-   //  const [isOpen,setIsOpen]=useState(true);
-
-
-
+    const [isOpen,setIsOpen]=useState(true);
+    const { id } = useParams();
   return (
     <>
+
   
 
     
     <aside className={`sidebar lg:h-screen sticky top-0  lg:w-64  }  `} >
     
-   
+    <h3>{ id  }</h3>
         {/* {isOpen ? <MdClose / > : <GiHamburgerMenu/> } */}
         
    {/* </button> */}
