@@ -1,5 +1,6 @@
 import { Tab } from '@headlessui/react'
-import React from 'react'
+import React, { Fragment } from 'react'
+import { FiCheck } from 'react-icons/fi'
 
 const Launch = () => {
   return (
@@ -8,10 +9,50 @@ const Launch = () => {
        <div className='justify-center'>
        <Tab.Group>
       <Tab.List  className={`flex gap-6 mb-3 justify-center`}>
-        <Tab as='button'  className={ `tab-menu  `}>List NFT</Tab>
-        <Tab as='button'  className={`tab-menu `}>Auction NFT</Tab>
-        <Tab as='button'  className={`tab-menu `}>Drop Collection</Tab>
+      <Tab as={Fragment}>
+      {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                `flex justify-between font-bold p-4 bg-pink-600 text-white rounded-lg w-full mt-2`
+              }
+            >
+              List NFT {selected ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}
+            </button>
+          )}
+
+         </Tab>
+      <Tab as={Fragment}>
+      {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                `flex justify-between font-bold p-4 bg-pink-600 text-white rounded-lg w-full mt-2`
+              }
+            >
+              Auction NFT {selected ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}
+            </button>
+          )}
+
+         </Tab>
+      <Tab as={Fragment}>
+      {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                `flex justify-between font-bold p-4 bg-pink-600 text-white rounded-lg w-full mt-2`
+              }
+            >
+              Drop Collection {selected ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}
+            </button>
+          )}
+
+         </Tab>
+
       </Tab.List>
+     
+       
+      
       <Tab.Panels>
         <Tab.Panel className={`w-2/3 mx-auto`}>
 

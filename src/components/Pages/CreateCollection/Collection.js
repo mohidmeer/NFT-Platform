@@ -1,6 +1,11 @@
-import React from 'react'
-
+import React, { useRef } from 'react'
+import placeholder from '../../../image.png'
 const Collection = ({stateChanger}) => {
+
+  const inputFile = useRef(null)
+  const onButtonClick = () => {
+     inputFile.current.click();
+    };
   return (
     <div className='w-1/3'>
        <p className='font-bold text-sm text-gray-700'>Step 2 of 6</p>
@@ -32,15 +37,11 @@ const Collection = ({stateChanger}) => {
           <label for="default-input" class="block mb-2 text-xs font-bold  text-gray-900 dark:text-white">Collection Symbol</label>
           <input placeholder='' type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
         </div>
-        <label
-          for="first_name"
-          class="mt-4 text-lg font-bold block mb-2  text-gray-900 dark:text-white"
-        >
-          Profile Image (500x500px)
-        </label>
-        <button className="font-bold text-sm py-2 px-3 bg-pink-600 rounded-xl text-white">
-          Upload
-        </button>
+        <div className='flex justify-center mt-2'>
+            <img width={400} onClick={onButtonClick}  src={placeholder}/>
+            <input type='file' id='file' ref={inputFile} style={{display: 'none'}}/>
+        </div>
+        <p className="text-gray-600 text-center mt-2 font-bold">Upload Image NFT</p>
 
         <div className='flex justify-center'>
         <button onClick={() => stateChanger(3)} className=' mt-2 p-3  w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600'>

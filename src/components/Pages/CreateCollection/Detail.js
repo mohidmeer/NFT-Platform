@@ -4,7 +4,7 @@ import { GiCancel } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 const Detail = ({stateChanger}) => {
-  const [val,setVal]=useState([]);
+  const [val,setVal]=useState([1,2,3,4]);
   const handleAdd =()=>{
     const abc =[...val,[]]
     setVal(abc)
@@ -18,6 +18,9 @@ const Detail = ({stateChanger}) => {
     deleteVal.splice(i,1)
     setVal(deleteVal)
   }
+
+ 
+  
 
   return (
     <div className="w-1/3">
@@ -148,7 +151,7 @@ const Detail = ({stateChanger}) => {
           }) }
           <button
             onClick={() => handleAdd()}
-            className="mt-4 bg-blue-700 w-full font-bold py-2 rounded focus:ring-4  text-white "
+            className="mt-4 bg-pink-600 w-full font-bold py-2 rounded focus:ring-4  text-white "
           >
             Add More
           </button>

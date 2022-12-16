@@ -20,14 +20,14 @@ const CollectionItem = () => {
        
         
         
-        <div className='flex  '>
-            <div>
+        <div className='flex border border-white p-2   '>
+            <div className='mr-auto'>
                 <SideFilter/>
             </div>
-            <div >
+            <div className='border ' >
                 <Content/>
             </div>
-            <div >
+            <div className='ml-auto' >
                 <Cart/>
             </div>
          

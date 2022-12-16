@@ -49,7 +49,7 @@ const Intro = ( {stateChanger}) => {
           <span className={` ${checked ? 'dsa':'das'} flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}>Non Licensed {checked ? <FiCheck className='text-pink-600 text-3xl bg-app rounded-full p-1'/> : ''}</span>
         )}
       </RadioGroup.Option>
-    </RadioGroup>
+     </RadioGroup>
 
 
     <div class="mb-6 mt-6">

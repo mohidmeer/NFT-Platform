@@ -3,7 +3,7 @@ import { GiCancel } from 'react-icons/gi';
 
 const Background = ({stateChanger}) => {
 
-  const [val,setVal]=useState([1]);
+  const [val,setVal]=useState([1,2]);
   const handleAdd =()=>{
     const abc =[...val,[]]
     setVal(abc)
@@ -72,7 +72,7 @@ const Background = ({stateChanger}) => {
           <div className=''>
           <button
             onClick={() => handleAdd()}
-            className="mt-4 bg-blue-700 px-4  font-bold py-2 rounded focus:ring-4  text-white "
+            className="mt-4 bg-pink-600 px-4  font-bold py-2 rounded focus:ring-4  text-white "
           >
             Add More
           </button>
