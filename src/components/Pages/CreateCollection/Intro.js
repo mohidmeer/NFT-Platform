@@ -9,7 +9,7 @@ const Intro = ( {stateChanger}) => {
     let [copyright, setCopyright] = useState('startup')
   return (
     <div className='w-1/3'>
-        <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p>
+        {/* <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p> */}
         <h3 className='font-bold text-3xl mt-4'>Blockchain</h3>
         
       <RadioGroup value={blockchain} onChange={setBlockchain}>

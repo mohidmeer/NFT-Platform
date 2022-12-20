@@ -8,7 +8,7 @@ const Collection = ({stateChanger}) => {
     };
   return (
     <div className='w-1/3'>
-       <p className='font-bold text-sm text-gray-700'>Step 2 of 6</p>
+       {/* <p className='font-bold text-sm text-gray-700'>Step 2 of 6</p> */}
         <h3 className='font-bold text-4xl'>Collection Info</h3>
         {/* <p className='font-bold mt-2'>Tell us about the collection you’re minting!</p> */}
 

@@ -14,8 +14,8 @@ const Items = () => {
          <p className=' text-pink-600 truncate'>Mutant Ape Yatch</p>
        </div>
        <div className='flex justify-between'>
-         <p className='font-bold '>20</p>
-         <Link className={`text-xs text-pink-600 p-1 rounded hover:bg-pink-600 hover:text-white font-bold border border-green-400 truncate `}>Details</Link>
+         <Link className={`text-xs text-pink-600 p-1 px-2 rounded hover:bg-pink-600 hover:text-white font-bold border border-green-400 truncate `}>Buy</Link>
+         <Link className={`text-xs text-pink-600 p-1 px-2 rounded hover:bg-pink-600 hover:text-white font-bold border border-green-400 truncate `}>Sell</Link>
        </div>
 
     </div>

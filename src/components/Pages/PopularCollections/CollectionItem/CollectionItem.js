@@ -13,12 +13,12 @@ import Top from './Top'
 
 const CollectionItem = () => {
   return (
-    <div className='flex gap-3 '>
+    <div className='flex lg:flex-row md: gap-3 '>
       <Top />
       <div className='border ' >
         <Content/>
       </div>
-      <div className=' w-1/4'>
+      <div className='w-1/3'>
         <RightPannel/>
       </div>
       

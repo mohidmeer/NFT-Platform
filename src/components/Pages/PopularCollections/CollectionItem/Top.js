@@ -3,9 +3,9 @@ import { FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaReddit, 
 
 const Top = () => {
   return (
-    <div className=' w-3/6 p-4 '>
+    <div className=' md:full lg:w-3/6 p-4 '>
         <div className='flex'>
-        <div className='ml-10 mt-4 md:col-start-4 md:col-span-4 lg:col-span-3  '>
+        <div className=' mt-4   '>
             <img className=' w-72 rounded ' src="https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://res.cloudinary.com/coin-nft/image/upload/c_limit,q_auto,w_1200/f_auto/v1/cache/1/20/56/2056928ce1412f15a5193f740e3630c176ec580d8bd47076b4166d091bac36e2-MjJiYjdmM2QtOTJiMC00M2Q3LTkxMzQtOGFiMmM5MjhjYzE3"/>
         </div>
         <div className=' border    mt-4 p-4 '>

@@ -17,7 +17,7 @@ const RightPannel = () => {
         {name : 'Foregroun' , description : 'Green',rarety:'2% have this trait' }, 
       ];
   return (
-    <div className=''>
+    <div className='w-full'>
         <Cart/>
         <div className='mt-8'>
             <RadioFilters prop={Filters} />

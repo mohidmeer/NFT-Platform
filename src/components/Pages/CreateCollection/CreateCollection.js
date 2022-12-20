@@ -35,6 +35,7 @@ const CreateCollection = () => {
   }
   return (
     <div className='mt-8 md:p-10 '>
+      <h2 className='font-bold text-3xl'>List Your Collection</h2>
       <ProgressBar stateChanger={setPage} page={page} />
       {PageDisplay()}
     </div>
