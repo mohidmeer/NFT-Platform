@@ -1,4 +1,4 @@
-import React, { useState,Fragment } from 'react'
+import React, { useState,Fragment, useContext } from 'react'
 import { FaWallet } from 'react-icons/fa';
 import { Dialog, Transition } from '@headlessui/react'
 
@@ -16,7 +16,16 @@ import Bit from '../../Assets/Wallets/Bit.png'
 import Safepal from '../../Assets/Wallets/Safepal.png'
 import Hyperpay from '../../Assets/Wallets/Hyperpay.png'
 import Trustwallet from '../../Assets/Wallets/Trustwallet.png'
+import { RiMenu4Line } from 'react-icons/ri';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import AppContext from '../../AppContext';
+
+
 const Navbar = () => {
+
+  const myContext = useContext(AppContext);
+
+
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -26,13 +35,16 @@ const Navbar = () => {
   function openModal() {
     setIsOpen(true)
   }
+  function toggle( ) {
+    myContext.setSideBarState(myContext.sidebarstate=!myContext.sidebarstate)
+  }
 
   return (
     <div className="p-4 bg-app  flex  justify-between border-b-2 border-white">
       <div>
         <img src={Logo}  width={160} alt="" />
       </div>
-
+        
       <div className="w-1/3 hidden sm:block rounded-full  border border-pink-600    ">
         <div className="relative flex items-center w-full h-10 rounded-full focus-within:shadow-lg bg-app overflow-hidden">
           <div className="grid place-items-center h-full w-12 ">
@@ -61,12 +73,15 @@ const Navbar = () => {
         </div>
       </div>
 
+      <div className='flex gap-x-2'>
+       <button onClick={toggle} ><GiHamburgerMenu   className='  text-3xl'/> </button> 
       <button onClick={openModal} className=" truncate flex bg-transparent hover:bg-pink-600 text-blue-dark font-semibold hover:text-gray-700 py-2 px-4 border border-pink-600 hover:border-transparent rounded  ">
         <span className='border-r mr-2 border-pink-600'>
         <FaWallet className='mt-1  mr-2'/>
         </span>
         Connect Wallet
       </button>
+        </div>
 
 
       <Transition appear show={isOpen} as={Fragment}>

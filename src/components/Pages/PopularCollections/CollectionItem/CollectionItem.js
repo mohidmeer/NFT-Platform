@@ -1,7 +1,8 @@
 import React from 'react'
-import Cart from './Cart'
+
 import Content from './Content'
 import Items from './Items'
+import RightPannel from './RightPannel'
 import SideFilter from './SideFilter'
 import Top from './Top'
 
@@ -12,8 +13,20 @@ import Top from './Top'
 
 const CollectionItem = () => {
   return (
-    <div >
-        <div className='p-10'>
+    <div className='flex gap-3 '>
+      <Top />
+      <div className='border ' >
+        <Content/>
+      </div>
+      <div className=' w-1/4'>
+        <RightPannel/>
+      </div>
+      
+
+
+
+
+        {/* <div className='p-10'>
           <Top  />
         </div>
 
@@ -28,12 +41,12 @@ const CollectionItem = () => {
                 <Content/>
             </div>
             <div className='ml-auto' >
-                <Cart/>
+                
             </div>
          
 
 
-        </div>
+        </div> */}
 
 
 

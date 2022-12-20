@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import {Menu} from '@headlessui/react'
 import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram} from "react-icons/fa";
@@ -16,60 +16,52 @@ import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrAssistListening } from "react-icons/gr";
 import { Link, useLocation } from 'react-router-dom';
-// import {  NavLink } from 'react-router-dom';
 import { NavHashLink as NavLink} from 'react-router-hash-link';
-import { TicketIcon } from '@heroicons/react/20/solid';
-import { useParams } from "react-router-dom";
+import AppContext from '../../AppContext';
 
 
 
 const Sidebar = () => {
-    const [isOpen,setIsOpen]=useState(true);
-    const { id } = useParams();
+   const myContext = useContext(AppContext);
+
+
+
   return (
     <>
-
-  
-
+    <aside className={`sidebar h-screen sticky top-0 transition-all ease-out lg:w-64  ${myContext.sidebarstate ? 'lg:w-64': 'lg:w-20' }      `} >
     
-    <aside className={`sidebar lg:h-screen sticky top-0  lg:w-64  }  `} >
-    
-    <h3>{ id  }</h3>
-        {/* {isOpen ? <MdClose / > : <GiHamburgerMenu/> } */}
-        
-   {/* </button> */}
-    
-
-    <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded   bg-white lg:bg-transparent `}>
+    <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded  lg:bg-transparent `}>
       <ul class="space-y-2 flex justify-between lg:block md:block    ">
 
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600    '>
-             {/* <FaInfinity class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" /> */}
-            Communities
+           <span className={`${myContext.sidebarstate ? '': 'lg:hidden' }`}> 
+           Communities
+           </span>
+            
          </li><hr className='lg:flex hidden bg-dark h-[2px] '/>
        
 
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/communities' >
-             <FaInfinity class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Communities</span>
+             <FaInfinity className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' }    ` }>Social Communities</span>
                  
             </NavLink        >
         
          </li>
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}  smooth       to='/socialmint-share' >
-             <FaShareAlt class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Social Mint Share</span>
+             <FaShareAlt className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' }  ` }>Social Mint Share</span>
                  
             </NavLink        >
         
          </li>
          <li className='ml-2' >
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/discord' >
-             <FaDiscord class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold  ` }>Mint Messenger</span>
+             <FaDiscord className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    } />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' }  ` }>Mint Messenger</span>
             
             </NavLink        >
         
@@ -78,41 +70,44 @@ const Sidebar = () => {
 
 
          <li className=' font-bold  gap-x-1 lg:flex hidden text-gray-600  mt-1 '>
+
+         <span className={`${myContext.sidebarstate ? '': 'lg:hidden' }`}> 
             Marketplace
+           </span>
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection' >
-             <MdCollectionsBookmark class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Our Collections</span>
+             <MdCollectionsBookmark className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Our Collections</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-t#trending' >
-             <HiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Trending Collections</span>
+             <HiCollection className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Trending Collections</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-b#trending' >
-             <MdPhotoAlbum class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Blue Chips</span>
+             <MdPhotoAlbum className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Blue Chips</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
          <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/collection-c#trending' >
-             <MdCelebration class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Celebrity</span>
+             <MdCelebration className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Celebrity</span>
                             </NavLink>
         
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='watchlist' >
-             <BsFillBookmarkFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-               <span class={`ml-3 hidden lg:block font-bold `}>Watchlist</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/watchlist' >
+             <BsFillBookmarkFill className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Watchlist</span>
          </NavLink>
         
          </li>
@@ -120,106 +115,91 @@ const Sidebar = () => {
 
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
+         <span className={`${myContext.sidebarstate ? '': 'lg:hidden' }`}> 
             Creator
+           </span>
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createcollection' >
-         <IoIosCreate class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Create Collection</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/createcollection' >
+         <IoIosCreate className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Create Collection</span>
            
             </NavLink>
          </li>
 
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='createwhitelist' >
-         <BiListPlus class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Create Whitelist</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/createwhitelist' >
+         <BiListPlus className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Create Whitelist</span>
            
             </NavLink>
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='whitelist' >
-         <BiCollection class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Whitelist Register</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/whitelist' >
+         <BiCollection className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Whitelist Register</span>
            
             </NavLink>
          </li>
-
-        
-        
-
-
-
-
-
-
 
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
+         <span className={`${myContext.sidebarstate ? '': 'lg:hidden' }`}> 
             Launch
+           </span>
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="list">
-         <BsListUl class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3  hidden lg:block font-bold `}>List</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/list">
+         <BsListUl className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '': 'lg:hidden' } `}>List NFT</span>
             </NavLink>
          </li>
 
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="auctions">
-         <RiAuctionFill class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3  hidden lg:block font-bold `}>Auction</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/auctions">
+         <RiAuctionFill className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3  hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Auction</span>
             </NavLink>
          </li>
 
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="drops">
-         <ImCalendar class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3  hidden lg:block font-bold `}>Drop</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/drops">
+         <ImCalendar className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3  hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Drop</span>
             </NavLink>
          </li>
 
-         {/* <li className='ml-2' >
-         <NavLink disabled className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launchpad' >
-         <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Launch</span>
-            </NavLink>
-         </li> */}
-         {/* <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='tickets' >
-         <TicketIcon class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Ticketing</span>
-            </NavLink>
-         </li> */}
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600  mt-1 '>
+         <span className={`${myContext.sidebarstate ? '': 'lg:hidden' }`}> 
             Support
+           </span>
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
          <li className='ml-2' >
          <a className={`flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark `} href='https://www.youtube.com'  >
-         <FaYoutube class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Youtube</span>
+         <FaYoutube className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Youtube</span>
            
             </a>
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='artist-assist' >
-         <GrAssistListening class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Artist Services</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/artist-assist' >
+         <GrAssistListening className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Artist Services</span>
             </NavLink>
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='launch-services' >
-         <IoIosRocket class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Marketing Services</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/launch-services' >
+         <IoIosRocket className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Marketing Services</span>
             </NavLink>
          </li>
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark text-orange-600' : 'flex items-center p-1 text-xs font-normal  rounded-lg text-orange-600  hover:bg-dark')}        to='hints' >
-         <AiFillQuestionCircle class="flex-shrink-0 w-6 h-6   transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:" />
-          <span class={`ml-3   hidden lg:block font-bold `}>Hints & Tips</span>
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark text-orange-600' : 'flex items-center p-1 text-xs font-normal  rounded-lg text-orange-600  hover:bg-dark')}        to='/hints' >
+         <AiFillQuestionCircle className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
+          <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Hints & Tips</span>
             </NavLink>
          </li>
 
@@ -231,7 +211,7 @@ const Sidebar = () => {
         
       </ul>
       
-      <div className='  hidden grid-cols-2 gap-1 lg:grid '>
+      <div className={`hidden grid-cols-2 gap-1 lg:grid ${myContext.sidebarstate ? '': 'lg:hidden' }`}>
          <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
             <BsFacebook className=' mt-1 '/><span>Facebook</span>
          </Link>

@@ -1,4 +1,4 @@
-import { Disclosure, RadioGroup, Switch } from '@headlessui/react'
+import { Disclosure, RadioGroup, Switch, Transition } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import React, { useState } from 'react'
 import { FaFilter } from 'react-icons/fa'
@@ -15,6 +15,7 @@ import RadioFilters from './RadioFilters'
 
 const SideFilter = () => {
     let [plan, setPlan] = useState('startup')
+    
     const Filters =  [
       {name : 'Eyes' , description : 'Disappointed',rarety:'2% have this trait' }, 
       {name : 'Face' , description : 'Angry',rarety:'20% have this trait' }, 
@@ -22,15 +23,17 @@ const SideFilter = () => {
       {name : 'Background' , description : 'Blue',rarety:'2% have this trait' }, 
     ];
   return (
+    
     <div className=" h-screen border-r border-white">
-      <Disclosure>
+      <Disclosure >
         <Disclosure.Button
           className={`flex text-2xl hover:bg-white py-2 px-3 rounded `}
         >
           <FaFilter />
           <MdArrowForwardIos className=" ui-open:rotate-90 ui-open:ml-56 ui-open:transform" />
         </Disclosure.Button>
-        <Disclosure.Panel className={`flex  flex-col  justify-start border-t border-white `}>
+        
+        <Disclosure.Panel className={`flex  flex-col  justify-start border-t border-white  `}>
 
        {/* <div className='flex hover:bg-white font-bold justify-between p-4'>
         <p className='font-bold'>Buy Now</p>
@@ -39,6 +42,7 @@ const SideFilter = () => {
             <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-200 dark:peer-focus:ring-green-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-pink-600"></div>
         </label>   
        </div> */}
+    
 
         <Disclosure>
       {({ open }) => (
@@ -50,34 +54,26 @@ const SideFilter = () => {
           <Disclosure.Panel className={`   justify-start border-t border-white p-4 `} > 
           <RadioFilters  prop={Filters}     />
          </Disclosure.Panel>
+
         </>
       )}
         </Disclosure>
-
-
 
         
         <Disclosure>
-      {({ open }) => (
-        <>
-          <Disclosure.Button className={`flex hover:bg-white font-bold justify-between p-4`}>
-            Price
-            <MdArrowForwardIos className={`${open ? 'rotate-90 transform' : ''} mt-1 mr-3  `} />
-          </Disclosure.Button>
-          <Disclosure.Panel className={`flex  flex-col  justify-start border-t border-white `} > 
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className={`flex hover:bg-white font-bold justify-between p-4`}>
+                    Price
+                    <MdArrowForwardIos className={`${open ? 'rotate-90 transform' : ''} mt-1 mr-3  `} />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className={`flex  flex-col  justify-start border-t border-white `} > 
 
-       
-         </Disclosure.Panel>
-        </>
-      )}
+              
+                </Disclosure.Panel>
+                </>
+              )}
         </Disclosure>
-        
-
-
-
-
-
-
 
         <Disclosure>
       {({ open }) => (
@@ -158,22 +154,6 @@ const SideFilter = () => {
       )}
         </Disclosure>
           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </Disclosure.Panel>

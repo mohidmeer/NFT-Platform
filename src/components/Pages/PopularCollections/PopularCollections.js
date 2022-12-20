@@ -34,25 +34,6 @@ const PopularCollections = ( {tindex}) => {
       </Tab.Panels>
     </Tab.Group>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-     
-
-
     </div>
   );
 }

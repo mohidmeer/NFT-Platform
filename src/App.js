@@ -1,6 +1,3 @@
-import Topbar from './components/Topbar/Topbar'
-import Navbar from './components/Navbar/Navbar';
-import Sidebar from './components/Sidebar/Sidebar'
 import Launchpad from './components/Pages/Launchpad/Launchpad';
 import Auction from './components/Pages/Auction/Auction';
 import Landing from './components/Pages/Landing/Landing';
@@ -16,7 +13,7 @@ import PopularCollections from './components/Pages/PopularCollections/PopularCol
 import UpcomingDrops from './components/Pages/UpcomingDrops/UpcomingDrops';
 import Tickets from './components/Pages/Tickets/Tickets';
 import Error from './components/Pages/404/Error';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Communities from './components/Pages/Communities/Communities';
 import Whitelist from './components/Pages/WhiteList/Whitelist';
 import CreateC from './components/Pages/Creator/CreateC';
@@ -31,8 +28,17 @@ import WhitelistRegisterItem from './components/Pages/WhitelistRegister/Whitelis
 import AuctionItem from './components/Pages/Auction/AuctionItem';
 import LiveDropItem from './components/Pages/Auction/LiveDrops/LiveDropItem';
 import CollectionItem from './components/Pages/PopularCollections/CollectionItem/CollectionItem';
-
+import AppContext from './AppContext';
+import AppLayout from './components/Layouts/AppLayout';
+import CollectionDetail from './components/Layouts/CollectionDetail';
 function App( ) {
+
+  const [sidebarstate, setSideBarState] = useState(1);
+
+  const  userSettings={
+    sidebarstate: sidebarstate,
+    setSideBarState,
+  }
  
 
 
@@ -40,23 +46,17 @@ function App( ) {
 
   return (
 
-
+    <AppContext.Provider value={userSettings}>
    <div className=' '>
-    <Topbar/>
-    
-    <Navbar/>
-    <div className='lg:flex md:flex '>
-    <Sidebar/>
-     <div className='container mx-auto  h-full app-text '>
     <Routes>
-    
-        <Route path="/" element={<Landing/>} />
-        <Route path="launchpad" element={<Launchpad/>} />
+       
+        <Route path="/" element={<AppLayout />}>
+         <Route index element={<Landing/>} />
+         <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
         <Route path="auctions/:name" element={<AuctionItem   name={"Rifter Demigod Solana"}  />}  />
 
         <Route path="collection"       element={<PopularCollections tindex={0}  />} />
-        <Route path="collection/:name" element={<CollectionItem                 />} />
         <Route path="collection-t"     element={<PopularCollections tindex={1}  />} />
         <Route path="collection-b"     element={<PopularCollections tindex={2}  />} />
         <Route path="collection-c"     element={<PopularCollections tindex={3}  />} />
@@ -74,23 +74,20 @@ function App( ) {
         <Route path="communities" element={<Communities/>} />
         <Route path="list" element={<Listing/>}/>
         <Route path="create-collection" element={<CreateCollection/>}/>
-          
-        
-
-
         <Route path="discord" element={<Discord/>} />
         <Route path="tickets" element={<Tickets/>} />
+        </Route>
+        <Route path="collection/:name" element={<CollectionDetail/>}>
+          <Route index element={<CollectionItem />} />
+        </Route>
+        
+     
         <Route path="*" element={<Error/>} />
      
     </Routes>
-
-     </div>
-    
-
-    </div>
     <ToastContainer />
    </div>
-   
+  </AppContext.Provider>
   );
 }
 
