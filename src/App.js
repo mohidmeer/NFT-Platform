@@ -55,14 +55,13 @@ function App( ) {
          <Route path="launchpad" element={<Launchpad/>} />
         <Route path="auctions" element={<Auction/>} />
         <Route path="auctions/:name" element={<AuctionItem   name={"Rifter Demigod Solana"}  />}  />
-
         <Route path="collection"       element={<PopularCollections tindex={0}  />} />
         <Route path="collection-t"     element={<PopularCollections tindex={1}  />} />
         <Route path="collection-b"     element={<PopularCollections tindex={2}  />} />
         <Route path="collection-c"     element={<PopularCollections tindex={3}  />} />
-
-        <Route path="createwhitelist" element={<Whitelist/>} />
-        <Route path="createcollection" element={<CreateC/>} />
+        {/* <Route path="createwhitelist" element={<Whitelist/>} /> */}
+        <Route path="createwhitelist" element={<CreateCollection   title={"Create Whitelist"}   />} />
+        <Route path="create-collection" element={<CreateCollection title={"Create Your Collection"}   />   } />
         <Route path="watchlist" element={<Watchlist/>} />
         <Route path="whitelist" element={<WhitelistRegister/>} />
         <Route path="whitelist/:name" element={<WhitelistRegisterItem  name={"Galactic Robots"}  />}/>
@@ -70,10 +69,9 @@ function App( ) {
         <Route path="launch-services" element={<LaunchServices/>} />
         <Route path="drops" element={<UpcomingDrops/>} />
         <Route path="drops/:name" element={<LiveDropItem name={"Glactic Robots"} />}  />
-
         <Route path="communities" element={<Communities/>} />
         <Route path="list" element={<Listing/>}/>
-        <Route path="create-collection" element={<CreateCollection/>}/>
+        <Route path="list-collection" element={<CreateCollection/>}/>
         <Route path="discord" element={<Discord/>} />
         <Route path="tickets" element={<Tickets/>} />
         </Route>

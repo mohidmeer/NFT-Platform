@@ -9,7 +9,7 @@ import Launch from './Launch'
 import ProgressBar from './ProgressBar'
 import Socials from './Socials'
 
-const CreateCollection = () => {
+const CreateCollection = ({title = "List Your Collection "}) => {
 
   const [page,setPage]=useState(1);
 
@@ -35,7 +35,7 @@ const CreateCollection = () => {
   }
   return (
     <div className='mt-8 md:p-10 '>
-      <h2 className='font-bold text-3xl'>List Your Collection</h2>
+      <h2 className='font-bold text-3xl'>{title}</h2>
       <ProgressBar stateChanger={setPage} page={page} />
       {PageDisplay()}
     </div>

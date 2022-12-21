@@ -8,7 +8,7 @@ const Launch = () => {
        <p className='font-bold text-sm text-gray-700'>Step 6 of 6</p>
        <div className='justify-center'>
        <Tab.Group>
-      <Tab.List  className={`flex gap-6 mb-3 justify-center`}>
+      <Tab.List  className={`flex gap-2 mb-3 justify-center`}>
       <Tab as={Fragment}>
       {({ selected }) => (
             /* Use the `selected` state to conditionally style the selected tab. */
@@ -54,7 +54,7 @@ const Launch = () => {
        
       
       <Tab.Panels>
-        <Tab.Panel className={`w-2/3 mx-auto`}>
+        <Tab.Panel className={`w-1/3 `}>
 
         <div class="mb-4 mt-4">
             <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Collection Name</label>
@@ -65,7 +65,7 @@ const Launch = () => {
        <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
      </div>
         </Tab.Panel>
-        <Tab.Panel className={`w-2/3 mx-auto`}>
+        <Tab.Panel className={`w-1/3 mx-auto`}>
 
         <div class="mb-4 mt-4">
             <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Auction Name</label>
@@ -80,7 +80,7 @@ const Launch = () => {
        <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
      </div>
         </Tab.Panel>
-        <Tab.Panel className={`w-2/3 mx-auto`}>
+        <Tab.Panel className={`w-1/3 ml-auto`}>
 
         <div class="mb-4 mt-4">
             <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Drop Collection</label>

@@ -31,7 +31,7 @@ const Sidebar = () => {
     <aside className={`sidebar h-screen sticky top-0 transition-all ease-out lg:w-64  ${myContext.sidebarstate ? 'lg:w-64': 'lg:w-20' }      `} >
     
     <div class={`flex flex-col gap-y-6  overflow-hidden py-4 px-3  rounded  lg:bg-transparent `}>
-      <ul class="space-y-2 flex justify-between lg:block md:block    ">
+      <ul class="space-y-2  justify-between block lg:block md:block    ">
 
 
          <li className=' font-bold lg:flex hidden gap-x-1 text-gray-600    '>
@@ -121,17 +121,18 @@ const Sidebar = () => {
          </li><hr className='bg-dark h-[2px] lg:flex hidden '/>
 
          <li className='ml-2' >
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/createcollection' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/create-collection' >
          <IoIosCreate className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
           <span class={`ml-3   hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' } `}>Create Collection</span>
            
             </NavLink>
          </li>
          <li className='ml-2'>
-         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/list">
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/list-collection">
          <BsListUl className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    }  />
-          <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '': 'lg:hidden' } `}>List NFT</span>
+          <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '': 'lg:hidden' } `}>List Collection</span>
             </NavLink>
+            {/* previous to='/list' */}
          </li>
 
 

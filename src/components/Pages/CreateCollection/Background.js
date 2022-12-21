@@ -69,7 +69,7 @@ const Background = ({ stateChanger }) => {
                       for="exampleFormControlInput1"
                       class="font-bold inline-block mb-2 text-gray-700"
                     >
-                      Linkden
+                      Linkedin
                     </label>
                     <input
                       type="text"

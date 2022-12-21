@@ -8,7 +8,7 @@ const AppLayout = () => {
     <div>
             <Topbar/>
             <Navbar/>
-            <div className='lg:flex md:flex '>
+            <div className='flex sm:flex lg:flex md:flex '>
             <Sidebar/>
             <div className='container mx-auto  h-full app-text'>
                 <Outlet/>
