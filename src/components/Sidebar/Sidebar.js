@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import {Menu} from '@headlessui/react'
-import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram} from "react-icons/fa";
+import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram, FaFacebook, FaTwitter, FaReddit, FaLinkedin, FaPinterest} from "react-icons/fa";
 import { HiCollection } from "react-icons/hi";
 import { HiTicket } from "react-icons/hi";
 import { HiHome } from "react-icons/hi";
@@ -220,32 +220,39 @@ const Sidebar = () => {
         
       </ul>
       
-      <div className={`hidden grid-cols-2 gap-1 lg:grid ${myContext.sidebarstate ? '': 'lg:hidden' }`}>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <BsFacebook className=' mt-1 '/><span>Facebook</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <BsTwitter className=' mt-1 '/><span>Twitter</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <FaDiscord className=' mt-1 '/><span>Discord</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <FaYoutube className=' mt-1 '/><span>Youtube</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <RiInstagramFill className=' mt-1 '/><span>Instagram</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <RiRedditFill className=' mt-1 '/><span>Reddit</span>
-         </Link>
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <RiLinkedinFill className=' mt-1 '/><span>Linkden</span>
-         </Link>
+      <div className={`hidden grid-cols-4 gap-1 lg:grid ${myContext.sidebarstate ? '': 'lg:hidden' }`}>
+      <Link className='flex justify-center  '>
+        <FaFacebook  className='text-facebook border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaTwitter  className='text-twitter border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaDiscord  className='text-discord border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaYoutube  className='text-red-600 border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaInstagram  className='text-instagram border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+         
+      <Link className='flex justify-center  '>
+        <FaReddit className='text-reddit border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaLinkedin className='text-blue-700 border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+      <Link className='flex justify-center  '>
+        <FaPinterest className='text-pintrest   border-gray-300 border-4 rounded-full text-4xl  ' />
+      </Link>
+         
+        
+         
+         
+         
     
-         <Link className='border  rounded-lg  bg-dark text-center p-1 text-sm font-bold gap-1 flex justify-center'>
-            <RiPinterestFill className=' mt-1 '/><span>Pintrest</span>
-         </Link>
+         
     
          
         
