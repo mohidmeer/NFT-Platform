@@ -34,6 +34,7 @@ export default function Plans() {
   };
 
   return (
+    <div className='lg:px-24 md:px-16  px-0   rounded-xl      p-4  lg:pb-8  border-2 border-white  mt-8'>  
     <div className="w-full px-4 py-16 ">
       <div className="bg-pink-600 p-8 rounded-xl">
         <h2 className="font-bold text-white  text-5xl text-center mb-5">
@@ -85,6 +86,7 @@ export default function Plans() {
           );
         })}
       </div>
+    </div>
     </div>
   );
 }

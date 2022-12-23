@@ -28,7 +28,7 @@ const Profilebar = () => {
         tabindex="-1"
       >
         <div class="flex m-4 space-x-2">
-          <Link to="profile">
+          <Link to="/profile">
             <img
               class="rounded-full w-9"
               src="https://img-cdn.magiceden.dev/rs:fill:64:64:0:0/plain/https://avatars.dicebear.com/api/jdenticon/Fn9B549u8ACKG8wM8HyBhQJ25EdCkxXqmT3w13DrFU4i.svg"

@@ -10,7 +10,7 @@ const DiscordLayout = () => {
     <Navbar/>
       <div className='lg:flex md:flex '>
         <Sidebar/>
-        <div className='h-full app-text'>
+        <div className='p-10 h-full app-text'>
             <Outlet/>
           </div>
       </div>

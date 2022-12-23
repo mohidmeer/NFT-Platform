@@ -38,6 +38,7 @@ import Wallets from './components/Pages/Profile/Wallets';
 import Rewards from './components/Pages/Profile/Rewards';
 import Notifications from './components/Pages/Profile/Notifications';
 import Offers from './components/Pages/Profile/Offers';
+import Plans from './components/Pages/Profile/Plans';
 function App( ) {
 
   const [sidebarstate, setSideBarState] = useState(1);
@@ -86,6 +87,7 @@ function App( ) {
           <Route path='wallets' element={<Wallets/>} />
           <Route path='rewards' element={<Rewards/>} />
           <Route path='notifications' element={<Notifications/>} />
+          <Route path='plans' element={<Plans/>} />
           <Route path='offers' element={<Offers/>} />
         </Route>
 

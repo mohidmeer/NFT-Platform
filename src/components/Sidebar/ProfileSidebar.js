@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import {Menu} from '@headlessui/react'
-import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram, FaFacebook, FaTwitter, FaReddit, FaLinkedin, FaPinterest, FaBell} from "react-icons/fa";
+import { FaInfinity, FaShareAlt ,FaDiscord, FaYoutube, FaInstagram, FaFacebook, FaTwitter, FaReddit, FaLinkedin, FaPinterest, FaBell, FaDollarSign} from "react-icons/fa";
 import { HiCollection } from "react-icons/hi";
 import { HiTicket } from "react-icons/hi";
 import { HiHome } from "react-icons/hi";
@@ -9,7 +9,7 @@ import { FaRocket } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 import { RiAuctionFill, RiInstagramFill, RiLinkedinFill, RiPinterestFill, RiRedditFill} from "react-icons/ri";
 import { BiCollection, BiListPlus} from "react-icons/bi";
-import { BsCartFill, BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsListUl,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
+import { BsCartFill, BsCurrencyDollar, BsDiscord, BsFacebook, BsFillBookmarkFill,BsFillQuestionOctagonFill,BsListUl,BsQuestionSquareFill,BsTwitter} from "react-icons/bs";
 import { MdClose,MdAddBusiness,MdCollectionsBookmark,MdPhotoAlbum, MdCelebration, MdAccountBalanceWallet} from "react-icons/md";
 import { IoIosRocket,IoIosCreate, IoMdPerson, IoMdGift, IoIosGift, IoIosCart} from "react-icons/io";
 import { AiFillPicture, AiFillQuestionCircle} from "react-icons/ai";
@@ -58,7 +58,15 @@ const ProfileSidebar = () => {
              <IoIosGift className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    } />
                <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' }  ` }>Rewards</span>
             
-            </NavLink        >
+            </NavLink>
+        
+         </li>
+         <li className='ml-2' >
+         <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')}        to='/plans' >
+             <FaDollarSign className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '': 'ml-1' } `    } />
+               <span class={`ml-3 hidden lg:block font-bold ${myContext.sidebarstate ? '': 'lg:hidden' }  ` }>Plans</span>
+            
+            </NavLink>
         
          </li>
          <li className='ml-2' >
