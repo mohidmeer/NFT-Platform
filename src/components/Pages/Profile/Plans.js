@@ -8,13 +8,13 @@ const plans = [
     name: "Free",
     description: "Best option for personal use  for your next project.",
     price: "0",
-    features: ["1 person", "1 Projects"],
+    features: ["1 person", "2 Trades"],
   },
   {
     name: "Solo",
     description: "Relevant for multiple users, extended & premium support.",
     price: "20",
-    features: ["1 person", "2 Projects"],
+    features: ["1 person", "Unlimited Trades"],
     
   },
   {
@@ -22,7 +22,7 @@ const plans = [
     description:
       "Best for large scale uses and extended redistribution rights.",
     price: "15",
-    features: ["2+ person", "Unlimited Projects"],
+    features: ["2+ person", "Unlimited Trades"],
   },
 ];
 
