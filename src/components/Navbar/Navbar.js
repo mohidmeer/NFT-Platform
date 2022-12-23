@@ -19,6 +19,7 @@ import Trustwallet from '../../Assets/Wallets/Trustwallet.png'
 import { RiMenu4Line } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import AppContext from '../../AppContext';
+import Profilebar from './Profilebar';
 
 
 const Navbar = () => {
@@ -75,12 +76,14 @@ const Navbar = () => {
 
       <div className='flex gap-x-2'>
        <button onClick={toggle} ><GiHamburgerMenu   className='  text-3xl'/> </button> 
+       
       <button onClick={openModal} className=" truncate flex bg-transparent hover:bg-pink-600 text-blue-dark font-semibold hover:text-gray-700 py-2 px-4 border border-pink-600 hover:border-transparent rounded  ">
-        <span className='border-r mr-2 border-pink-600'>
+        <span className='border-r mr-2 border-pink-600'>          
         <FaWallet className='mt-1  mr-2'/>
         </span>
         Connect Wallet
       </button>
+      <Profilebar/>
         </div>
 
 

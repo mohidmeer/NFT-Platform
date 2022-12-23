@@ -15,7 +15,7 @@ const Items = () => {
                   <a  className=' flex justify-center'>
                     <button
                       type="button"
-                      className=" mt-10 py-4 w-1/2  rounded-md font-bold text-white px-4 py-2 bg-pink-600"
+                      className=" mt-10 py-4 w-1/2  rounded-md font-bold text-white px-4  bg-pink-600"
                     > 
                       Plans
                     </button>

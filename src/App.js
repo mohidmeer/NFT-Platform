@@ -31,6 +31,13 @@ import CollectionItem from './components/Pages/PopularCollections/CollectionItem
 import AppContext from './AppContext';
 import AppLayout from './components/Layouts/AppLayout';
 import CollectionDetail from './components/Layouts/CollectionDetail';
+import DiscordLayout from './components/Layouts/DiscordLayout';
+import Profile from './components/Pages/Profile/Profile';
+import ProfileLayout from './components/Layouts/ProfileLayout';
+import Wallets from './components/Pages/Profile/Wallets';
+import Rewards from './components/Pages/Profile/Rewards';
+import Notifications from './components/Pages/Profile/Notifications';
+import Offers from './components/Pages/Profile/Offers';
 function App( ) {
 
   const [sidebarstate, setSideBarState] = useState(1);
@@ -59,7 +66,6 @@ function App( ) {
         <Route path="collection-t"     element={<PopularCollections tindex={1}  />} />
         <Route path="collection-b"     element={<PopularCollections tindex={2}  />} />
         <Route path="collection-c"     element={<PopularCollections tindex={3}  />} />
-        {/* <Route path="createwhitelist" element={<Whitelist/>} /> */}
         <Route path="createwhitelist" element={<CreateCollection   title={"Create Whitelist"}   />} />
         <Route path="create-collection" element={<CreateCollection title={"Create Your Collection"}   />   } />
         <Route path="watchlist" element={<Watchlist/>} />
@@ -72,12 +78,25 @@ function App( ) {
         <Route path="communities" element={<Communities/>} />
         <Route path="list" element={<Listing/>}/>
         <Route path="list-collection" element={<CreateCollection/>}/>
-        <Route path="discord" element={<Discord/>} />
         <Route path="tickets" element={<Tickets/>} />
         </Route>
+
+        <Route path="/" element={<ProfileLayout/>}>
+          <Route path='profile' element={<Profile/>} />
+          <Route path='wallets' element={<Wallets/>} />
+          <Route path='rewards' element={<Rewards/>} />
+          <Route path='notifications' element={<Notifications/>} />
+          <Route path='offers' element={<Offers/>} />
+        </Route>
+
         <Route path="collection/:name" element={<CollectionDetail/>}>
           <Route index element={<CollectionItem />} />
         </Route>
+        
+        <Route path="discord" element={<DiscordLayout/>}>
+          <Route index element={<Discord />} />
+        </Route>
+        
         
      
         <Route path="*" element={<Error/>} />
