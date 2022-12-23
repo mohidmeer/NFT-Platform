@@ -28,7 +28,7 @@ const Profilebar = () => {
         tabindex="-1"
       >
         <div class="flex m-4 space-x-2">
-          <Link href="/profile">
+          <Link to="profile">
             <img
               class="rounded-full w-9"
               src="https://img-cdn.magiceden.dev/rs:fill:64:64:0:0/plain/https://avatars.dicebear.com/api/jdenticon/Fn9B549u8ACKG8wM8HyBhQJ25EdCkxXqmT3w13DrFU4i.svg"
@@ -60,7 +60,7 @@ const Profilebar = () => {
                <span>My Rewards</span>
         </Link>
         <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
-        <Link class="flex items-center space-x-4 p-4 font-semibold   w-full hover:bg-app" to=''>
+        <Link class="flex items-center space-x-4 p-4 font-semibold   w-full hover:bg-app" to='profile'>
          <RiSettingsFill />
                <span>Profile Settings</span>
         </Link>
