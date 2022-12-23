@@ -7,19 +7,17 @@ const Items = () => {
               <div class=" order-last lg:order-first md:order-last mt-4 lg:pl-8  flex flex-col justify-center justify-items-center">
                 <div className=' '>
                   <h2 class="text-4xl  lg:text-5xl font-extrabold ">
-                    Magic Hackathon
+                    No Commision Trading 
                   </h2>
-                  <p class="mt-3 text-gray-500">
-                    Join our Hackathon with a total prize pool of $250K to
-                    experiment with ideas that will allow creators to earn
-                    royalties or identify alternative monetization models.
+                  <p class="mt-3 text-lg text-gray-600">
+                    Choose from our free plan to premium plan depending on how much you trade.No hidden Fees
                   </p>
-                  <a  className=''>
+                  <a  className=' flex justify-center'>
                     <button
                       type="button"
-                      className=" mt-10  rounded-md text-white px-4 py-2 bg-pink-600"
-                    >
-                      Join Hackathon
+                      className=" mt-10 py-4 w-1/2  rounded-md font-bold text-white px-4 py-2 bg-pink-600"
+                    > 
+                      Plans
                     </button>
                   </a>
               </div>
