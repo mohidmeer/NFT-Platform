@@ -50,7 +50,7 @@ const Profilebar = () => {
           </div>
         </div>
         <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
-        <Link class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app" to=''>
+        <Link class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app" to='me'>
          <BsStack />
                <span>My items</span>
         </Link>

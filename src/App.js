@@ -37,6 +37,7 @@ import Offers from "./components/Pages/Profile/Offers";
 import Plans from "./components/Pages/Profile/Plans";
 import WalletConnectProvider from "./Provider/WalletConnectProvider";
 import WalletProvider from "./Provider/WalletProvider";
+import MyItems from "./components/Pages/Myitems/MyItems";
 function App() {
   const [sidebarstate, setSideBarState] = useState(1);
 
@@ -99,6 +100,7 @@ function App() {
                   element={<LiveDropItem name={"Glactic Robots"} />}
                 />
                 <Route path="communities" element={<Communities />} />
+                <Route path="me" element={<MyItems />} />
                 <Route path="list" element={<Listing />} />
                 <Route path="list-collection" element={<CreateCollection />} />
                 <Route path="tickets" element={<Tickets />} />
