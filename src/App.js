@@ -35,8 +35,8 @@ import Rewards from "./components/Pages/Profile/Rewards";
 import Notifications from "./components/Pages/Profile/Notifications";
 import Offers from "./components/Pages/Profile/Offers";
 import Plans from "./components/Pages/Profile/Plans";
-import WalletConnectProvider from "./Provider/WalletConnectProvider";
 import WalletProvider from "./Provider/WalletProvider";
+import AuthProvider from "./Provider/AuthProvider";
 import MyItems from "./components/Pages/Myitems/MyItems";
 function App() {
   const [sidebarstate, setSideBarState] = useState(1);
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <WalletProvider>
-      <WalletConnectProvider>
+      <AuthProvider>
         <AppContext.Provider value={userSettings}>
           <div className=" ">
             <Routes>
@@ -128,7 +128,7 @@ function App() {
             <ToastContainer />
           </div>
         </AppContext.Provider>
-      </WalletConnectProvider>
+      </AuthProvider>
     </WalletProvider>
   );
 }
