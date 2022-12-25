@@ -1,15 +1,15 @@
 import Launchpad from "./components/Pages/Launchpad/Launchpad";
 import Auction from "./components/Pages/Auction/Auction";
 import Landing from "./components/Pages/Landing/Landing";
-import { ToastContainer, toast } from "react-toastify";
+import {ToastContainer, toast} from "react-toastify";
 import "react-tippy/dist/tippy.css";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PopularCollections from "./components/Pages/PopularCollections/PopularCollections";
 import UpcomingDrops from "./components/Pages/UpcomingDrops/UpcomingDrops";
 import Tickets from "./components/Pages/Tickets/Tickets";
 import Error from "./components/Pages/404/Error";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Communities from "./components/Pages/Communities/Communities";
 import Whitelist from "./components/Pages/WhiteList/Whitelist";
 import CreateC from "./components/Pages/Creator/CreateC";
@@ -35,8 +35,8 @@ import Rewards from "./components/Pages/Profile/Rewards";
 import Notifications from "./components/Pages/Profile/Notifications";
 import Offers from "./components/Pages/Profile/Offers";
 import Plans from "./components/Pages/Profile/Plans";
-import WalletConnectProvider from "./Provider/WalletConnectProvider";
 import WalletProvider from "./Provider/WalletProvider";
+import AuthProvider from "./Provider/AuthProvider";
 function App() {
   const [sidebarstate, setSideBarState] = useState(1);
 
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <WalletProvider>
-      <WalletConnectProvider>
+      <AuthProvider>
         <AppContext.Provider value={userSettings}>
           <div className=" ">
             <Routes>
@@ -126,7 +126,7 @@ function App() {
             <ToastContainer />
           </div>
         </AppContext.Provider>
-      </WalletConnectProvider>
+      </AuthProvider>
     </WalletProvider>
   );
 }
