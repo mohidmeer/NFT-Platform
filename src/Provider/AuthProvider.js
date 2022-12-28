@@ -1,5 +1,5 @@
 import {createContext, useState} from "react";
-import {useAccount, useConnect, useDisconnect, useNetwork, useProvider, useSignMessage} from "wagmi";
+import {useAccount, useConnect, useDisconnect, useNetwork, useProvider, useSigner, useSignMessage} from "wagmi";
 import {verifyMessage} from 'ethers/lib/utils'
 import {useAuth} from "../hooks/useAuth";
 import {useUser} from "../hooks/useUser";
@@ -15,6 +15,7 @@ const AuthProvider = ({children}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState(null)
   const {addNewWallet} = useUser()
+  const {data: signer} = useSigner()
   const {signMessage} = useSignMessage({
     onSuccess(data) {
       console.log(address)
@@ -73,7 +74,8 @@ const AuthProvider = ({children}) => {
         connectWallet: connectWallet,
         linkWallet: linkWallet,
         setUser: setUser,
-        user: user
+        user: user,
+        signer: signer
       }}
     >
       {children}

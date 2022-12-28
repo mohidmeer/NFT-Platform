@@ -62,7 +62,6 @@ export const useAuth = () => {
       })
   }
 
-
   const signOut = () => {
     disconnect();
     Logout();
