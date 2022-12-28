@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
+import {AuthContext} from "../../../Provider/AuthProvider";
 
 const Profile = () => {
+  const {user} = useContext(AuthContext)
+
   return (
     <div className="p-5 lg:w-1/3">
       <div className="text-3xl font-bold ">Profile Settings</div>
@@ -12,7 +15,7 @@ const Profile = () => {
           </label>
           <input
             type="text"
-            value={"CXBN"}
+            value={user?.username}
             id="disname"
             placeholder="Item Name"
             class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -29,7 +32,7 @@ const Profile = () => {
           <input
             type="text"
             id="disname"
-            value={"Lucifer"}
+            value={user?.displayName}
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
           />
@@ -48,7 +51,7 @@ const Profile = () => {
         ></textarea>
         <div class="mb-4">
           <label class="block mb-2 text-xs font-bold  text-gray-900 dark:text-white">
-           Email
+            Email
           </label>
           <input
             type="text"
@@ -60,20 +63,9 @@ const Profile = () => {
             Your email for marketplace notifications
           </p>
         </div>
-        <div class="mb-4">
-          <label class="block mb-2 text-xs font-bold  text-gray-900 dark:text-white">
-           Anti Phishing Code
-          </label>
-          <input
-            type="number"
-            id="disname"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
-          />
-        </div>
 
-        <button className="mt-4 block bg-white border border-pink-600 rounded-lg text-sm font-bold   p-2 ">
-          Link Device
+        <button className="mt-4 block bg-white border border-pink-600 rounded-lg text-sm font-bold p-2">
+          Update
         </button>
       </form>
     </div>

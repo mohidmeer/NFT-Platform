@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {
   FaCross,
   FaDiscord,
@@ -13,10 +13,10 @@ import {
   FaTwitter,
   FaTwitterSquare,
 } from "react-icons/fa";
-import { GiCancel } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import {GiCancel} from "react-icons/gi";
+import {Link} from "react-router-dom";
 
-const Detail = ({ stateChanger }) => {
+const Detail = ({stateChanger, values, setValues}) => {
   const [val, setVal] = useState([1, 2, 3, 4]);
   const handleAdd = () => {
     const abc = [...val, []];
@@ -33,6 +33,25 @@ const Detail = ({ stateChanger }) => {
     deleteVal.splice(i, 1);
     setVal(deleteVal);
   };
+
+  const handleCharacteristics = (e, key, type) => {
+    const characteristics = values.characteristics ? {...values.characteristics} : {}
+
+    let valueObject = characteristics[key] ? characteristics[key] : {}
+
+    if (type) {
+      valueObject.type = e.target.value
+    } else {
+      valueObject.name = e.target.value
+    }
+
+    characteristics[key] = valueObject
+
+    setValues({
+      ...values,
+      characteristics: characteristics
+    })
+  }
 
   return (
     <div className="w-1/3">
@@ -95,7 +114,11 @@ const Detail = ({ stateChanger }) => {
                       type="text"
                       class="c-input-box"
                       id="exampleFormControlInput1"
+                      name={data}
                       placeholder="Hair"
+                      onChange={(e) => {
+                        handleCharacteristics(e, data, true)
+                      }}
                     />
                   </div>
                   <div class="mb-3 w-full flex">
@@ -111,6 +134,9 @@ const Detail = ({ stateChanger }) => {
                         class="c-input-box"
                         id="exampleFormControlInput1"
                         placeholder="Blonde"
+                        onChange={(e) => {
+                          handleCharacteristics(e, data, false)
+                        }}
                       />
                     </div>
                     <button

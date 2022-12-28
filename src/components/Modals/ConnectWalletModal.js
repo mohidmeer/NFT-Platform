@@ -16,8 +16,8 @@ import Hyperpay from "../../Assets/Wallets/Hyperpay.png";
 import Trustwallet from "../../Assets/Wallets/Trustwallet.png";
 import {RiMenu4Line} from "react-icons/ri";
 
-const ConnectWalletModal = () => {
-  const {connectAsync, connectors, isOpen, closeModal} =
+const ConnectWalletModal = ({link}) => {
+  const {connectAsync, connectors, isOpen, closeModal, connectWallet, linkWallet} =
     useContext(AuthContext);
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -57,12 +57,11 @@ const ConnectWalletModal = () => {
                     <div className="flex justify-between">
                       <ul>
                         <li class=" border-transparent p-2 hover:bg-green-200 hover:bg-opacity-10  hover:border-green-200 border-2 transition-all rounded-lg">
+                          {console.log(link)}
                           <button
                             class="flex items-center w-full text-white-primary text-lg font-medium text-left"
                             onClick={() =>
-                              connectAsync({connector: connectors[0]}).then(
-                                () => closeModal()
-                              )
+                              link ? linkWallet(connectors[0]) : connectWallet(connectors[0])
                             }
                           >
                             <img
@@ -81,9 +80,7 @@ const ConnectWalletModal = () => {
                           <button
                             class="flex items-center w-full text-white-primary text-lg font-medium text-left"
                             onClick={() =>
-                              connectAsync({connector: connectors[1]}).then(
-                                () => closeModal()
-                              )
+                              link ? linkWallet(connectors[1]) : connectWallet(connectors[1])
                             }
                           >
                             <img
@@ -102,9 +99,7 @@ const ConnectWalletModal = () => {
                           <button
                             class="flex items-center w-full text-white-primary text-lg font-medium text-left"
                             onClick={() =>
-                              connectAsync({connector: connectors[2]}).then(
-                                () => closeModal()
-                              )
+                              link ? linkWallet(connectors[2]) : connectWallet(connectors[2])
                             }
                           >
                             <img
