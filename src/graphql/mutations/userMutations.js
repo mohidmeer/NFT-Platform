@@ -17,7 +17,6 @@ mutation Mutation($walletAddress: String!) {
 export const CREATE_USER = gql`
 mutation Mutation($walletAddress: String!, $planName: String!) {
   signUpUser(walletAddress: $walletAddress, subType: $planName) {
-    _id
     displayName
     username
     email
@@ -26,3 +25,22 @@ mutation Mutation($walletAddress: String!, $planName: String!) {
     bio
   }
 }`
+
+export const LINK_WALLET = gql`
+mutation Mutation($userId: String, $walletType: String, $walletAddress: String) {
+  linkWallet(userId: $userId, walletType: $walletType, walletAddress: $walletAddress) {
+    bio
+    _id
+    displayName
+    email
+    twitter
+    telegram
+    username
+    wallets {
+      _id
+      walletAddress
+      walletType
+    }
+  }
+}
+`

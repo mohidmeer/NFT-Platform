@@ -1,5 +1,5 @@
-import { Menu } from "@headlessui/react";
-import React, { useContext, useState } from "react";
+import {Menu} from "@headlessui/react";
+import React, {useContext, useState} from "react";
 import {
   BsGift,
   BsGiftFill,
@@ -9,22 +9,22 @@ import {
   BsWallet,
   BsWalletFill,
 } from "react-icons/bs";
-import { FaPersonBooth } from "react-icons/fa";
-import { FiSettings } from "react-icons/fi";
-import { GiStack } from "react-icons/gi";
-import { RiFileSettingsFill, RiSettingsFill } from "react-icons/ri";
-import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { truncateAddress } from "../../utils/global";
-import { AuthContext } from "../../Provider/AuthProvider";
+import {FaPersonBooth} from "react-icons/fa";
+import {FiSettings} from "react-icons/fi";
+import {GiStack} from "react-icons/gi";
+import {RiFileSettingsFill, RiSettingsFill} from "react-icons/ri";
+import {IoIosArrowDown} from "react-icons/io";
+import {Link} from "react-router-dom";
+import {truncateAddress} from "../../utils/global";
+import {AuthContext} from "../../Provider/AuthProvider";
 import SignModal from "../Modals/SignModal";
-import { LOGOUT } from "../../graphql/queries/userQueries";
-import { useLazyQuery } from "@apollo/client";
-import { useAuth } from "../../hooks/useAuth";
+import {LOGOUT} from "../../graphql/queries/userQueries";
+import {useLazyQuery} from "@apollo/client";
+import {useAuth} from "../../hooks/useAuth";
 
 const Profilebar = () => {
-  const { isConnected, address, user } = useContext(AuthContext);
-  const { signOut } = useAuth();
+  const {isConnected, address, user} = useContext(AuthContext);
+  const {signOut} = useAuth();
   const [open, setOpen] = useState(false);
 
   const openSignatureModal = () => {
@@ -92,7 +92,7 @@ const Profilebar = () => {
               </span>
               {!user && (
                 <Menu.Item>
-                  {({ close }) => (
+                  {({close}) => (
                     <div>
                       <button
                         class="text-pink-600"
@@ -111,13 +111,19 @@ const Profilebar = () => {
             </div>
           </div>
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
-          <Link
-            class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
-            to=""
-          >
-            <BsStack />
-            <span>My items</span>
-          </Link>
+
+          <Menu.Item>
+            {({close}) => (
+              <Link
+                class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
+                to="/me"
+                onClick={close}
+              >
+                <BsStack />
+                <span>My items</span>
+              </Link>
+            )}
+          </Menu.Item>
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
           <Link
             class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
@@ -177,7 +183,7 @@ const Profilebar = () => {
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
 
           <Menu.Item>
-            {({ close }) => (
+            {({close}) => (
               <div
                 onClick={() => {
                   !user ? openSignatureModal() : signOut();
@@ -191,13 +197,18 @@ const Profilebar = () => {
             )}
           </Menu.Item>
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
-          <Link
-            class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
-            to=""
-          >
-            <BsWalletFill />
-            <span>Manage wallets</span>
-          </Link>
+          <Menu.Item>
+            {({close}) => (
+              <Link
+                class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
+                to="/wallets"
+                onClick={close}
+              >
+                <BsWalletFill />
+                <span>Manage wallets</span>
+              </Link>
+            )}
+          </Menu.Item>
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
           <Link
             class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"

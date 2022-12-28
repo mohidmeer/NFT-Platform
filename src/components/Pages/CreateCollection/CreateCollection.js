@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Background from './Background'
 import Collection from './Collection'
 import Detail from './Detail'
@@ -10,27 +10,26 @@ import ProgressBar from './ProgressBar'
 import Socials from './Socials'
 
 const CreateCollection = ({title = "List Your Collection "}) => {
+  const [page, setPage] = useState(1);
+  const [values, setValues] = useState({})
 
-  const [page,setPage]=useState(1);
+  const PageDisplay = () => {
+    if (page === 1) {
+      return <Intro stateChanger={setPage} setValues={setValues} values={values} />;
+    } else if (page === 2) {
+      return <Collection stateChanger={setPage} setValues={setValues} values={values} />;
+    } else if (page === 3) {
+      return <Detail stateChanger={setPage} setValues={setValues} values={values} />;
+    } else if (page === 4) {
+      return <Socials stateChanger={setPage} setValues={setValues} values={values} />;
+    }
+    else if (page === 5) {
+      return <Background stateChanger={setPage} setValues={setValues} values={values} />;
+    }
+    else if (page === 6) {
+      return <Launch stateChanger={setPage} setValues={setValues} values={values} />;
+    }
 
-
-  const PageDisplay = ()=>{
-    if (page===1){
-      return <Intro stateChanger={setPage} />;
-    } else if ( page===2){
-      return <Collection stateChanger={setPage}/>;
-    } else if ( page===3){
-      return <Detail stateChanger={setPage}/>;
-    }else if ( page===4){
-      return <Socials stateChanger={setPage}/>;
-    }
-    else if ( page===5){
-      return <Background stateChanger={setPage}/>;
-    }
-    else if ( page===6){
-      return <Launch stateChanger={setPage}/>;
-    }
-    
 
   }
   return (

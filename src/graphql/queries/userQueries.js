@@ -1,15 +1,20 @@
 import {gql} from "@apollo/client";
 
 export const CHECK_USER_LOGGED_IN = gql`
-query CheckUserLoggedIn {
+query Query {
   checkUserLoggedIn {
+    wallets {
+      _id
+      walletAddress
+      walletType
+    }
     _id
+    bio
     displayName
-    username
     email
     telegram
     twitter
-    bio
+    username
   }
 }
 `
