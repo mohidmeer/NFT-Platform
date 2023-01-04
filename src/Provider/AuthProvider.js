@@ -1,7 +1,5 @@
 import {createContext, useState} from "react";
 import {useAccount, useConnect, useDisconnect, useNetwork, useProvider, useSigner, useSignMessage} from "wagmi";
-import {verifyMessage} from 'ethers/lib/utils'
-import {useAuth} from "../hooks/useAuth";
 import {useUser} from "../hooks/useUser";
 
 export const AuthContext = createContext();
@@ -17,7 +15,7 @@ const AuthProvider = ({children}) => {
   const {addNewWallet} = useUser()
   const {data: signer} = useSigner()
   const {signMessage} = useSignMessage({
-    onSuccess(data) {
+    onSuccess() {
       console.log(address)
       console.log(connector.name)
       addNewWallet(connector.name, address, user._id).then((res) => {

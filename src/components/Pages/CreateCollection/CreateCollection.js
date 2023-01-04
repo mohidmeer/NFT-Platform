@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {useCollection} from '../../../hooks/useCollection'
+import useStorage from '../../../hooks/useStorage'
 import Background from './Background'
 import Collection from './Collection'
 import Detail from './Detail'
@@ -12,12 +14,27 @@ import Socials from './Socials'
 const CreateCollection = ({title = "List Your Collection "}) => {
   const [page, setPage] = useState(1);
   const [values, setValues] = useState({})
+  const [image, setImage] = useState(null)
+  const {createCollection} = useCollection();
+  const {uploadOnIpfs, downloadIpfs} = useStorage()
+
+  const handleSubmit = () => {
+    const imageObject = new FormData()
+    imageObject.append("image", image)
+
+    const imageMetadata = {
+      image: imageObject.get("image")
+    }
+    uploadOnIpfs(imageMetadata).then(async (url) => {
+      const data = await downloadIpfs(url)
+    })
+  }
 
   const PageDisplay = () => {
     if (page === 1) {
       return <Intro stateChanger={setPage} setValues={setValues} values={values} />;
     } else if (page === 2) {
-      return <Collection stateChanger={setPage} setValues={setValues} values={values} />;
+      return <Collection stateChanger={setPage} setValues={setValues} values={values} setImage={setImage} />;
     } else if (page === 3) {
       return <Detail stateChanger={setPage} setValues={setValues} values={values} />;
     } else if (page === 4) {
@@ -27,7 +44,7 @@ const CreateCollection = ({title = "List Your Collection "}) => {
       return <Background stateChanger={setPage} setValues={setValues} values={values} />;
     }
     else if (page === 6) {
-      return <Launch stateChanger={setPage} setValues={setValues} values={values} />;
+      return <Launch stateChanger={setPage} setValues={setValues} values={values} handleSubmit={handleSubmit} />;
     }
 
 

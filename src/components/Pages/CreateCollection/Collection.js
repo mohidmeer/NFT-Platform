@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import placeholder from '../../../image.png'
-const Collection = ({stateChanger, setValues, values}) => {
+const Collection = ({stateChanger, setValues, values, setImage}) => {
 
   const inputFile = useRef(null)
   const onButtonClick = () => {
@@ -26,16 +26,7 @@ const Collection = ({stateChanger, setValues, values}) => {
         placeholder="Short Description"
         onChange={(e) => setValues({...values, shortDescription: e.target.value})}
       ></textarea>
-      {/*<div class="mb-4">
-        <label class="block mb-2 text-xs font-bold  text-gray-900 dark:text-white">Price</label>
-        <input
-          type='number'
-          id="disname"
-          placeholder='Price'
-          onChange={(e) => setValues({...values, price: e.target.value})}
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
-        />
-      </div>*/}
+
       <div class="mb-4">
         <label class="block mb-2 text-xs font-bold  text-gray-900 dark:text-white">Royalties</label>
         <input
@@ -59,7 +50,9 @@ const Collection = ({stateChanger, setValues, values}) => {
       </div>
       <div className='flex justify-center mt-2'>
         <img width={400} onClick={onButtonClick} src={placeholder} />
-        <input type='file' id='file' ref={inputFile} style={{display: 'none'}} />
+        <input type='file' id='file' ref={inputFile} style={{display: 'none'}} onChange={(e) => {
+          setImage(e.target.files[0]);
+        }} />
       </div>
       <p className="text-gray-600 text-center mt-2 font-bold">Upload Image NFT</p>
 
@@ -67,10 +60,7 @@ const Collection = ({stateChanger, setValues, values}) => {
         <button onClick={() => stateChanger(3)} className=' mt-2 p-3  w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600'>
           Save and Proceed
         </button>
-
       </div>
-
-
     </div>
   )
 }
