@@ -1,7 +1,9 @@
 import { Tab } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import { FiCheck } from 'react-icons/fi'
-
+import AuctionNft from './NftSubmitTypes/AuctionNft'
+import DropCollection from './NftSubmitTypes/DropCollection'
+import ListNft from './NftSubmitTypes/ListNft'
 const Launch = () => {
   return (
     <div className='p-6 '>
@@ -50,53 +52,16 @@ const Launch = () => {
          </Tab>
 
       </Tab.List>
-     
-       
-      
       <Tab.Panels>
-        <Tab.Panel className={`w-1/3 `}>
-
-        <div class="mb-4 mt-4">
-            <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Collection Name</label>
-            <input type='text' id="disname" placeholder='' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-      </div>
-      <div class="mb-4">
-       <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Start Date</label>
-       <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-     </div>
-        </Tab.Panel>
-        <Tab.Panel className={`w-1/3 mx-auto`}>
-
-        <div class="mb-4 mt-4">
-            <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Auction Name</label>
-            <input type='text' id="disname" placeholder='' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-      </div>
-      <div class="mb-4">
-       <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Start Date</label>
-       <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-     </div>
-      <div class="mb-4">
-       <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">End Date</label>
-       <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-     </div>
-        </Tab.Panel>
-        <Tab.Panel className={`w-1/3 ml-auto`}>
-
-        <div class="mb-4 mt-4">
-            <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Drop Collection</label>
-            <input type='text' id="disname" placeholder='' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-      </div>
-      <div class="mb-4">
-       <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">Start Date</label>
-       <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-     </div>
-      <div class="mb-4">
-       <label  class="block mb-2 font-bold  text-gray-900 dark:text-white">End Date</label>
-       <input type='date' id="disname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
-     </div>
-        </Tab.Panel>
-        
-        
+          <Tab.Panel >
+              <ListNft/>
+          </Tab.Panel>
+          <Tab.Panel >
+            <AuctionNft/>
+          </Tab.Panel>
+          <Tab.Panel >
+            <DropCollection/>
+          </Tab.Panel>
       </Tab.Panels>
       </Tab.Group>
 
