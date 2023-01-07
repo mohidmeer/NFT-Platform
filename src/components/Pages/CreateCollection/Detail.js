@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   FaCross,
   FaDiscord,
@@ -13,10 +13,10 @@ import {
   FaTwitter,
   FaTwitterSquare,
 } from "react-icons/fa";
-import {GiCancel} from "react-icons/gi";
-import {Link} from "react-router-dom";
+import { GiCancel } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
-const Detail = ({stateChanger, values, setValues}) => {
+const Detail = ({ stateChanger, values, setValues }) => {
   const [val, setVal] = useState([1, 2, 3, 4]);
   const handleAdd = () => {
     const abc = [...val, []];
@@ -35,23 +35,25 @@ const Detail = ({stateChanger, values, setValues}) => {
   };
 
   const handleCharacteristics = (e, key, type) => {
-    const characteristics = values.characteristics ? {...values.characteristics} : {}
+    const characteristics = values.characteristics
+      ? { ...values.characteristics }
+      : {};
 
-    let valueObject = characteristics[key] ? characteristics[key] : {}
+    let valueObject = characteristics[key] ? characteristics[key] : {};
 
     if (type) {
-      valueObject.type = e.target.value
+      valueObject.type = e.target.value;
     } else {
-      valueObject.name = e.target.value
+      valueObject.name = e.target.value;
     }
 
-    characteristics[key] = valueObject
+    characteristics[key] = valueObject;
 
     setValues({
       ...values,
-      characteristics: characteristics
-    })
-  }
+      characteristics: characteristics,
+    });
+  };
 
   return (
     <div className="w-1/3">
@@ -71,8 +73,13 @@ const Detail = ({stateChanger, values, setValues}) => {
           <input
             placeholder=""
             type="text"
+            name="primaryCategory"
             id="default-input"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onChange={(e) =>
+              setValues({ ...values, primaryCategory: e.target.value })
+            }
+            defaultValue={values.primaryCategory}
           />
           <p className="text-sm font-bold">
             Select the primary category that you would like for this collection
@@ -91,6 +98,11 @@ const Detail = ({stateChanger, values, setValues}) => {
             type="text"
             id="default-input"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            name="secondaryCategory"
+            onChange={(e) =>
+              setValues({ ...values, secondaryCategory: e.target.value })
+            }
+            defaultValue={values.secondaryCategory}
           />
           <p className="text-sm font-bold">
             Select the secondary category for this collection to be listed under
@@ -117,7 +129,7 @@ const Detail = ({stateChanger, values, setValues}) => {
                       name={data}
                       placeholder="Hair"
                       onChange={(e) => {
-                        handleCharacteristics(e, data, true)
+                        handleCharacteristics(e, data, true);
                       }}
                     />
                   </div>
@@ -135,7 +147,7 @@ const Detail = ({stateChanger, values, setValues}) => {
                         id="exampleFormControlInput1"
                         placeholder="Blonde"
                         onChange={(e) => {
-                          handleCharacteristics(e, data, false)
+                          handleCharacteristics(e, data, false);
                         }}
                       />
                     </div>
@@ -158,7 +170,7 @@ const Detail = ({stateChanger, values, setValues}) => {
           </button>
         </div>
 
-        <h3 className="mt-4 text-lg font-bold block mb-2  text-gray-900 dark:text-white">
+        {/*<h3 className="mt-4 text-lg font-bold block mb-2  text-gray-900 dark:text-white">
           Unlockable Content
         </h3>
         <label class="inline-flex relative items-center mb-5 cursor-pointer">
@@ -168,14 +180,21 @@ const Detail = ({stateChanger, values, setValues}) => {
             Include unlockable content that can only be revealed by owner of
             item.
           </span>
-        </label>
-
-        <button
-          onClick={() => stateChanger(4)}
-          className=" mt-2 p-3 w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600"
-        >
-          Save and Proceed
-        </button>
+        </label>*/}
+        <div className="flex gap-5 justify-between">
+          <button
+            onClick={() => stateChanger(4)}
+            className=" mt-2 p-3 w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600"
+          >
+            Save and Proceed
+          </button>
+          <button
+            onClick={() => stateChanger(2)}
+            className=" mt-2 p-3 w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600"
+          >
+            Go Back
+          </button>
+        </div>
       </div>
     </div>
   );

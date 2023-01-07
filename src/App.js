@@ -38,6 +38,9 @@ import Plans from "./components/Pages/Profile/Plans";
 import WalletProvider from "./Provider/WalletProvider";
 import AuthProvider from "./Provider/AuthProvider";
 import MyItems from "./components/Pages/Myitems/MyItems";
+import SwitchNetWorkModal from "./components/Modals/SwitchNetworkModal";
+import NetworksModal from "./components/Modals/NetworkModal";
+
 function App() {
   const [sidebarstate, setSideBarState] = useState(1);
 

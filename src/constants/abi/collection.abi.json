@@ -521,6 +521,11 @@
         "internalType": "uint32",
         "name": "_qty",
         "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "_tokenUri",
+        "type": "string"
       }
     ],
     "name": "mint",

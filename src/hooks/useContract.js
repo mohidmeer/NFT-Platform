@@ -1,20 +1,27 @@
-import {ContractFactory} from "ethers"
+import {ContractFactory, ethers} from "ethers"
 import {useContext} from "react"
 import CollectionAbi from "../constants/abi/collection.abi.json"
 import {CollectionBytecode} from "../constants/bytecode/collection.bytecode"
 import {AuthContext} from "../Provider/AuthProvider"
 
 export const useContract = () => {
-  const {signer} = useContext(AuthContext)
-  const collectionContract = () => {
+  const {signer, address} = useContext(AuthContext)
+
+  const erc721Contract = () => {
     const deployCollection = async (name, symbol) => {
       const collectionFactory = new ContractFactory(CollectionAbi, CollectionBytecode, signer)
       let collectionContract = await collectionFactory.deploy(name, symbol)
       return collectionContract.deployed()
     }
 
-    return {deployCollection}
+    const listNft = async (contractAddress, ipfsUri) => {
+      const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
+      const data = await collectionContract.ownerMint(address, ipfsUri)
+      return data;
+    }
+
+    return {deployCollection, listNft}
   }
 
-  return {collectionContract}
+  return {erc721Contract}
 }

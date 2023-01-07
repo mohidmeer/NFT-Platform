@@ -17,16 +17,14 @@ const CreateCollection = ({title = "List Your Collection "}) => {
   const [image, setImage] = useState(null)
   const {createCollection} = useCollection();
   const {uploadOnIpfs, downloadIpfs} = useStorage()
+  const [listingType, setListingType] = useState("nft")
+  const [nftDetails, setNftDetails] = useState({})
 
   const handleSubmit = () => {
-    const imageObject = new FormData()
-    imageObject.append("image", image)
-
-    const imageMetadata = {
-      image: imageObject.get("image")
-    }
-    uploadOnIpfs(imageMetadata).then(async (url) => {
+    uploadOnIpfs(image).then(async (url) => {
       const data = await downloadIpfs(url)
+      const collectionValues = {...values, image: data.url}
+      createCollection(collectionValues, listingType, nftDetails)
     })
   }
 
@@ -44,7 +42,15 @@ const CreateCollection = ({title = "List Your Collection "}) => {
       return <Background stateChanger={setPage} setValues={setValues} values={values} />;
     }
     else if (page === 6) {
-      return <Launch stateChanger={setPage} setValues={setValues} values={values} handleSubmit={handleSubmit} />;
+      return <Launch
+        stateChanger={setPage}
+        setValues={setValues}
+        values={values}
+        handleSubmit={handleSubmit}
+        setListingType={setListingType}
+        nftDetails={nftDetails}
+        setNftDetails={setNftDetails}
+      />;
     }
 
 

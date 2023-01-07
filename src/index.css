@@ -2,29 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
-
   .tab-menu {
-
-    @apply text-xl font-bold border-b-4  ui-selected:border-black  ;
+    @apply text-xl font-bold border-b-4  ui-selected:border-black;
   }
-  .tab-listing{
-    @apply text-sm font-bold p-2 rounded-lg ui-not-selected:text-gray-500  ui-not-selected:bg-white ui-selected:bg-app
+  .tab-listing {
+    @apply text-sm font-bold p-2 rounded-lg ui-not-selected:text-gray-500  ui-not-selected:bg-white ui-selected:bg-app;
   }
 
+  .sidebar {
+    @apply z-10       border-r-2 border-dark;
+  }
+  .app-text {
+    @apply text-black;
+  }
 
-    .sidebar {
-      @apply  z-10       border-r-2 border-dark  
-           ;
-    }
-    .app-text {
-      @apply  text-black    ;
-    }
-
-
-    .c-input-box {
-      @apply  block w-full px-3 py-1.5 text-base
+  .c-input-box {
+    @apply block w-full px-3 py-1.5 text-base
       font-normal
       text-gray-700
       bg-white bg-clip-padding
@@ -34,15 +28,14 @@
       ease-in-out
       m-0
       focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none;
-    }
-
-
   }
-@layer base{
-
-  body{
-
-    @apply bg-app
+}
+@layer base {
+  body {
+    @apply bg-app;
   }
 }
 
+html {
+  overflow-y: scroll !important;
+}

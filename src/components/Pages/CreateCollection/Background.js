@@ -32,7 +32,8 @@ const Background = ({ stateChanger }) => {
                   <div class="mb-3 w-full flex">
                     <button
                       onClick={() => handleDelete(i)}
-                      className="mt-8 text-3xl text-red-600">
+                      className="mt-8 text-3xl text-red-600"
+                    >
                       <MdClose className="" />
                     </button>
                     <div>
@@ -129,12 +130,19 @@ const Background = ({ stateChanger }) => {
         />
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-6">
         <button
           onClick={() => stateChanger(6)}
           className=" mt-2 p-3  w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600"
         >
           Save and Proceed
+        </button>
+
+        <button
+          onClick={() => stateChanger(4)}
+          className=" mt-2 p-3 w-52 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600"
+        >
+          Go Back
         </button>
       </div>
     </div>

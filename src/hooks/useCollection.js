@@ -1,12 +1,22 @@
 import {useContract} from "./useContract"
+import useStorage from "./useStorage"
 
 export const useCollection = () => {
-  const {deployCollection} = useContract()
+  const {erc721Contract} = useContract()
+  const {deployCollection, listNft} = erc721Contract()
+  const {uploadOnIpfs, downloadJSONFromIpfs} = useStorage()
 
-  const createCollection = async (values) => {
-    await deployCollection(values.name, values.symbol)
+  const createCollection = async (values, listingType, nftDetails) => {
+    console.log(listingType, nftDetails)
+    await deployCollection(values.name, values.collectionSymbol)
       .then((res) => {
-        console.log(res)
+        if (listingType === "nft") {
+          uploadOnIpfs(nftDetails).then(async (url) => {
+            const data = await downloadJSONFromIpfs(url)
+            listNft(res.address, url)
+            console.log(data)
+          })
+        }
       })
       .catch((err) => {
         console.log(err)
