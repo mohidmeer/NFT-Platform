@@ -15,9 +15,10 @@ export const useContract = () => {
     }
 
     const listNft = async (contractAddress, ipfsUri) => {
+      console.log(contractAddress)
       const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
       const data = await collectionContract.ownerMint(address, ipfsUri)
-      return data;
+      return data.wait();
     }
 
     return {deployCollection, listNft}

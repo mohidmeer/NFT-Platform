@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
+import {BsTrash} from 'react-icons/bs';
+import {FaRegTrashAlt} from 'react-icons/fa';
+import {deleteArrayElement} from '../../../../utils/global';
 
-const DropCollection = () => {
+const DropCollection = ({openPhaseModal, phases, setPhases}) => {
   const [exptime, setExptime] = useState('')
   const [transaction, setTransaction] = useState(false)
   const handleChange = (event) => {
     setExptime(event.target.value);
   };
   const handletransaction = () => {
-
     setTransaction(!transaction);
     console.log(transaction)
   }
@@ -16,7 +18,18 @@ const DropCollection = () => {
     <div className='lg:w-1/3 lg:ml-auto'>
       <h3 className="font-semibold text-3xl text-center mb-4">Drop Collection</h3>
       <div className="p-3">
-        <div class="mb-4">
+        {
+          phases.map((d, i) => (
+            <div className='bg-white flex justify-between py-2 px-4 rounded-lg mt-3'>
+              <p>{d.phaseName}</p>
+              <button className='text-red-500' onClick={() => {
+                setPhases(deleteArrayElement(phases, i))
+              }}><FaRegTrashAlt /></button>
+            </div>
+          ))
+        }
+        <button onClick={() => openPhaseModal()} className="mt-2 p-3 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600 w-full">Create Phase</button>
+        {/*<div class="mb-4">
           <label class="block mb-2 font-bold  text-gray-900 ">Date of Listing Expiration</label>
           <input onChange={handleChange} type='datetime-local' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l block w-full p-2.5 focus:border-pink-600 focus:outline-none " required />
           <p className="text-xs font-bold">Expiration Time:&nbsp; {exptime} </p>
@@ -57,7 +70,7 @@ const DropCollection = () => {
           <input onChange={handletransaction} checked={transaction} type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600" />
           <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select this to only allow one claim transaction per wallet</label>
         </div>
-
+*/}
 
       </div>
 

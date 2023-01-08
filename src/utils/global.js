@@ -1,3 +1,5 @@
+import {ethers} from "ethers";
+
 export const truncateAddress = (address) => {
   if (!address) return "No Account";
   const match = address.match(
@@ -7,3 +9,17 @@ export const truncateAddress = (address) => {
   return `${match[1]}…${match[2]}`;
 };
 
+export const formatValues = (value) => {
+  const returnValue = ethers.utils.formatEther(value)
+  return returnValue;
+}
+
+export const deleteArrayElement = (stateArray, index) => {
+  const array = [...stateArray]
+
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+
+  return array;
+}

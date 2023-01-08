@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { MdClose } from "react-icons/md";
+import React, {useState} from "react";
+import {MdClose} from "react-icons/md";
 
-const Background = ({ stateChanger }) => {
+const Background = ({stateChanger, values, setValues}) => {
   const [val, setVal] = useState([1, 2]);
   const handleAdd = () => {
     const abc = [...val, []];
@@ -115,6 +115,9 @@ const Background = ({ stateChanger }) => {
           placeholder="External Link"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
+          onChange={(e) => {
+            setValues({...values, whitepaper: e.target.value})
+          }}
         />
       </div>
       <div class="mb-4">
@@ -127,6 +130,9 @@ const Background = ({ stateChanger }) => {
           placeholder="External Link"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
+          onChange={(e) => {
+            setValues({...values, roadmap: e.target.value})
+          }}
         />
       </div>
 

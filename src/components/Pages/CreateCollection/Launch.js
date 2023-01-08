@@ -1,6 +1,7 @@
-import { Tab } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
-import { FiCheck } from "react-icons/fi";
+import {Tab} from "@headlessui/react";
+import React, {Fragment, useState} from "react";
+import {FiCheck} from "react-icons/fi";
+import PhaseModal from "../../Modals/PhaseModal";
 import AuctionNft from "./NftSubmitTypes/AuctionNft";
 import DropCollection from "./NftSubmitTypes/DropCollection";
 import ListNft from "./NftSubmitTypes/ListNft";
@@ -11,6 +12,16 @@ const Launch = ({
   setNftDetails,
   handleSubmit,
 }) => {
+  const [phaseModal, setPhaseModal] = useState(false)
+  const [phases, setPhases] = useState([])
+
+  const openPhaseModal = () => {
+    setPhaseModal(true)
+  }
+
+  const closePhaseModal = () => {
+    setPhaseModal(false)
+  }
   return (
     <div className="p-6 ">
       <p className="font-bold text-sm text-gray-700">Step 6 of 6</p>
@@ -18,7 +29,7 @@ const Launch = ({
         <Tab.Group>
           <Tab.List className={`flex gap-2 mb-3 justify-center`}>
             <Tab as={Fragment}>
-              {({ selected }) => (
+              {({selected}) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("nft")}
@@ -34,7 +45,7 @@ const Launch = ({
               )}
             </Tab>
             <Tab as={Fragment}>
-              {({ selected }) => (
+              {({selected}) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("auction")}
@@ -50,7 +61,7 @@ const Launch = ({
               )}
             </Tab>
             <Tab as={Fragment}>
-              {({ selected }) => (
+              {({selected}) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("drop")}
@@ -79,7 +90,18 @@ const Launch = ({
               />
             </Tab.Panel>
             <Tab.Panel>
-              <DropCollection setNftDetails={setNftDetails} />
+              <DropCollection
+                setNftDetails={setNftDetails}
+                openPhaseModal={openPhaseModal}
+                phases={phases}
+                setPhases={setPhases}
+              />
+
+              <PhaseModal
+                isOpen={phaseModal}
+                closeModal={closePhaseModal}
+                setPhases={setPhases}
+              />
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
