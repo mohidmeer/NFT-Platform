@@ -33,7 +33,7 @@ export const useCollectionApi = () => {
       })
     }
 
-    const createNewNft = (tokenId, url, image, nftDetails, collectionAddress) => {
+    const createNewNft = (tokenId, url, image, nftDetails, collectionAddress, nftType) => {
       return CreateNft({
         variables: {
           "name": nftDetails.name,
@@ -45,7 +45,8 @@ export const useCollectionApi = () => {
           "royalty": 4,
           "collectionAddress": collectionAddress,
           "network": chain.network,
-          "chainId": chain.id
+          "chainId": chain.id,
+          "nftType": nftType
         }
       })
     }

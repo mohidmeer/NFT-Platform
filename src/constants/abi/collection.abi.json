@@ -236,6 +236,13 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "claimAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint64",
@@ -288,6 +295,11 @@
             "internalType": "uint256",
             "name": "highestBidAmount",
             "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "tokenUri",
+            "type": "string"
           },
           {
             "internalType": "address",
@@ -446,6 +458,11 @@
         "internalType": "uint256",
         "name": "minBidAmount",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenUri",
+        "type": "string"
       },
       {
         "internalType": "uint64",

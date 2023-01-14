@@ -1,16 +1,25 @@
+import { useQuery } from "@apollo/client";
 import {RadioGroup, Tab} from "@headlessui/react";
 import React, {Fragment, useState} from "react";
 import {BsArrowRight, BsShield, BsShieldCheck} from "react-icons/bs";
 import {FiCheck} from "react-icons/fi";
 import {GiCancel} from "react-icons/gi";
 import {HiShieldCheck} from "react-icons/hi";
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
+import { GET_SINGLE_COLLECTION } from "../../../graphql/queries/collectionQueries";
 import WhitelistRequirements from "./WhitelistRequirements";
 
 const Intro = ({stateChanger, setValues, values}) => {
   let [copyright, setCopyright] = useState("startup");
+  const {slug} = useParams()
   const location = useLocation();
-  console.log(location.pathname);
+  
+  const {data: collectionData} = useQuery(GET_SINGLE_COLLECTION, {
+    variables: {
+      "slug": slug
+    }
+  })
+
   return (
     <div className="w-1/3">
       {/* <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p> */}

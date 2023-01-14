@@ -118,7 +118,7 @@ function App() {
                 <Route path="offers" element={<Offers />} />
               </Route>
 
-              <Route path="collection/:name" element={<CollectionDetail />}>
+              <Route path="collection/:collectionAddress" element={<CollectionDetail />}>
                 <Route index element={<CollectionItem />} />
               </Route>
 

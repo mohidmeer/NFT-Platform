@@ -35,7 +35,7 @@ const Launch = ({
                   onClick={() => setListingType("nft")}
                   className={`flex justify-between font-bold p-4 bg-pink-600 text-white rounded-lg w-full mt-2`}
                 >
-                  List NFT{" "}
+                  List NFT
                   {selected ? (
                     <FiCheck className="text-pink-600 text-3xl bg-app rounded-full p-1" />
                   ) : (
