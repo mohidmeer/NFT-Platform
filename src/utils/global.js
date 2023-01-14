@@ -9,6 +9,10 @@ export const truncateAddress = (address) => {
   return `${match[1]}…${match[2]}`;
 };
 
+export const decimalConverter = (value) => {
+  return ethers.utils.parseUnits(value.toString(), "ether")
+}
+
 export const formatValues = (value) => {
   const returnValue = ethers.utils.formatEther(value)
   return returnValue;

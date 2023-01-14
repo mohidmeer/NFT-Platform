@@ -44,3 +44,8 @@ mutation Mutation($userId: String, $walletType: String, $walletAddress: String) 
   }
 }
 `
+
+export const CHECK_WALLET_LINKED = gql`
+mutation Query($userId: String, $walletAddress: String) {
+  checkWalletLinked(userId: $userId, walletAddress: $walletAddress)
+}`

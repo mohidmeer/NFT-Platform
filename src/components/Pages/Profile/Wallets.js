@@ -59,7 +59,7 @@ const Wallets = () => {
           <hr class="bg-gray-400  my-6 h-[2px]" />
           <div>
             <ul>
-              {user?.wallets.map((d, i) => (
+              {user?.wallets?.map((d, i) => (
                 <li class="flex justify-between">
                   <div class="flex flex-col gap-2">
                     <div class="flex flex-wrap gap-2">

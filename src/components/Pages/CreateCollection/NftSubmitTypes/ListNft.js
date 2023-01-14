@@ -4,6 +4,7 @@ import {IoTimeOutline} from "react-icons/io5";
 import {BsPlus} from "react-icons/bs";
 import {toast} from "react-toastify";
 import logo from '../../../../Assets/Logo.png'
+import {ConfigProvider, DatePicker} from "antd";
 const ListNft = ({nftDetails, setNftDetails}) => {
   const [exptime, setExptime] = useState('')
   const notify = () => toast("Creating ERC-721")
@@ -116,29 +117,11 @@ const ListNft = ({nftDetails, setNftDetails}) => {
         </ul>
       </div>
 */}
-      {/*
-      <div className="p-3">
-        <div class="mb-4">
-          <label class="block mb-2 font-bold  text-gray-900 dark:text-white">Date of Listing Expiration</label>
-          <input onChange={handleChange} type='date' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l block w-full p-2.5 focus:border-pink-600 focus:outline-none " required />
-        </div>
-        <p className="text-xs font-bold">Expiration Time:&nbsp; {exptime} </p>
-      </div>*/}
 
       <div className="p-3">
-        <div className="flex justify-between">
-          <div>
-            <p className="font-bold text-xl bg-gradient-to-r from-green-600 to-teal-500 bg-clip-text text-transparent">Unlock once purchased</p>
-            <p className="text-xs">Content will be unlocked after successfull transtion</p>
-          </div>
-          <div>
-            <label class="relative inline-flex items-center mr-5 cursor-pointer">
-              <input type="checkbox" value="" class="sr-only peer" />
-              <div class="w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+      </div>
 
-            </label>
-          </div>
-        </div>
+      <div className="">
         {/*
         <ul class="grid w-full gap-6 md:grid-cols-2 mt-2 ">
           <li>
@@ -211,6 +194,18 @@ const ListNft = ({nftDetails, setNftDetails}) => {
           />
         </div>
         <div class="mb-4 ">
+          <label class="block mb-1 text-sm font-bold  text-gray-900 dark:text-white"> Price </label>
+          <input
+            placeholder="price"
+            type="number"
+            id="diss"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:border-pink-600 block w-full p-2.5  focus:outline-none"
+            onChange={(e) => setNftDetails({...nftDetails, price: e.target.value})}
+            required
+          />
+        </div>
+
+        <div class="mb-4 ">
           <label class="block mb-1 text-sm font-bold  text-gray-900 dark:text-white"> Royalties </label>
           <input
             placeholder="0% , 10% , 20% , Maximum is 50%"
@@ -224,6 +219,46 @@ const ListNft = ({nftDetails, setNftDetails}) => {
             required
           />
         </div>
+
+        <div className="mb-4">
+          <label class="block mb-1 text-sm font-bold  text-gray-900 dark:text-white">
+            Date of Listing Expiration
+          </label>
+
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: "#55b947",
+              },
+            }}
+          >
+            <DatePicker
+              showTime
+              placeholder="Select date of expiration"
+              style={{width: "100%"}}
+              onChange={(e) =>
+                setNftDetails({
+                  ...nftDetails,
+                  endTime: parseInt(new Date(e.$d).getTime() / 1000),
+                })
+              }
+            />
+          </ConfigProvider>
+        </div>
+
+        {/*<div className="flex justify-between mb-5">
+          <div>
+            <p className="font-bold text-xl bg-gradient-to-r from-green-600 to-teal-500 bg-clip-text text-transparent">Unlock once purchased</p>
+            <p className="text-xs">Content will be unlocked after successfull transtion</p>
+          </div>
+          <div>
+            <label class="relative inline-flex items-center mr-5 cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer" />
+              <div class="w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+
+            </label>
+          </div>
+        </div>*/}
       </div>
     </div>
   );

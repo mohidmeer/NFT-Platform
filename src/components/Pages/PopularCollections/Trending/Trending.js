@@ -82,17 +82,7 @@ const Trending = () => {
 
       
       <div className="grid  lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2  gap-8  mt-6 ">
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        <TableItem/>
-        
+        <TableItem/>        
       </div>
     </div>
   )

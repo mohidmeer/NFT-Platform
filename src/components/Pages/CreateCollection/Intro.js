@@ -1,22 +1,22 @@
-import { RadioGroup, Tab } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
-import { BsArrowRight, BsShield, BsShieldCheck } from "react-icons/bs";
-import { FiCheck } from "react-icons/fi";
-import { GiCancel } from "react-icons/gi";
-import { HiShieldCheck } from "react-icons/hi";
-import { useLocation } from "react-router-dom";
+import {RadioGroup, Tab} from "@headlessui/react";
+import React, {Fragment, useState} from "react";
+import {BsArrowRight, BsShield, BsShieldCheck} from "react-icons/bs";
+import {FiCheck} from "react-icons/fi";
+import {GiCancel} from "react-icons/gi";
+import {HiShieldCheck} from "react-icons/hi";
+import {useLocation} from "react-router-dom";
 import WhitelistRequirements from "./WhitelistRequirements";
 
-const Intro = ({ stateChanger, setValues, values }) => {
+const Intro = ({stateChanger, setValues, values}) => {
   let [copyright, setCopyright] = useState("startup");
   const location = useLocation();
   console.log(location.pathname);
   return (
     <div className="w-1/3">
       {/* <p className='font-bold text-sm text-gray-700'>Step 1 of 6</p> */}
-      <h3 className="font-bold text-3xl mt-4">Blockchain</h3>
+      {/*<h3 className="font-bold text-3xl mt-4">Blockchain</h3>*/}
       <form onSubmit={() => stateChanger(2)}>
-        <RadioGroup
+        {/*<RadioGroup
           value={values.blockchain}
           onChange={(e) => setValues({ ...values, blockchain: e })}
         >
@@ -69,19 +69,18 @@ const Intro = ({ stateChanger, setValues, values }) => {
               </span>
             )}
           </RadioGroup.Option>
-        </RadioGroup>
+        </RadioGroup>*/}
         <h3 className="font-bold text-3xl mt-4">Copyright</h3>
         <RadioGroup
           value={values.copyright}
-          onChange={(e) => setValues({ ...values, copyright: e })}
+          onChange={(e) => setValues({...values, copyright: e})}
         >
           <RadioGroup.Label></RadioGroup.Label>
           <RadioGroup.Option value="creator">
-            {({ checked }) => (
+            {({checked}) => (
               <span
-                className={` ${
-                  checked ? "dsa" : "das"
-                } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
+                className={` ${checked ? "dsa" : "das"
+                  } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
               >
                 Creater{" "}
                 {checked ? (
@@ -93,11 +92,10 @@ const Intro = ({ stateChanger, setValues, values }) => {
             )}
           </RadioGroup.Option>
           <RadioGroup.Option value="licensed">
-            {({ checked }) => (
+            {({checked}) => (
               <span
-                className={` ${
-                  checked ? "dsa" : "das"
-                } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
+                className={` ${checked ? "dsa" : "das"
+                  } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
               >
                 Licensed{" "}
                 {checked ? (
@@ -109,11 +107,10 @@ const Intro = ({ stateChanger, setValues, values }) => {
             )}
           </RadioGroup.Option>
           <RadioGroup.Option value="non-licensed">
-            {({ checked }) => (
+            {({checked}) => (
               <span
-                className={` ${
-                  checked ? "dsa" : "das"
-                } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
+                className={` ${checked ? "dsa" : "das"
+                  } flex justify-between font-bold p-4 bg-white rounded-lg w-full mt-2`}
               >
                 Non Licensed{" "}
                 {checked ? (
@@ -150,7 +147,7 @@ const Intro = ({ stateChanger, setValues, values }) => {
             required
             defaultValue={values.websiteUrl}
             onChange={(e) =>
-              setValues({ ...values, websiteUrl: e.target.value })
+              setValues({...values, websiteUrl: e.target.value})
             }
           />
         </div>

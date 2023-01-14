@@ -1,11 +1,13 @@
 import {ContractFactory, ethers} from "ethers"
 import {useContext} from "react"
+import {ChainsInfo} from "../config/config-chains"
 import CollectionAbi from "../constants/abi/collection.abi.json"
+import MarketplaceAbi from "../constants/abi/marketplace.abi.json"
 import {CollectionBytecode} from "../constants/bytecode/collection.bytecode"
 import {AuthContext} from "../Provider/AuthProvider"
 
 export const useContract = () => {
-  const {signer, address} = useContext(AuthContext)
+  const {signer, address, chain} = useContext(AuthContext)
 
   const erc721Contract = () => {
     const deployCollection = async (name, symbol) => {
@@ -14,15 +16,29 @@ export const useContract = () => {
       return collectionContract.deployed()
     }
 
-    const listNft = async (contractAddress, ipfsUri) => {
-      console.log(contractAddress)
+    const mintOwnerNft = async (contractAddress, ipfsUri) => {
       const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
       const data = await collectionContract.ownerMint(address, ipfsUri)
       return data.wait();
     }
 
-    return {deployCollection, listNft}
+    const approveMarketPlace = async (collectionAddress, tokenId) => {
+      const collectionContract = new ethers.Contract(collectionAddress, CollectionAbi, signer);
+      const data = await collectionContract.approve(ChainsInfo[chain.id].MARKETPLACE_CONTRACT, tokenId)
+      return data.wait();
+    }
+
+    return {deployCollection, mintOwnerNft, approveMarketPlace}
   }
 
-  return {erc721Contract}
+  const marketplaceContract = () => {
+    const directListNft = async (args) => {
+      const marketplaceContract = new ethers.Contract(ChainsInfo[chain.id].MARKETPLACE_CONTRACT, MarketplaceAbi, signer)
+      const data = await marketplaceContract.createListing(args)
+      return data.wait()
+    }
+    return {directListNft}
+  }
+
+  return {erc721Contract, marketplaceContract}
 }

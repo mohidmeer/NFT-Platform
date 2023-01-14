@@ -3,12 +3,12 @@
     "inputs": [
       {
         "internalType": "string",
-        "name": "_collectionName",
+        "name": "collectionName",
         "type": "string"
       },
       {
         "internalType": "string",
-        "name": "_collectionSymbol",
+        "name": "collectionSymbol",
         "type": "string"
       }
     ],
@@ -291,17 +291,17 @@
           },
           {
             "internalType": "address",
-            "name": "highestBidderAddress",
+            "name": "highestBidderAdrress",
             "type": "address"
           },
           {
             "internalType": "uint64",
-            "name": "startTime",
+            "name": "startTimeUnixSeconds",
             "type": "uint64"
           },
           {
             "internalType": "uint64",
-            "name": "endTime",
+            "name": "endTimeUnixSeconds",
             "type": "uint64"
           },
           {
@@ -310,7 +310,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct AuctionStageInfo",
+        "internalType": "struct SocialMint.AuctionStageInfo",
         "name": "",
         "type": "tuple"
       }
@@ -385,14 +385,14 @@
             "type": "uint24"
           },
           {
-            "internalType": "uint256",
-            "name": "startTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "startTimeUnixSeconds",
+            "type": "uint64"
           },
           {
-            "internalType": "uint256",
-            "name": "endTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "endTimeUnixSeconds",
+            "type": "uint64"
           },
           {
             "internalType": "bool",
@@ -400,7 +400,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct MintStageInfo",
+        "internalType": "struct SocialMint.MintStageInfo",
         "name": "",
         "type": "tuple"
       }
@@ -449,12 +449,12 @@
       },
       {
         "internalType": "uint64",
-        "name": "startTime",
+        "name": "startTimeUnixSeconds",
         "type": "uint64"
       },
       {
         "internalType": "uint64",
-        "name": "endTime",
+        "name": "endTimeUnixSeconds",
         "type": "uint64"
       },
       {
@@ -521,11 +521,6 @@
         "internalType": "uint32",
         "name": "_qty",
         "type": "uint32"
-      },
-      {
-        "internalType": "string",
-        "name": "_tokenUri",
-        "type": "string"
       }
     ],
     "name": "mint",
@@ -743,14 +738,14 @@
             "type": "uint24"
           },
           {
-            "internalType": "uint256",
-            "name": "startTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "startTimeUnixSeconds",
+            "type": "uint64"
           },
           {
-            "internalType": "uint256",
-            "name": "endTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "endTimeUnixSeconds",
+            "type": "uint64"
           },
           {
             "internalType": "bool",
@@ -758,7 +753,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct MintStageInfo",
+        "internalType": "struct SocialMint.MintStageInfo",
         "name": "newStages",
         "type": "tuple"
       }
@@ -821,14 +816,14 @@
             "type": "uint24"
           },
           {
-            "internalType": "uint256",
-            "name": "startTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "startTimeUnixSeconds",
+            "type": "uint64"
           },
           {
-            "internalType": "uint256",
-            "name": "endTime",
-            "type": "uint256"
+            "internalType": "uint64",
+            "name": "endTimeUnixSeconds",
+            "type": "uint64"
           },
           {
             "internalType": "bool",
@@ -836,7 +831,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct MintStageInfo[]",
+        "internalType": "struct SocialMint.MintStageInfo[]",
         "name": "newStages",
         "type": "tuple[]"
       }

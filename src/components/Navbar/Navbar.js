@@ -1,20 +1,21 @@
-import React, { useState, Fragment, useContext } from "react";
-import { FaSearch, FaWallet } from "react-icons/fa";
-import { Dialog, Transition } from "@headlessui/react";
+import React, {useState, Fragment, useContext} from "react";
+import {FaSearch, FaWallet} from "react-icons/fa";
+import {Dialog, Transition} from "@headlessui/react";
 
 import Logo from "../../logo.png";
-import { GiHamburgerMenu } from "react-icons/gi";
+import {GiHamburgerMenu} from "react-icons/gi";
 import AppContext from "../../AppContext";
 import Profilebar from "./Profilebar";
-import { AuthContext } from "../../Provider/AuthProvider";
+import {AuthContext} from "../../Provider/AuthProvider";
 import ConnectWalletModal from "../Modals/ConnectWalletModal";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import SwitchNetWorkModal from "../Modals/SwitchNetworkModal";
 import NetworksModal from "../Modals/NetworkModal";
+// import LinkWalletModal from "../Modals/LinkWalletModal";
 
 const Navbar = () => {
   const myContext = useContext(AppContext);
-  const { isConnected, openModal, closeModal, isOpen } =
+  const {isConnected, openModal, closeModal, isOpen} =
     useContext(AuthContext);
 
   function toggle() {
@@ -68,6 +69,7 @@ const Navbar = () => {
         </div>
 
         <ConnectWalletModal link={false} />
+        {/*<LinkWalletModal />*/}
       </div>
     </>
   );
