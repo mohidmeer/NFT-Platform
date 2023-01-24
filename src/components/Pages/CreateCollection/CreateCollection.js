@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {useCollection} from '../../../hooks/useCollection'
 import useStorage from '../../../hooks/useStorage'
+import {ApplicationContext} from '../../../Provider/ApplicationProvider'
+import Loading from '../../Loading/Loading'
 import Background from './Background'
 import Collection from './Collection'
 import Detail from './Detail'
@@ -19,13 +21,21 @@ const CreateCollection = ({title = "List Your Collection "}) => {
   const {uploadOnIpfs, downloadIpfs} = useStorage()
   const [listingType, setListingType] = useState("nft")
   const [nftDetails, setNftDetails] = useState({})
+  const {appLoading, setAppLoading} = useContext(ApplicationContext)
 
   const handleSubmit = () => {
-    uploadOnIpfs(image).then(async (url) => {
-      const data = await downloadIpfs(url)
-      const collectionValues = {...values, image: data.url}
-      createCollection(collectionValues, listingType, nftDetails)
-    })
+    setAppLoading(true)
+    uploadOnIpfs(image)
+      .then(async (url) => {
+        const data = await downloadIpfs(url)
+        console.log(values)
+        const collectionValues = {...values, image: data.url}
+        createCollection(collectionValues, listingType, nftDetails)
+      })
+      .catch((err) => {
+        setAppLoading(false)
+        console.log(err)
+      })
   }
 
   const PageDisplay = () => {
@@ -58,6 +68,7 @@ const CreateCollection = ({title = "List Your Collection "}) => {
   return (
     <div className='mt-8 md:p-10 '>
       <h2 className='font-bold text-3xl'>{title}</h2>
+      {appLoading ? <Loading /> : null}
       <ProgressBar stateChanger={setPage} page={page} />
       {PageDisplay()}
     </div>

@@ -21,16 +21,21 @@ import SignModal from "../Modals/SignModal";
 import {LOGOUT} from "../../graphql/queries/userQueries";
 import {useLazyQuery} from "@apollo/client";
 import {useAuth} from "../../hooks/useAuth";
+import { useBalance } from "wagmi";
 
 const Profilebar = () => {
   const {isConnected, address, user} = useContext(AuthContext);
   const {signOut} = useAuth();
   const [open, setOpen] = useState(false);
+  const { data:balance, isError, isLoading } = useBalance({
+     address: address,
+     enabled: isConnected
+  })
 
   const openSignatureModal = () => {
     setOpen(true);
   };
-
+console.log(balance)
   return (
     <div>
       <Menu as="div" class="  relative inline-block text-left mr-2 mt-1">
@@ -126,14 +131,6 @@ const Profilebar = () => {
           </Menu.Item>
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
           <Link
-            class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
-            to=""
-          >
-            <BsGiftFill />
-            <span>My Rewards</span>
-          </Link>
-          <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
-          <Link
             class="flex items-center space-x-4 p-4 font-semibold   w-full hover:bg-app"
             to="profile"
           >
@@ -157,29 +154,9 @@ const Profilebar = () => {
               </svg>
             </div>
             <span>
-              Main Wallet <p>0.00</p>
+              Main Wallet <p>{parseFloat(balance?.formatted).toFixed(4)} {balance?.symbol}</p>
             </span>
           </Link>
-          <Link
-            class="flex items-center space-x-4 p-4 font-semibold w-full hover:bg-app"
-            to=""
-          >
-            <div className="bg-gray-200 rounded-full p-3">
-              {" "}
-              <svg
-                height={25}
-                width={25}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-              >
-                <path d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" />
-              </svg>
-            </div>
-            <span>
-              Bidding Wallet <p>0.00</p>
-            </span>
-          </Link>
-
           <hr class="bg-gray-300 opacity-100 mx-2 h-px"></hr>
 
           <Menu.Item>

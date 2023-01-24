@@ -6,7 +6,8 @@ export const ChainsInfo = {
     BLOCK_EXPLORER_URL: "https://goerli.etherscan.io/",
     RPC_PROVIDER_URL:
       "https://goerli.infura.io/v3/9c48d1f781404552b1a017d597f6bee1",
-    MARKETPLACE_CONTRACT: "0xa27d0D73A48394A0172A45a7f0Be7b7BBEAC3095",
+    MARKETPLACE_CONTRACT: "0x034635583e4f045D1F81A2D3A57B46f0fEa4Ed48",
+    WETH: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
     NATIVE_CURRENCY: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
   },
 
@@ -16,7 +17,7 @@ export const ChainsInfo = {
     CHAIN_ID: "80001",
     BLOCK_EXPLORER_URL: "https://mumbai.polygonscan.com/",
     RPC_PROVIDER_URL: "https://rpc-mumbai.matic.today",
-    MARKETPLACE_CONTRACT: "0x8c771be6c6f3E7A7C61CD2F8BB31Dd56dDc35F7e",
+    MARKETPLACE_CONTRACT: "0x361F9a7c4871dE7880AAa765C9150FeBC02cb678",
     WETH: "0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa",
     NATIVE_CURRENCY: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
   },

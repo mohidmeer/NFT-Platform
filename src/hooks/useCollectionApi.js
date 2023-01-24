@@ -27,6 +27,8 @@ export const useCollectionApi = () => {
           "whitepaper": values.whitepaper,
           "roadmap": values.roadmap,
           "creatorAddress": address,
+          "characteristics": values.characteristics,
+          "team": values.team
           // "twitterAccount": "TEst",
           // "discordServer": "TEst"
         }
@@ -38,7 +40,7 @@ export const useCollectionApi = () => {
         variables: {
           "name": nftDetails.name,
           "description": nftDetails.description,
-          "tokenId": tokenId,
+          "tokenId": tokenId ? tokenId : null,
           "imageUrl": image,
           "metadataUrl": url,
           "price": 5,
@@ -46,7 +48,11 @@ export const useCollectionApi = () => {
           "collectionAddress": collectionAddress,
           "network": chain.network,
           "chainId": chain.id,
-          "nftType": nftType
+          "nftType": nftType,
+          "endTime": nftDetails.endTime.toString(),
+          "currentBid": 0.0,
+          "creatorAddress": address,
+          "ownerAddress": address
         }
       })
     }

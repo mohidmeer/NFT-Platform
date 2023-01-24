@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_COLLECTIONS = gql`
-query GetAllCollections {
-    getAllCollections {
+query GetFilteredCollections($blockchain: String) {
+  getFilteredCollections(blockchain: $blockchain) {
       _id
       blockchain
       collectionAddress
@@ -44,6 +44,16 @@ query CollectionNfts($collectionAddress: String) {
     twitterAccount
     discordServer
     creatorAddress
+    team {
+      name
+      position
+      linkedin
+      kycVerified 
+    } 
+    characteristics {
+      type
+      name
+    }
   }
   collectionNfts(collectionAddress: $collectionAddress) {
     _id

@@ -1,4 +1,5 @@
 import {ethers} from "ethers";
+import moment from "moment"
 
 export const truncateAddress = (address) => {
   if (!address) return "No Account";
@@ -26,4 +27,11 @@ export const deleteArrayElement = (stateArray, index) => {
   }
 
   return array;
+}
+
+export const getCountDown = (endTime) => {
+  const currentTime = parseInt(Date.now() / 1000)
+  const timeDiff = endTime - currentTime
+  const remainingTime = moment.duration(timeDiff, "seconds")
+  return remainingTime
 }

@@ -49,3 +49,10 @@ export const CHECK_WALLET_LINKED = gql`
 mutation Query($userId: String, $walletAddress: String) {
   checkWalletLinked(userId: $userId, walletAddress: $walletAddress)
 }`
+
+export const UPDATE_USER = gql`
+mutation UpdateUser($userId: String, $displayName: String, $username: String, $email: String, $telegram: String, $twitter: String, $bio: String) {
+  updateUser(userId: $userId, displayName: $displayName, username: $username, email: $email, telegram: $telegram, twitter: $twitter, bio: $bio) {
+    _id
+  }
+}`

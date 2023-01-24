@@ -1,7 +1,23 @@
 import {gql} from "@apollo/client";
 
 export const CREATE_NFT = gql`
-mutation CreateCollection($name: String!, $description: String!, $tokenId: Int!, $imageUrl: String!, $metadataUrl: String!, $price: Float!, $royalty: Float!, $collectionAddress: String!, $network: String!, $chainId: Int!, $nftType: String!) {
+mutation CreateCollection(
+  $name: String!, 
+  $description: String!, 
+  $tokenId: Int, 
+  $imageUrl: String!, 
+  $metadataUrl: String!, 
+  $price: Float!, 
+  $royalty: Float!, 
+  $collectionAddress: String!, 
+  $network: String!, 
+  $chainId: Int!, 
+  $nftType: String!, 
+  $endTime: String, 
+  $currentBid: Float
+  $ownerAddress: String
+  $creatorAddress: String
+) {
   createNft(
     name: $name, 
     description: $description, 
@@ -13,7 +29,11 @@ mutation CreateCollection($name: String!, $description: String!, $tokenId: Int!,
     collectionAddress: $collectionAddress, 
     network: $network, 
     chainId: $chainId, 
-    nftType: $nftType
+    nftType: $nftType,
+    endTime: $endTime,
+    ownerAddress: $ownerAddress,
+    creatorAddress: $creatorAddress,
+    currentBid: $currentBid
   ) {
     _id
   }

@@ -64,9 +64,9 @@ const Wallets = () => {
                   <div class="flex flex-col gap-2">
                     <div class="flex flex-wrap gap-2">
                       <span class="font-bold break-all">{d.walletAddress}</span>
-                      {(address.toLowerCase() === d.walletAddress) && <div><span class="border rounded px-[5px] py-1 mx-2 inline-flex items-center text-white-2 text-center leading-none uppercase border-green-700 text-white font-bold bg-green-600/75 ">ACTIVE</span></div>}
+                      {(address?.toLowerCase() === d.walletAddress) && <div><span class="border rounded px-[5px] py-1 mx-2 inline-flex items-center text-white-2 text-center leading-none uppercase border-green-700 text-white font-bold bg-green-600/75 ">ACTIVE</span></div>}
                     </div>
-                    <div>Etherium</div>
+                    <div>{d.walletType}</div>
                   </div>
                 </li>
               ))}

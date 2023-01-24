@@ -8,11 +8,6 @@ import {useQuery} from '@apollo/client';
 import {AuthContext} from '../../Provider/AuthProvider';
 
 const AppLayout = () => {
-  const {setUser} = useContext(AuthContext)
-  const {data} = useQuery(CHECK_USER_LOGGED_IN, {
-    onCompleted: (data) => setUser(data.checkUserLoggedIn)
-  })
-
   return (
     <div>
       <Topbar />

@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import {BsTrash} from 'react-icons/bs';
-import {FaRegTrashAlt} from 'react-icons/fa';
-import {deleteArrayElement} from '../../../../utils/global';
+import React, { useState } from 'react'
+import { BsTrash } from 'react-icons/bs';
+import { FaRegTrashAlt } from 'react-icons/fa';
+import { deleteArrayElement } from '../../../../utils/global';
 
-const DropCollection = ({openPhaseModal, phases, setPhases}) => {
+const DropCollection = ({ openPhaseModal, phases, setPhases, isLive, setIsLive, setDropData, dropData, handleSubmit }) => {
   const [exptime, setExptime] = useState('')
   const [transaction, setTransaction] = useState(false)
   const handleChange = (event) => {
@@ -17,19 +17,67 @@ const DropCollection = ({openPhaseModal, phases, setPhases}) => {
   return (
     <div className='lg:w-1/3 lg:ml-auto'>
       <h3 className="font-semibold text-3xl text-center mb-4">Drop Collection</h3>
-      <div className="p-3">
-        {
-          phases.map((d, i) => (
-            <div className='bg-white flex justify-between py-2 px-4 rounded-lg mt-3'>
-              <p>{d.phaseName}</p>
-              <button className='text-red-500' onClick={() => {
-                setPhases(deleteArrayElement(phases, i))
-              }}><FaRegTrashAlt /></button>
+
+      <div className='flex justify-between w-[80%] mx-auto'>
+        <div onClick={() => setIsLive(false)}>
+          <input type="radio" name="claimable" checked={!isLive} />
+          <label htmlFor='claimable' className='mx-2'>Claimable Drop</label>
+        </div>
+        <div onClick={() => setIsLive(true)}>
+          <input type="radio" name='live' checked={isLive} />
+          <label className='mx-2' htmlFor='live'>Live Drop</label>
+        </div>
+      </div>
+      {
+        !isLive ? (
+          <div className='w-full p-3'>
+            <form className='w-full'>
+              <input type={"number"} className='w-full px-2 py-2 rounded-lg' placeholder='Max Mintable Supply' onChange={(e) => setDropData({ ...dropData, maxMintableSupply: e.target.value })} />
+              <input type={"number"} className='w-full px-2 py-2 mt-2 rounded-lg' placeholder='Global Wallet Limit' onChange={(e) => setDropData({ ...dropData, globalWalletLimit: e.target.value })} />
+              <button onClick={() => handleSubmit()} type='submit' className='mt-2 p-3 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600 w-full'>Create Claimable Drop</button>
+            </form>
+          </div>
+        ) : (
+          <>
+            <div className="p-3">
+              {
+                phases.map((d, i) => (
+                  <div className='bg-white flex justify-between py-2 px-4 rounded-lg mt-3'>
+                    <p>{d.phaseName}</p>
+                    <button className='text-red-500' onClick={() => {
+                      setPhases(deleteArrayElement(phases, i))
+                    }}><FaRegTrashAlt /></button>
+                  </div>
+                ))
+              }
+              <button
+                onClick={() => {
+                  openPhaseModal()
+                }}
+                className="mt-2 p-3 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600 w-full"
+              >
+                Add Phases
+              </button>
+
+              {
+                phases.length !== 0 && (
+                  <button
+                    onClick={() => {
+                      handleSubmit()
+                    }}
+                    className="mt-2 p-3 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600 w-full"
+                  >
+                    Submit Live Drop
+                  </button>
+                )
+              }
+
             </div>
-          ))
-        }
-        <button onClick={() => openPhaseModal()} className="mt-2 p-3 flex justify-center rounded-lg text-white font-bold text-sm bg-pink-600 w-full">Create Phase</button>
-        {/*<div class="mb-4">
+
+          </>
+        )
+      }
+      {/*<div class="mb-4">
           <label class="block mb-2 font-bold  text-gray-900 ">Date of Listing Expiration</label>
           <input onChange={handleChange} type='datetime-local' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l block w-full p-2.5 focus:border-pink-600 focus:outline-none " required />
           <p className="text-xs font-bold">Expiration Time:&nbsp; {exptime} </p>
@@ -72,7 +120,6 @@ const DropCollection = ({openPhaseModal, phases, setPhases}) => {
         </div>
 */}
 
-      </div>
 
     </div>
   )

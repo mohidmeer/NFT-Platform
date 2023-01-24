@@ -11,6 +11,7 @@ import ConnectWalletModal from "../Modals/ConnectWalletModal";
 import {Link} from "react-router-dom";
 import SwitchNetWorkModal from "../Modals/SwitchNetworkModal";
 import NetworksModal from "../Modals/NetworkModal";
+import LinkWalletModal from "../Modals/LinkWalletModal";
 // import LinkWalletModal from "../Modals/LinkWalletModal";
 
 const Navbar = () => {
@@ -28,19 +29,19 @@ const Navbar = () => {
     <>
       <SwitchNetWorkModal />
       <NetworksModal />
-      <div className="p-4 bg-app  flex  justify-between border-b-2 border-white">
+      <div className="p-4 bg-app  flex items-center justify-between border-b-2 border-white">
         <Link to="/">
           <img src={Logo} width={160} alt="" />
         </Link>
 
-        <div className="w-1/3 hidden sm:block rounded-full  border border-pink-600    ">
+        <div className="w-1/3 h-max hidden sm:block rounded-full  border border-pink-600    ">
           <div className="relative flex items-center w-full h-10 rounded-full focus-within:shadow-lg bg-app overflow-hidden">
-            <div className="grid place-items-center h-full w-12 ">
+            <div className="grid place-items-center h-max w-12 ">
               <FaSearch />
             </div>
 
             <input
-              className=" autofill:bg-slate-600    h-full w-full outline-none text-sm bg-app text-gray-700 pr-2"
+              className=" autofill:bg-slate-600    h-max w-full outline-none text-sm bg-app text-gray-700 pr-2"
               type="text"
               id="search"
               placeholder="Search something.."
@@ -69,7 +70,7 @@ const Navbar = () => {
         </div>
 
         <ConnectWalletModal link={false} />
-        {/*<LinkWalletModal />*/}
+        <LinkWalletModal />
       </div>
     </>
   );

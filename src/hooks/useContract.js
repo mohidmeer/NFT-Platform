@@ -28,7 +28,13 @@ export const useContract = () => {
       return data.wait();
     }
 
-    return {deployCollection, mintOwnerNft, approveMarketPlace}
+    const initializeAuction = async (contractAddress, minBidAmout, ipfsUri, startTime, endTime) => {
+      const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
+      const data = await collectionContract.initAuction(ipfsUri, minBidAmout, startTime, endTime, ChainsInfo[chain.id].NATIVE_CURRENCY)
+      return data.wait();
+    }
+
+    return {deployCollection, mintOwnerNft, approveMarketPlace, initializeAuction}
   }
 
   const marketplaceContract = () => {

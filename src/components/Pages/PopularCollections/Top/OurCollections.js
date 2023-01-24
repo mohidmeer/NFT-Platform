@@ -12,20 +12,25 @@ const timeline = [
 const OurCollections = () => {
   const [selectedTime, setSelectedTime] = useState(timeline[3]);
   const [plan, setPlan] = useState('all')
-  const {data: collections} = useQuery(GET_ALL_COLLECTIONS)
+  const [blockchain, setBlockchain] = useState("")
+  const {data: collections} = useQuery(GET_ALL_COLLECTIONS, {
+    variables: {
+      "blockchain": blockchain
+    }
+  })
   
   return (
     <div>
       <div className="flex justify-between lg:flex-row flex-col">
         <div>
-          <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '} value={plan} onChange={setPlan}>
-            <RadioGroup.Option value="all">
+          <RadioGroup as='div' className={'flex justify-between p-1 border border-dark  justify-items-center mt-1 rounded-full  '} value={blockchain} onChange={(value) => setBlockchain(value)}>
+            <RadioGroup.Option value="">
               {({ checked }) => (
                 <span className={`text-sm px-4 py-1 rounded-full font-bold  ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Show all</span>
               )}
             </RadioGroup.Option>
 
-            <RadioGroup.Option value="ether">
+            <RadioGroup.Option value="goerli">
               {({ checked }) => (
                 <span className={`text-sm px-4 py-1 font-bold  rounded-full ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Ether</span>
               )}
@@ -37,7 +42,7 @@ const OurCollections = () => {
               )}
             </RadioGroup.Option>
 
-            <RadioGroup.Option value="polygon">
+            <RadioGroup.Option value="polygon mumbai">
               {({ checked }) => (
                 <span className={`text-sm px-4 py-1 font-bold rounded-full   ${checked ? 'bg-pink-600 text-white' : 'text-black'}`}>Polygon</span>
               )}
@@ -86,7 +91,7 @@ const OurCollections = () => {
 
       <div className="grid  lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2  gap-8  mt-6 ">
         {
-          collections?.getAllCollections.map((d, i) => (
+          collections?.getFilteredCollections.map((d, i) => (
             <TableItem data={d}/>
           ))
         }

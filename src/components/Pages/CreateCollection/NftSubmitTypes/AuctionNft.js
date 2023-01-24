@@ -302,7 +302,7 @@ const AuctionNft = ({ nftDetails, setNftDetails }) => {
               onChange={(e) =>
                 setNftDetails({
                   ...nftDetails,
-                  startTime: parseInt(new Date(e.$d).getTime() / 1000),
+                  endTime: parseInt(new Date(e.$d).getTime() / 1000),
                 })
               }
             />

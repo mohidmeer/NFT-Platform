@@ -44,31 +44,27 @@ const Top = ({ collection }) => {
 
             </div>
             <div>
-                <h2 className='text-3xl font-bold'>Game</h2>
-                <p className='leading-7  '>The Enigma Cube is the latest puzzle from The Fracture. By owning an Enigma Cube NFT you will possess all the information required to solve it. The first to do so will receive a lucrative reward. Those who have participated and hold a cube will also be eligible for random mystery prizes. Many secrets are contained within this NFT, some more useful than others…</p>
+                <h2 className='text-3xl font-bold'>Description</h2>
+                <p className='leading-7'>
+                    {collection?.shortDescription}
+                </p>
             </div>
-            <div className='mt-4'>
-                <h2 className='text-3xl font-bold'>Utility</h2>
-                <p className='leading-7  '>The Enigma Cube is the latest puzzle from The Fracture. By owning an Enigma Cube NFT you will possess all the information required to solve it. The first to do so will receive a lucrative reward. Those who have participated and hold a cube will also be eligible for random mystery prizes. Many secrets are contained within this NFT, some more useful than others…</p>
-            </div>
-            <div class="">
-                <h2 class="text-white-2 text-[14px] font-semibold" level="2"><strong>Founding Team</strong></h2>
-                <h1 class="text-white-2 text-[14px] font-semibold" level="1">Michael Wagner - CFA, CEO and Co-Founder</h1>
-                <div class="my-1">
-                    <p class="text-light-gray-500 text-md text-[14px]"><a class="text-pink-600 font-bold block text-md text-[14px]" href="https://www.linkedin.com/in/wagnermt/" target="_blank" rel="noreferrer">Linkedin</a>
-                        <a class="text-pink-600 font-bold block text-md text-[14px]" href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
-                        A serial entrepreneur and founder with a formal background in capital markets analysis, economics, and valuation methods. He has founded multiple companies centered around the emerging blockchain and cryptocurrency industry, the most recent of which is Star Atlas. Collectively, he possesses 10+ years in capital markets analysis, holds his Chartered Financial Analyst designation, 7+ years in blockchain, 24+ years in gaming, and 5+ years in executive leadership.
-                    </p>
-                    <br />
-                </div>
-                <h1 class="text-white-2 text-[14px] font-semibold" level="1">Pablo Quiroga - CRO</h1>
-                <div class="my-1">
-                    <p class="text-light-gray-500 text-md text-[14px]"><a class="text-pink-600 font-bold block text-md text-[14px]" href="https://www.linkedin.com/in/pabloiquiroga/" target="_blank" rel="noreferrer">Linkedin</a>
-                        <a class="text-pink-600 font-bold block text-md text-[14px]" href="https://twitter.com/" target="_blank" rel="noreferrer">Twitter</a>
-                        Pablo Quiroga serves as Co-founder &amp; Chief Revenue Officer of Star Atlas, the fastest-growing next-gen gaming metaverse globally. Star Atlas is a AAA title MMORPG gaming metaverse emerging from cutting-edge web 3 infrastructure. Fueled by a world-class team, Star Atlas leverages Solana’s state-of-the-art layer 1, unreal engine 5 graphics, nanite technology, and decentralized financial technologies to bring immersive experiences to audiences around the globe.
-                    </p>
-                    <br />
-                </div>
+            <div class="mt-5">
+                <h2 class="text-white-2 text-[16px] font-semibold" level="2"><strong>Founding Team</strong></h2>
+                {
+                    collection?.team.map((d, i) => (
+                        <>
+                            <h1 class="text-white-2 text-[14px] font-semibold mt-3" level="1">{d.name} - {d.position}</h1>
+                            <div class="my-1">
+                                <p class="text-light-gray-500 text-md text-[14px]"><a class="text-pink-600 font-bold block text-md text-[14px]" href="https://www.linkedin.com/in/wagnermt/" target="_blank" rel="noreferrer">Linkedin</a>
+                                    <a class="text-pink-600 font-bold block text-md text-[14px]" href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+                                    A serial entrepreneur and founder with a formal background in capital markets analysis, economics, and valuation methods. He has founded multiple companies centered around the emerging blockchain and cryptocurrency industry, the most recent of which is Star Atlas. Collectively, he possesses 10+ years in capital markets analysis, holds his Chartered Financial Analyst designation, 7+ years in blockchain, 24+ years in gaming, and 5+ years in executive leadership.
+                                </p>
+                                <br />
+                            </div>
+                        </>
+                    ))
+                }
 
             </div>
 

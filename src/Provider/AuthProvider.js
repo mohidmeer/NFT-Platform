@@ -1,4 +1,4 @@
-import {useMutation} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import {createContext, useEffect, useMemo, useState} from "react";
 import {
   useAccount,
@@ -11,6 +11,7 @@ import {
   useSwitchNetwork,
 } from "wagmi";
 import {CHECK_WALLET_LINKED} from "../graphql/mutations/userMutations";
+import { CHECK_USER_LOGGED_IN } from "../graphql/queries/userQueries";
 import {useUser} from "../hooks/useUser";
 
 export const AuthContext = createContext();
@@ -25,6 +26,7 @@ const AuthProvider = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
   const {addNewWallet} = useUser();
+  const {call, linkError} = addNewWallet()
   const {data: signer} = useSigner();
   const [isNetworkModal, setIsNetworkModal] = useState(false);
   const [isNetworkWarningModal, setIsNetworkWarningModal] = useState(false);
@@ -36,11 +38,16 @@ const AuthProvider = ({children}) => {
     onSuccess() {
       console.log(address);
       console.log(connector.name);
-      addNewWallet(connector.name, address, user._id).then((res) => {
+      call(connector.name, address, user._id).then((res) => {
         closeModal();
       });
     },
   });
+
+  const {data} = useQuery(CHECK_USER_LOGGED_IN, {
+    onCompleted: (data) => setUser(data.checkUserLoggedIn)
+  })
+
 
   useEffect(() => {
     if (chain) {
@@ -90,9 +97,14 @@ const AuthProvider = ({children}) => {
     setIsLinkWalletModal(value)
   }
 
-  function linkWallet() {
+  async function linkWallet(connector) {
     const message = `Click "Sign" or "Approve" only means you have proved this wallet is owned by you. This request will not trigger any blockchain transaction or cost any gas fee. Use of our website and service are subject to our Terms of Service: https://magiceden.io/terms-of-service.pdf and Privacy Policy: https://magiceden.io/privacy-policy.pdf`;
-    signMessage({message});
+    // signMessage({message});
+    connectAsync({connector: connector})
+    await call(connector.name, address, user._id).then((res) => {
+      closeModal();
+    });
+
   }
 
   return (

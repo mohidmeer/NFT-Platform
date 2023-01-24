@@ -8,19 +8,21 @@ import {AuthContext} from "../../Provider/AuthProvider";
 import {truncateAddress} from "../../utils/global";
 import {useUser} from "../../hooks/useUser";
 import {useAuth} from "../../hooks/useAuth";
+import { ApplicationContext } from "../../Provider/ApplicationProvider";
+import Loading from "../Loading/Loading";
 
 const LinkWalletModal = () => {
   const {
-    address, isOpen, islinkWalletModal, handleLinkWalletModal
+    address, isOpen, islinkWalletModal, handleLinkWalletModal, connectorName, user
   } = useContext(AuthContext);
-  const {linkWallet} = useUser()
-  const {call, linkError} = linkWallet()
-  // const {appLoading} = useContext(AppContext)
-  const {logout} = useAuth()
+  const {addNewWallet} = useUser()
+  const {call, linkError} = addNewWallet()
+  const {appLoading, setAppLoading} = useContext(ApplicationContext)
+  const {signOut} = useAuth()
 
   return (
     <>
-      {/*appLoading ? <Loading /> : null*/}
+      {appLoading ? <Loading /> : null}
       <Transition appear show={islinkWalletModal}>
         <Dialog as="div" onClose={() => handleLinkWalletModal(true)}>
           <Transition.Child
@@ -76,17 +78,16 @@ const LinkWalletModal = () => {
                       {truncateAddress(address)}
                     </p>
                     <div className="flex gap-4 items-center justify-between mx-auto w-[50%] mt-1">
-                      <button className="bg-navy text-white px-2 py-1 mt-2 rounded border-none" onClick={() => {
-                        call()
+                      <button className="bg-pink-600 text-white px-2 py-1 mt-2 rounded border-none" onClick={() => {
+                        call(connectorName, address, user._id)
                       }}>Link Wallet</button>
                       <button
                         onClick={() => {
-                          logout()
+                          signOut()
                           handleLinkWalletModal(false)
                         }}>Sign Out</button>
                     </div>
                   </div>
-
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import {MdClose} from "react-icons/md";
+import React, { useState } from "react";
+import { MdClose } from "react-icons/md";
 
-const Background = ({stateChanger, values, setValues}) => {
+const Background = ({ stateChanger, values, setValues }) => {
   const [val, setVal] = useState([1, 2]);
   const handleAdd = () => {
     const abc = [...val, []];
@@ -18,6 +18,35 @@ const Background = ({stateChanger, values, setValues}) => {
     deleteVal.splice(i, 1);
     setVal(deleteVal);
   };
+
+  const handleDetails = (e, key, type) => {
+    const team = values.team
+      ? { ...values.team }
+      : {};
+
+    let valueObject = team[key] ? team[key] : {};
+
+    if (type === "NAME") {
+      valueObject.name = e.target.value;
+    }
+    if (type === "POSITION") {
+      valueObject.position = e.target.value;
+    }
+    if (type === "LINKEDIN") {
+      valueObject.linkedin = e.target.value;
+    }
+    if (type === "KYC") {
+      valueObject.kycVerified = e.target.value;
+    }
+
+    team[key] = valueObject;
+    console.log(team)
+    setValues({
+      ...values,
+      team: team,
+    });
+  };
+
   return (
     <div className="p-6 w-2/3">
       {/* <p className='font-bold text-sm text-gray-700'>Step 5 of 6</p> */}
@@ -47,6 +76,10 @@ const Background = ({stateChanger, values, setValues}) => {
                         type="text"
                         class="c-input-box"
                         id="exampleFormControlInput1"
+                        onChange={(e) => {
+                          handleDetails(e, data, "NAME");
+                        }}
+
                       />
                     </div>
                   </div>
@@ -61,6 +94,9 @@ const Background = ({stateChanger, values, setValues}) => {
                       type="text"
                       class="c-input-box"
                       id="exampleFormControlInput1"
+                      onChange={(e) => {
+                        handleDetails(e, data, "POSITION");
+                      }}
                     />
                   </div>
                 </div>
@@ -76,6 +112,10 @@ const Background = ({stateChanger, values, setValues}) => {
                       type="text"
                       class="c-input-box"
                       id="exampleFormControlInput1"
+                      onChange={(e) => {
+                        handleDetails(e, data, "LINKEDIN");
+                      }}
+
                     />
                   </div>
                   <div class="mb-3 w-full ">
@@ -89,6 +129,9 @@ const Background = ({stateChanger, values, setValues}) => {
                       type="text"
                       class="c-input-box"
                       id="exampleFormControlInput1"
+                      onChange={(e) => {
+                        handleDetails(e, data, "KYC");
+                      }}
                     />
                   </div>
                 </div>
@@ -116,7 +159,7 @@ const Background = ({stateChanger, values, setValues}) => {
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
           onChange={(e) => {
-            setValues({...values, whitepaper: e.target.value})
+            setValues({ ...values, whitepaper: e.target.value })
           }}
         />
       </div>
@@ -131,7 +174,7 @@ const Background = ({stateChanger, values, setValues}) => {
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
           onChange={(e) => {
-            setValues({...values, roadmap: e.target.value})
+            setValues({ ...values, roadmap: e.target.value })
           }}
         />
       </div>

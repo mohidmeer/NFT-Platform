@@ -14,6 +14,8 @@ const Launch = ({
 }) => {
   const [phaseModal, setPhaseModal] = useState(false)
   const [phases, setPhases] = useState([])
+  const [isLive, setIsLive] = useState(false)
+  const [dropData, setDropData] = useState({})
 
   const openPhaseModal = () => {
     setPhaseModal(true)
@@ -22,6 +24,7 @@ const Launch = ({
   const closePhaseModal = () => {
     setPhaseModal(false)
   }
+
   return (
     <div className="p-6 ">
       <p className="font-bold text-sm text-gray-700">Step 6 of 6</p>
@@ -95,12 +98,19 @@ const Launch = ({
                 openPhaseModal={openPhaseModal}
                 phases={phases}
                 setPhases={setPhases}
+                isLive={isLive}
+                setIsLive={setIsLive}
+                dropData={dropData}
+                setDropData={setDropData}
+                handleSubmit={handleSubmit}
               />
 
               <PhaseModal
                 isOpen={phaseModal}
                 closeModal={closePhaseModal}
                 setPhases={setPhases}
+                isLive={isLive}
+                setIsLive={setIsLive}
               />
             </Tab.Panel>
           </Tab.Panels>
