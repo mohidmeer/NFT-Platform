@@ -33,7 +33,6 @@ const Buy = () => {
                 </div>
                 <button className='font-bold text-white w-full bg-pink-600 py-2 rounded'>
                     Buy Now
-
                 </button>
 
             </div>

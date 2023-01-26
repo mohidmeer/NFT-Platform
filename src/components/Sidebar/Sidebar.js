@@ -130,7 +130,7 @@ const Sidebar = () => {
                 <BsListUl className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '' : 'ml-1'} `} />
                 <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '' : 'lg:hidden'} `}>List Collection</span>
               </NavLink>
-              {/* previous to='/list' 
+              {/* previous to='/list'
             </li>*/}
 
 

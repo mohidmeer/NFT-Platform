@@ -1,20 +1,25 @@
-import {useContext} from "react"
-import {ChainsInfo} from "../config/config-chains"
-import {ApplicationContext} from "../Provider/ApplicationProvider"
-import {AuthContext} from "../Provider/AuthProvider"
-import {decimalConverter, formatValues} from "../utils/global"
-import {useCollectionApi} from "./useCollectionApi"
-import {useContract} from "./useContract"
+import { useMutation } from "@apollo/client"
+import { useContext } from "react"
+import { ChainsInfo } from "../config/config-chains"
+import { PLACE_BID, PURCHASE_NFT, PUT_ON_SALE } from "../graphql/mutations/nftMutations"
+import { ApplicationContext } from "../Provider/ApplicationProvider"
+import { AuthContext } from "../Provider/AuthProvider"
+import { decimalConverter, formatValues } from "../utils/global"
+import { useCollectionApi } from "./useCollectionApi"
+import { useContract } from "./useContract"
 
 export const useNft = () => {
-  const {setAppLoading} = useContext(ApplicationContext)
-  const {erc721Contract, marketplaceContract} = useContract()
-  const {mintOwnerNft, approveMarketPlace, initializeAuction} = erc721Contract()
-  const {directListNft} = marketplaceContract()
-  const {collection} = useCollectionApi()
-  const {createNewNft} = collection()
-
-  const {chain} = useContext(AuthContext)
+  const { setAppLoading } = useContext(ApplicationContext)
+  const { erc721Contract, marketplaceContract } = useContract()
+  const { mintOwnerNft, approveMarketPlace, initializeAuction, placeBid } = erc721Contract()
+  const { directListNft, buyNft } = marketplaceContract()
+  const { collection } = useCollectionApi()
+  const { createNewNft } = collection()
+  const [purchaseNft] = useMutation(PURCHASE_NFT)
+  const [putOnSale] = useMutation(PUT_ON_SALE)
+  const [placeNftBid] = useMutation(PLACE_BID)
+  const { address } = useContext(AuthContext)
+  const { chain } = useContext(AuthContext)
 
   const mintNft = async (collectionAddress, url, nftDetails, data) => {
     mintOwnerNft(collectionAddress, url)
@@ -33,10 +38,8 @@ export const useNft = () => {
           .then((res) => {
             directListNft(listingParams)
               .then((listingData) => {
-                console.log(listingData)
-                const tokenId = parseInt(formatValues(nft.events[0]?.args?.tokenId))
-                console.log(tokenId)
-                createNewNft(tokenId, url, data.image, nftDetails, collectionAddress, "list")
+                const listingId = parseInt(listingData.events[0].args[0]._hex)
+                createNewNft(tokenId, url, data.image, nftDetails, collectionAddress, "list", listingId, true)
                   .then(() => {
                     setAppLoading(false)
                   })
@@ -45,6 +48,7 @@ export const useNft = () => {
                   })
               })
               .catch((err) => {
+                console.log(err)
                 setAppLoading(false)
               })
           })
@@ -87,5 +91,66 @@ export const useNft = () => {
       })
   }
 
-  return {mintNft, putNftForAuction}
+  const handleBuyNft = async (listingId, price, collectionAddress, tokenId) => {
+    await buyNft(listingId, decimalConverter(price))
+      .then((res) => {
+        purchaseNft({
+          variables: {
+            collectionAddress: collectionAddress,
+            tokenId: tokenId,
+            ownerAddress: address
+          }
+        })
+          .then((data) => {
+            console.log(data)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  const handlePutNftOnSale = async (listingParams, collectionAddress, tokenId, price, endTime) => {
+    approveMarketPlace(collectionAddress, tokenId).then(() => {
+      directListNft(listingParams)
+        .then((res) => {
+          const listingId = parseInt(res.events[0].args[0]._hex)
+          console.log(listingId)
+          putOnSale({
+            variables: {
+              collectionAddress: collectionAddress,
+              tokenId: tokenId,
+              price: price,
+              endTime: endTime.toString(),
+              listingId: listingId
+            }
+          }).then((data) => {
+            console.log(data)
+          })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  const handlePlaceBid = async (collectionAddress, bid, nftId) => {
+    await placeBid(collectionAddress, decimalConverter(bid)).then(() => {
+      placeNftBid({
+        variables: {
+          "bidAmount": bid,
+          "bidderAddress": address,
+          "nftId": nftId        
+        }
+      })
+    })
+  }
+
+  return { mintNft, putNftForAuction, handleBuyNft, handlePutNftOnSale, handlePlaceBid }
 }

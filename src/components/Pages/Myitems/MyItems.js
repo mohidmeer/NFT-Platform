@@ -1,8 +1,10 @@
+import { useQuery } from '@apollo/client'
 import {Tab} from '@headlessui/react'
 import React, {Fragment, useContext} from 'react'
 import {FaPowerOff, FaSearch} from 'react-icons/fa'
 import {FiCheck} from 'react-icons/fi'
 import {useNavigate} from 'react-router-dom'
+import { GET_OWNER_NFTS } from '../../../graphql/queries/nftQueries'
 import {useAuth} from '../../../hooks/useAuth'
 import {AuthContext} from '../../../Provider/AuthProvider'
 import {truncateAddress} from '../../../utils/global'
@@ -11,7 +13,7 @@ import Item from './Item'
 import ListedItems from './ListedItems'
 
 const MyItems = () => {
-  const {user, address} = useContext(AuthContext)
+  const {user, address, isConnected} = useContext(AuthContext)
   const {signOut, signInUser} = useAuth()
   const navigate = useNavigate()
 

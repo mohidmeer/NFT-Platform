@@ -4,11 +4,18 @@ import { AiFillThunderbolt } from 'react-icons/ai'
 import { BsFillGrid3X3GapFill, BsGridFill } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
 import { GET_SINGLE_COLLECTION } from '../../../../graphql/queries/collectionQueries'
+import PutOnSaleModal from '../../../Modals/PutOnSaleModal'
 import Cart from './Cart'
 import Items from './Items'
 
 const Content = ({ nfts }) => {
   const [layout, setLayout] = useState('lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 ')
+  const [isSaleModal, setIsSaleModal] = useState(false)
+  const [selectedNft, setSelectedNft] = useState({})
+
+  const handleSaleModal = (value) => {
+    setIsSaleModal(value)
+  }
 
   return (
     <div className="">
@@ -24,15 +31,16 @@ const Content = ({ nfts }) => {
         </div> */}
       </div>
 
-      <div className={`${layout} px-5 grid gap-4`}>
+      <div className={`${layout} px-2 grid gap-4`}>
         {
           nfts?.length !== 0 ?
             nfts?.map((nft, index) => (
-              <Items nft={nft} />
+              <Items nft={nft} handleSaleModal={handleSaleModal} setSelectedNft={setSelectedNft}/>
             ))
             : null
         }
       </div>
+      <PutOnSaleModal isSaleModal={isSaleModal} handleSaleModal={handleSaleModal} selectedNft={selectedNft}/>
     </div>
   )
 }

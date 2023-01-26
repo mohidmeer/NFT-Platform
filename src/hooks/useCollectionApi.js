@@ -35,16 +35,17 @@ export const useCollectionApi = () => {
       })
     }
 
-    const createNewNft = (tokenId, url, image, nftDetails, collectionAddress, nftType) => {
+    const createNewNft = (tokenId, url, image, nftDetails, collectionAddress, nftType, listingId, isMarketplace) => {
+      console.log(nftDetails)
       return CreateNft({
         variables: {
           "name": nftDetails.name,
           "description": nftDetails.description,
-          "tokenId": tokenId ? tokenId : null,
+          "tokenId": tokenId,
           "imageUrl": image,
           "metadataUrl": url,
-          "price": 5,
-          "royalty": 4,
+          "price": parseFloat(nftDetails?.price),
+          "royalty": parseFloat(nftDetails?.royalties),
           "collectionAddress": collectionAddress,
           "network": chain.network,
           "chainId": chain.id,
@@ -52,7 +53,9 @@ export const useCollectionApi = () => {
           "endTime": nftDetails.endTime.toString(),
           "currentBid": 0.0,
           "creatorAddress": address,
-          "ownerAddress": address
+          "ownerAddress": address,
+          "listingId": listingId,
+          "isMarketplace": isMarketplace
         }
       })
     }

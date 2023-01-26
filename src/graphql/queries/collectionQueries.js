@@ -55,6 +55,7 @@ query CollectionNfts($collectionAddress: String) {
       name
     }
   }
+
   collectionNfts(collectionAddress: $collectionAddress) {
     _id
     chainId
@@ -67,6 +68,10 @@ query CollectionNfts($collectionAddress: String) {
     price
     royalty
     tokenId
+    price
+    ownerAddress
+    listingId
+    isMarketplace
   }
 }
 `

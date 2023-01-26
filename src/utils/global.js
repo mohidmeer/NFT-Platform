@@ -1,4 +1,4 @@
-import {ethers} from "ethers";
+import {BigNumber, ethers} from "ethers";
 import moment from "moment"
 
 export const truncateAddress = (address) => {
@@ -34,4 +34,10 @@ export const getCountDown = (endTime) => {
   const timeDiff = endTime - currentTime
   const remainingTime = moment.duration(timeDiff, "seconds")
   return remainingTime
+}
+
+export function calculateGasMargin(value, margin = 1000) {
+  return value
+    // .mul(BigNumber.from(10000).add(BigNumber.from(margin)))
+    // .div(BigNumber.from(10000));
 }

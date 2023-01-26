@@ -1,13 +1,14 @@
-import {ContractFactory, ethers} from "ethers"
-import {useContext} from "react"
-import {ChainsInfo} from "../config/config-chains"
+import { ContractFactory, ethers } from "ethers"
+import { useContext } from "react"
+import { ChainsInfo } from "../config/config-chains"
 import CollectionAbi from "../constants/abi/collection.abi.json"
 import MarketplaceAbi from "../constants/abi/marketplace.abi.json"
-import {CollectionBytecode} from "../constants/bytecode/collection.bytecode"
-import {AuthContext} from "../Provider/AuthProvider"
+import { CollectionBytecode } from "../constants/bytecode/collection.bytecode"
+import { AuthContext } from "../Provider/AuthProvider"
+import { calculateGasMargin } from "../utils/global"
 
 export const useContract = () => {
-  const {signer, address, chain} = useContext(AuthContext)
+  const { signer, address, chain } = useContext(AuthContext)
 
   const erc721Contract = () => {
     const deployCollection = async (name, symbol) => {
@@ -30,11 +31,23 @@ export const useContract = () => {
 
     const initializeAuction = async (contractAddress, minBidAmout, ipfsUri, startTime, endTime) => {
       const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
-      const data = await collectionContract.initAuction(ipfsUri, minBidAmout, startTime, endTime, ChainsInfo[chain.id].NATIVE_CURRENCY)
+      const data = await collectionContract.initAuction(ipfsUri, minBidAmout, startTime, endTime, ChainsInfo[chain.id].AUCTION_TOKEN)
       return data.wait();
     }
 
-    return {deployCollection, mintOwnerNft, approveMarketPlace, initializeAuction}
+    const placeBid = async (contractAddress, bid) => {
+      const collectionContract = new ethers.Contract(contractAddress, CollectionAbi, signer);
+      const data = await collectionContract.placeBid(bid)
+      return data.wait();
+    }
+
+    const claimAuction = async (collectionAddress) => {
+      const collectionContract = new ethers.Contract(collectionAddress, CollectionAbi, signer);
+      const data = await collectionContract.claimAuction()
+      return data.wait()
+    }
+
+    return { deployCollection, mintOwnerNft, approveMarketPlace, initializeAuction, placeBid, claimAuction }
   }
 
   const marketplaceContract = () => {
@@ -43,8 +56,24 @@ export const useContract = () => {
       const data = await marketplaceContract.createListing(args)
       return data.wait()
     }
-    return {directListNft}
+
+    const buyNft = async (listingId, price) => {
+      const marketplaceContract = new ethers.Contract(ChainsInfo[chain.id].MARKETPLACE_CONTRACT, MarketplaceAbi, signer)
+      const data = await marketplaceContract.buy(
+        listingId,
+        address,
+        1,
+        ChainsInfo[chain.id].NATIVE_CURRENCY,
+        price,
+        {
+          value: price,
+        }
+      )
+      return data.wait()
+    }
+
+    return { directListNft, buyNft }
   }
 
-  return {erc721Contract, marketplaceContract}
+  return { erc721Contract, marketplaceContract }
 }

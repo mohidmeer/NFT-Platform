@@ -39,3 +39,7 @@
 html {
   overflow-y: scroll !important;
 }
+
+:where(.css-dev-only-do-not-override-1ku0ipz).ant-form-item .ant-form-item-label {
+  text-align: left;
+}

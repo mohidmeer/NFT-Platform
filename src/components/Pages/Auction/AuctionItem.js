@@ -1,22 +1,39 @@
-import {useQuery} from '@apollo/client';
-import {Tab} from '@headlessui/react';
-import React from 'react'
-import {FaDiscord, FaGlobe, FaTwitter} from 'react-icons/fa';
-import {useParams} from 'react-router-dom';
-import {SINGLE_AUCTION_NFTS} from '../../../graphql/queries/nftQueries';
-import {getCountDown} from '../../../utils/global';
+import { useQuery } from '@apollo/client';
+import { Tab } from '@headlessui/react';
+import moment from 'moment';
+import React, { useContext, useState } from 'react'
+import { FaDiscord, FaGlobe, FaTwitter } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
+import { ChainsInfo } from '../../../config/config-chains';
+import { SINGLE_AUCTION_NFTS } from '../../../graphql/queries/nftQueries';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import { getCountDown, truncateAddress } from '../../../utils/global';
+import PlaceBidModal from '../../Modals/PlaceBidModal';
 
-const AuctionItem = ({}) => {
-  const {collectionAddress} = useParams()
+const AuctionItem = ({ }) => {
+  const { collectionAddress } = useParams()
+  const [isBidModal, setIsBidModal] = useState(false)
+  const { chain, address } = useContext(AuthContext)
 
-  const {data} = useQuery(SINGLE_AUCTION_NFTS, {
+  const { data } = useQuery(SINGLE_AUCTION_NFTS, {
     variables: {
       collectionAddress: collectionAddress
     }
   })
 
+  const handleBidModal = (value) => {
+    setIsBidModal(value)
+  }
+
+  const getFormatedDate = (date) => {
+    const d = Date(date)
+    return moment(d).format("DD/MM/YYYY")
+  }
+
   return (
     <div className='p-5'>
+      <PlaceBidModal isBidModal={isBidModal} nft={data?.singleAuctionNft} handleBidModal={handleBidModal} />
+
       <div class="  flex justify-center border-dark border rounded-2xl flex-col lg:flex-row  md:flex-col p-6 gap-5">
         <div className="w-full  lg:pt-44  ">
           <h1 className="text-5xl font-bold mb-3">{data?.singleAuctionNft.name}</h1>
@@ -30,7 +47,7 @@ const AuctionItem = ({}) => {
             {console.log(getCountDown(data?.singleAuctionNft.endTime))}
             <div class="flex flex-col">
               <span class="text-gray-500 fs-14px">CURRENT BID</span>
-              <span class="  font-extrabold text-3xl">{data?.singleAuctionNft.currentBid} SOL</span>
+              <span class="  font-extrabold text-3xl">{data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].bidAmount} {ChainsInfo[chain.id].CURRENCY_SYMBOL}</span>
               <span class="text-gray-500 fs-12px">~$0</span>
             </div>
             <div class="flex flex-col">
@@ -52,13 +69,29 @@ const AuctionItem = ({}) => {
             </div>
           </div>
           <div className='flex justify-between mt-4 lg:w-3/4 md:w-3/4'>
-            <p className='font-bold text-gray-700'>LAST BID BY <span className='ml-2 text-pink-600  tracking-widest font-bold'>ACF13...F345</span></p>
-            <p className='font-bold text-gray-600'>12/12/22</p>
+            <p className='font-bold text-gray-700'>LAST BID BY <span className='ml-2 text-pink-600  tracking-widest font-bold'>{truncateAddress(data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].bidderAddress)}</span></p>
+            <p className='font-bold text-gray-600'>{
+              getFormatedDate(data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].createdAt)
+            }</p>
           </div>
           <div className='mt-4 flex lg:w-3/4 md:w-3/4'>
-            <button className=' focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '>
-              Place your  Bid
-            </button>
+            {
+              data?.singleAuctionNft.ownerAddress === address ?
+                <button
+                  className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
+                  onClick={() => handleBidModal(true)}
+                >
+                  Claim NFT
+                </button>
+                :
+                <button
+                  className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
+                  onClick={() => handleBidModal(true)}
+                >
+                  Place your Bid
+                </button>
+            }
+
           </div>
         </div>
         <div className="w-full ">
