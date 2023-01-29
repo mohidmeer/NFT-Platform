@@ -1,83 +1,114 @@
 import { gql } from "@apollo/client";
 
-export const CREATE_NFT = gql`
-mutation CreateCollection(
-  $name: String!, 
-  $description: String!, 
-  $tokenId: Int, 
-  $imageUrl: String!, 
-  $metadataUrl: String!, 
-  $price: Float, 
-  $royalty: Float!, 
-  $collectionAddress: String!, 
-  $network: String!, 
-  $chainId: Int!, 
-  $nftType: String!, 
-  $endTime: String, 
-  $currentBid: Float
-  $ownerAddress: String
-  $creatorAddress: String
-  $listingId: Int
-  $isMarketplace: Boolean 
-) {
-  createNft(
+export const CREATE_LISTING_NFT = gql`
+mutation CreateListingNft(
+    $name: String!, 
+    $imageUrl: String!, 
+    $metadataUrl: String!, 
+    $royalty: Float!, 
+    $collectionAddress: String!, 
+    $network: String!, 
+    $chainId: Int!, 
+    $nftType: String!, 
+    $description: String!, 
+    $tokenId: Int, 
+    $creatorAddress: String, 
+    $ownerAddress: String, 
+    $startTime: String, 
+    $listingId: Int, 
+    $endTime: String,
+    $price: Float, 
+    $isMarketplace: Boolean
+  ) {
+  createListingNft(
+      name: $name, 
+      imageUrl: $imageUrl, 
+      metadataUrl: $metadataUrl, 
+      royalty: $royalty, 
+      collectionAddress: $collectionAddress, 
+      network: $network, 
+      chainId: $chainId, 
+      nftType: $nftType, 
+      description: $description, 
+      tokenId: $tokenId, 
+      creatorAddress: $creatorAddress, 
+      ownerAddress: $ownerAddress, 
+      startTime: $startTime, 
+      listingId: $listingId, 
+      endTime: $endTime, 
+      price: $price, 
+      isMarketplace: $isMarketplace
+    ) {
+    _id
+  }
+}`
+
+export const CREATE_AUCTION_NFT = gql `
+mutation CreateAuctionNft(
+    $name: String!, 
+    $description: String!, 
+    $imageUrl: String!, 
+    $metadataUrl: String!, 
+    $royalty: Float!, 
+    $collectionAddress: String!, 
+    $network: String!, 
+    $chainId: Int!, 
+    $nftType: String!, 
+    $tokenId: Int, 
+    $ownerAddress: String, 
+    $creatorAddress: String, 
+    $startTime: String, 
+    $endTime: String, 
+    $minimumBid: Float, 
+    $roadmap: String, 
+    $team: JSON
+  ) {
+  createAuctionNft(
     name: $name, 
     description: $description, 
-    tokenId: $tokenId, 
     imageUrl: $imageUrl, 
     metadataUrl: $metadataUrl, 
-    price: $price, 
     royalty: $royalty, 
     collectionAddress: $collectionAddress, 
-    network: $network,
+    network: $network, 
     chainId: $chainId, 
-    nftType: $nftType,
-    endTime: $endTime,
-    ownerAddress: $ownerAddress,
-    creatorAddress: $creatorAddress,
-    currentBid: $currentBid
-    listingId: $listingId
-    isMarketplace: $isMarketplace
+    nftType: $nftType, 
+    tokenId: $tokenId, 
+    ownerAddress: $ownerAddress, 
+    creatorAddress: $creatorAddress, 
+    startTime: $startTime, 
+    endTime: $endTime, 
+    minimumBid: $minimumBid, 
+    roadmap: $roadmap, 
+    team: $team
   ) {
     _id
   }
 }
 `
+
 export const PURCHASE_NFT = gql`
-mutation PurchaseNft($collectionAddress: String, $tokenId: Int, $ownerAddress: String) {
-  purchaseNft(collectionAddress: $collectionAddress, tokenId: $tokenId, ownerAddress: $ownerAddress) {
+mutation PurchaseNft($collectionAddress: String, $tokenId: Int, $ownerAddress: String, $price: Float, $listingMetadataId: String) {
+  purchaseNft(collectionAddress: $collectionAddress, tokenId: $tokenId, ownerAddress: $ownerAddress, price: $price, listingMetadataId: $listingMetadataId) {
     _id
-    name
-    description
-    tokenId
-    imageUrl
-    metadataUrl
-    price
-    royalty
-    collectionAddress
-    network
-    chainId
-    nftType
-    endTime
-    currentBid
-    creatorAddress
-    ownerAddress
-    listingId
-    isMarketplace
   }
 }`
 
 export const PUT_ON_SALE = gql`
-mutation PutNftOnSale($collectionAddress: String, $tokenId: Int, $price: Float, $endTime: String, $listingId: Int) {
-  putNftOnSale(collectionAddress: $collectionAddress, tokenId: $tokenId, price: $price, endTime: $endTime, listingId: $listingId) {
+mutation PutNftOnSale($price: Float, $endTime: String, $listingId: Int, $listingMetadataId: String) {
+  putNftOnSale(price: $price, endTime: $endTime, listingId: $listingId, listingMetadataId: $listingMetadataId) {
     _id
   }
 }
 `
 
 export const PLACE_BID = gql`
-mutation PutNftOnSale($bidAmount: Float, $bidderAddress: String, $nftId: String) {
-  placeBid(bidAmount: $bidAmount, bidderAddress: $bidderAddress, nftId: $nftId) {
+mutation PlaceBid($bidAmount: Float, $bidderAddress: String,, $auctionMetadataId: String) {
+  placeBid(bidAmount: $bidAmount, bidderAddress: $bidderAddress, auctionMetadataId: $auctionMetadataId) {
     _id
+    bidAmount
+    bidderAddress
+    createdAt
   }
-}`
+}
+`

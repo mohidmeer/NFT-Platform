@@ -1,13 +1,16 @@
 import {useMutation} from "@apollo/client"
 import {useContext} from "react"
 import {CREATE_COLLECTION} from "../graphql/mutations/collectionMutations"
-import {CREATE_NFT} from "../graphql/mutations/nftMutations"
+import {CREATE_AUCTION_NFT, CREATE_LISTING_NFT} from "../graphql/mutations/nftMutations"
+import { GET_ALL_COLLECTIONS } from "../graphql/queries/collectionQueries"
+import { AUCTION_NFTS } from "../graphql/queries/nftQueries"
 import {AuthContext} from "../Provider/AuthProvider"
 
 export const useCollectionApi = () => {
   const {chain, address} = useContext(AuthContext)
   const [CreateCollection] = useMutation(CREATE_COLLECTION)
-  const [CreateNft] = useMutation(CREATE_NFT)
+  const [CreateListingNft] = useMutation(CREATE_LISTING_NFT)
+  const [CreateAuctionNft] = useMutation(CREATE_AUCTION_NFT)
 
   const collection = () => {
     const createNewCollection = (collectionAddress, values) => {
@@ -35,31 +38,65 @@ export const useCollectionApi = () => {
       })
     }
 
-    const createNewNft = (tokenId, url, image, nftDetails, collectionAddress, nftType, listingId, isMarketplace) => {
-      console.log(nftDetails)
-      return CreateNft({
+    const createNewListingNft = (tokenId, url, image, nftDetails, collectionAddress, nftType, listingId, isMarketplace, startTime) => {
+      return CreateListingNft({
         variables: {
           "name": nftDetails.name,
           "description": nftDetails.description,
           "tokenId": tokenId,
           "imageUrl": image,
           "metadataUrl": url,
-          "price": parseFloat(nftDetails?.price),
           "royalty": parseFloat(nftDetails?.royalties),
           "collectionAddress": collectionAddress,
+          "creatorAddress": address,
+          "ownerAddress": address,
           "network": chain.network,
           "chainId": chain.id,
           "nftType": nftType,
+          "startTime": startTime.toString(),
           "endTime": nftDetails.endTime.toString(),
-          "currentBid": 0.0,
-          "creatorAddress": address,
-          "ownerAddress": address,
-          "listingId": listingId,
-          "isMarketplace": isMarketplace
-        }
+          "isMarketplace": isMarketplace,
+          "price": parseFloat(nftDetails?.price),
+          "listingId": listingId
+        },
+        refetchQueries: [
+          {
+            query: GET_ALL_COLLECTIONS,
+            variables: {
+              "blockchain": ""
+            }
+          }
+        ]
       })
     }
-    return {createNewCollection, createNewNft}
+
+    const createNewAuctionNft = (url, image, nftDetails, collectionAddress, nftType) => {
+      return CreateAuctionNft({
+        variables: {
+          "name": nftDetails.name,
+          "description": nftDetails.description,
+          "imageUrl": image,
+          "metadataUrl": url,
+          "royalty": parseFloat(nftDetails?.royalties),
+          "collectionAddress": collectionAddress,
+          "creatorAddress": address,
+          "ownerAddress": address,
+          "network": chain.network,
+          "chainId": chain.id,
+          "nftType": nftType,
+          "startTime": nftDetails.startTime.toString(),
+          "endTime": nftDetails.endTime.toString(),
+          "minBidAmount": nftDetails.minBidAmount
+        },
+        refetchQueries: [
+          {
+            query: AUCTION_NFTS
+          }
+        ]
+      })
+    }
+    
+    return {createNewCollection, createNewListingNft, createNewAuctionNft}
   }
 
   return {collection}

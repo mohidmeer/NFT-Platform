@@ -1,33 +1,60 @@
 import { useQuery } from '@apollo/client';
 import { Tab } from '@headlessui/react';
+import axios from 'axios';
 import moment from 'moment';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaDiscord, FaGlobe, FaTwitter } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import { ChainsInfo } from '../../../config/config-chains';
 import { SINGLE_AUCTION_NFTS } from '../../../graphql/queries/nftQueries';
 import { AuthContext } from '../../../Provider/AuthProvider';
-import { getCountDown, truncateAddress } from '../../../utils/global';
+import { getCountDown, getFormatedDate, truncateAddress, usdPrice } from '../../../utils/global';
 import PlaceBidModal from '../../Modals/PlaceBidModal';
 
 const AuctionItem = ({ }) => {
   const { collectionAddress } = useParams()
   const [isBidModal, setIsBidModal] = useState(false)
   const { chain, address } = useContext(AuthContext)
+  const [auctionEnded, setAuctionEnded] = useState(false)
+  const [auctionStarted, setAuctionStarted] = useState(false)
+  const [usdPrice, setUsdPrice] = useState(0)
 
-  const { data } = useQuery(SINGLE_AUCTION_NFTS, {
+  const { data, loading } = useQuery(SINGLE_AUCTION_NFTS, {
     variables: {
       collectionAddress: collectionAddress
     }
   })
 
+  useEffect(() => {
+    checkAuctionEnd()
+    checkAuctionStart()
+    getUsdPrice(data?.singleAuctionNft?.chainId)
+  }, [data, loading])
+
   const handleBidModal = (value) => {
     setIsBidModal(value)
   }
 
-  const getFormatedDate = (date) => {
-    const d = Date(date)
-    return moment(d).format("DD/MM/YYYY")
+  const checkAuctionEnd = () => {
+    const currentTime = parseInt(new Date().getTime() / 1000)
+    const endTime = parseInt(data?.singleAuctionNft.auctionMetadata.endTime)
+    setAuctionEnded(currentTime > endTime)
+  }
+
+  const checkAuctionStart = () => {
+    const currentTime = parseInt(new Date().getTime() / 1000)
+    const startTime = parseInt(data?.singleAuctionNft.auctionMetadata.startTime)
+    const value = currentTime < startTime
+    setAuctionStarted(!value)
+  }
+
+  const getUsdPrice = (nftChainId) => {
+    axios.get("https://cex.io/api/last_price/" +
+      ChainsInfo[nftChainId]?.CURRENCY_SYMBOL +
+      "/USD"
+    ).then((res) => {
+      setUsdPrice(res.data.lprice)
+    })
   }
 
   return (
@@ -38,58 +65,89 @@ const AuctionItem = ({ }) => {
         <div className="w-full  lg:pt-44  ">
           <h1 className="text-5xl font-bold mb-3">{data?.singleAuctionNft.name}</h1>
           <p className="text-sm  text-gray-400 ">
-            CREATED BY <span className="ml-1 text-pink-600">{data?.singleAuctionNft.creator.displayName}</span>
+            {/* CREATED BY <span className="ml-1 text-pink-600">{data?.singleAuctionNft.creator.displayName}</span> */}
           </p>
           <p className="lg:w-3/4 md:w-4/5 mt-3 text-gray-600 font-bold text-lg">
             {data?.singleAuctionNft.description}
           </p>
           <div class="p-4 mt-2 lg:w-3/4 md:w-3/4 bg-dark-2 rounded-md flex justify-between gap-5 flex-col md:flex-row">
-            {console.log(getCountDown(data?.singleAuctionNft.endTime))}
-            <div class="flex flex-col">
-              <span class="text-gray-500 fs-14px">CURRENT BID</span>
-              <span class="  font-extrabold text-3xl">{data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].bidAmount} {ChainsInfo[chain.id].CURRENCY_SYMBOL}</span>
-              <span class="text-gray-500 fs-12px">~$0</span>
+            <div class="flex flex-col justify-center">
+              {
+                data?.singleAuctionNft?.auctionMetadata?.bids?.length > 0 ?
+                  <>
+                    <span class="text-gray-500 fs-14px">CURRENT BID</span>
+                    <span class="font-extrabold text-3xl">
+                      {data?.singleAuctionNft.auctionMetadata.bids[data?.singleAuctionNft.auctionMetadata.bids.length - 1].bidAmount} {ChainsInfo[data?.singleAuctionNft?.chainId].CURRENCY_SYMBOL}
+                    </span>
+                    <span class="text-gray-500 fs-12px">~$ {usdPrice}</span>
+                  </>
+                  : "No Bids Placed Yet"
+              }
             </div>
             <div class="flex flex-col">
               <span class="text-gray-500 fs-14px">AUCTION ENDS IN</span>
               <div class="flex flex-row basis-0 gap-4">
                 <div class="flex flex-col">
-                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.endTime)._data.days}</span>
+                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.auctionMetadata.endTime)._data.days}</span>
                   <span class="text-gray-500 fs-12px">Days</span>
                 </div>
                 <div class="flex flex-col">
-                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.endTime)._data.hours}</span>
+                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.auctionMetadata.endTime)._data.hours}</span>
                   <span class="text-gray-500 fs-12px">Hours</span>
                 </div>
                 <div class="flex flex-col">
-                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.endTime)._data.minutes}</span>
+                  <span class=" font-extrabold text-3xl">{getCountDown(data?.singleAuctionNft.auctionMetadata.endTime)._data.minutes}</span>
                   <span class="text-gray-500 fs-12px">Minutes</span>
                 </div>
               </div>
             </div>
           </div>
           <div className='flex justify-between mt-4 lg:w-3/4 md:w-3/4'>
-            <p className='font-bold text-gray-700'>LAST BID BY <span className='ml-2 text-pink-600  tracking-widest font-bold'>{truncateAddress(data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].bidderAddress)}</span></p>
-            <p className='font-bold text-gray-600'>{
-              getFormatedDate(data?.singleAuctionNft.bids[data?.singleAuctionNft.bids?.length - 1].createdAt)
-            }</p>
+            {
+              data?.singleAuctionNft?.auctionMetadata?.bids?.length > 0 ?
+                <>
+                  <p className='font-bold text-gray-700'>LAST BID BY
+                    <span className='ml-2 text-pink-600  tracking-widest font-bold'>
+                      {truncateAddress(data?.singleAuctionNft.auctionMetadata.bids[data?.singleAuctionNft.auctionMetadata.bids?.length - 1].bidderAddress)}
+                    </span>
+                  </p>
+                  <p className='font-bold text-gray-600'>{
+                    getFormatedDate(data?.singleAuctionNft.auctionMetadata.bids[data?.singleAuctionNft.auctionMetadata?.bids?.length - 1].createdAt)
+                  }</p>
+                </>
+                : null
+            }
           </div>
           <div className='mt-4 flex lg:w-3/4 md:w-3/4'>
             {
               data?.singleAuctionNft.ownerAddress === address ?
                 <button
-                  className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
+                  className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg disabled:bg-green-600 disabled:cursor-no-drop'
+                  disabled={!auctionEnded}
                   onClick={() => handleBidModal(true)}
                 >
                   Claim NFT
                 </button>
                 :
-                <button
-                  className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
-                  onClick={() => handleBidModal(true)}
-                >
-                  Place your Bid
-                </button>
+                auctionEnded ?
+                  <button
+                    className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
+                  >
+                    Auction Has Ended
+                  </button>
+                  :
+                  <button
+                    className='focus:ring-4 focus:ring-green-300 hover:bg-green-600 m-auto w-full bg-pink-600 font-bold py-2 px-4 text-white rounded-lg '
+                    onClick={() => {
+                      if (auctionStarted) {
+                        handleBidModal(true)
+                      } else {
+                        console.log("Hello")
+                      }
+                    }}
+                  >
+                    {auctionStarted ? "Place your Bid" : "Auction Not Started Yet"}
+                  </button>
             }
 
           </div>

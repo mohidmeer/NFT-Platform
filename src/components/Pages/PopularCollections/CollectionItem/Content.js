@@ -19,7 +19,7 @@ const Content = ({ nfts }) => {
 
   return (
     <div className="">
-      <div className="flex justify-end  pb-2">
+      <div className="flex justify-end pb-2">
         {/* <button className=' rounded mb-4 mr-5 py-2 px-4 text-white font-bold bg-pink-600 flex '>
         <AiFillThunderbolt className='mt-1'/>
         Instant Sell  <span className='ml-2'>(340.02) </span>  

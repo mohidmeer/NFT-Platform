@@ -55,6 +55,7 @@ export const useAuth = () => {
     })
       .then((res) => {
         console.log(res)
+        setUser(res?.data?.signUpUser)
         navigate("/profile")
       })
       .catch((err) => {

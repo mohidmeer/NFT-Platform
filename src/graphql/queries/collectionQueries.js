@@ -58,20 +58,35 @@ query CollectionNfts($collectionAddress: String) {
 
   collectionNfts(collectionAddress: $collectionAddress) {
     _id
-    chainId
-    collectionAddress
+    name
     description
+    tokenId
     imageUrl
     metadataUrl
-    name
-    network
-    price
     royalty
-    tokenId
-    price
+    collectionAddress
+    creatorAddress
     ownerAddress
-    listingId
-    isMarketplace
+    network
+    chainId
+    nftType
+    listingMetadata {
+      _id
+      startTime
+      endTime
+      listingId
+      price
+      isMarketplace
+    }
   }
 }
 `
+
+export const GET_USER_COLLECTIONS = gql `
+query GetAllUserCollections($userId: String) {
+  getAllUserCollections(userId: $userId) {
+    _id
+    collectionAddress
+    collectionName
+  }
+}`

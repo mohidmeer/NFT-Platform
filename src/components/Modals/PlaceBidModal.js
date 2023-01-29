@@ -4,6 +4,7 @@ import { Fragment, useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { ChainsInfo } from "../../config/config-chains";
 import { useNft } from "../../hooks/useNft";
+import { ApplicationContext } from "../../Provider/ApplicationProvider";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { decimalConverter } from "../../utils/global";
 
@@ -12,7 +13,7 @@ const PlaceBidModal = ({ isBidModal, handleBidModal, nft }) => {
     const { handlePlaceBid } = useNft()
 
     const handleBidding = async (values) => {
-        handlePlaceBid(nft?.collectionAddress, values.price, nft?._id)
+        handlePlaceBid(nft?.collectionAddress, values.price, nft?.auctionMetadata?._id, handleBidModal)
     }
 
     return (
@@ -59,8 +60,8 @@ const PlaceBidModal = ({ isBidModal, handleBidModal, nft }) => {
                                 </Dialog.Title>
                                 <div className="w-[80%] mx-auto">
                                     <Form layout="vertical" onFinish={(values) => handleBidding(values)}>
-                                        <Form.Item label={"Price"} name="price" required>
-                                            <InputNumber className="w-full" placeholder="Price" />
+                                        <Form.Item label={"Bid Amount"} name="price" required>
+                                            <InputNumber className="w-full" placeholder="Amount" />
                                         </Form.Item>
                                         <Form.Item>
                                             <button type="submit" className="font-bold text-white w-full bg-pink-600 py-2 rounded mt-3">Submit</button>
@@ -73,7 +74,6 @@ const PlaceBidModal = ({ isBidModal, handleBidModal, nft }) => {
                 </div>
             </Dialog>
         </Transition>
-
     )
 }
 

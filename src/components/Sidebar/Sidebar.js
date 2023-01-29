@@ -125,13 +125,13 @@ const Sidebar = () => {
 
               </NavLink>
             </li>
-            {/*<li className='ml-2'>
+            <li className='ml-2'>
               <NavLink className={({ isActive }) => (isActive ? 'bg-dark flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark' : 'flex items-center p-1 text-xs font-normal  rounded-lg  hover:bg-dark')} to="/list-collection">
                 <BsListUl className={`flex-shrink-0 w-6 h-6    transition duration-75 group-hover: dark:text-gray-400 dark:group-hover:  ${myContext.sidebarstate ? '' : 'ml-1'} `} />
-                <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '' : 'lg:hidden'} `}>List Collection</span>
+                <span class={`ml-3  hidden lg:block font-bold  ${myContext.sidebarstate ? '' : 'lg:hidden'} `}>List NFT</span>
               </NavLink>
-              {/* previous to='/list'
-            </li>*/}
+              {/* previous to='/list' */}
+            </li>
 
 
             <li className='ml-2' >

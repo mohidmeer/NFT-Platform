@@ -1,5 +1,7 @@
-import {BigNumber, ethers} from "ethers";
+import axios from "axios";
+import { BigNumber, ethers } from "ethers";
 import moment from "moment"
+import { ChainsInfo } from "../config/config-chains";
 
 export const truncateAddress = (address) => {
   if (!address) return "No Account";
@@ -36,8 +38,18 @@ export const getCountDown = (endTime) => {
   return remainingTime
 }
 
-export function calculateGasMargin(value, margin = 1000) {
-  return value
-    // .mul(BigNumber.from(10000).add(BigNumber.from(margin)))
-    // .div(BigNumber.from(10000));
+export const getFormatedDate = (date) => {
+  const d = Date(date)
+  return moment(d).format("DD/MM/YYYY")
+}
+
+export const usdPrice = (nftChainId) => {
+  let price;
+  axios.get("https://cex.io/api/last_price/" +
+    ChainsInfo[nftChainId]?.CURRENCY_SYMBOL +
+    "/USD"
+  ).then((res) => {
+    return res.data.lprice
+  })
+  return price
 }

@@ -3,10 +3,10 @@ import {configureChains, createClient, WagmiConfig} from "wagmi";
 import {WalletConnectConnector} from "wagmi/connectors/walletConnect";
 import {MetaMaskConnector} from "wagmi/connectors/metaMask";
 import {publicProvider} from "wagmi/providers/public";
-import {goerli, bscTestnet, polygonMumbai, bsc} from "@wagmi/chains";
+import {goerli, bscTestnet, polygonMumbai, bsc, localhost} from "@wagmi/chains";
 import {CoinbaseWalletConnector} from 'wagmi/connectors/coinbaseWallet'
 
-const {chains, webSocketProvider, provider} = configureChains([goerli, polygonMumbai, bscTestnet, bsc], [publicProvider()])
+const {chains, webSocketProvider, provider} = configureChains([goerli, polygonMumbai, bscTestnet, bsc, localhost], [publicProvider()])
 
 const client = createClient({
   autoConnect: true,

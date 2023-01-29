@@ -1,21 +1,29 @@
 import { useQuery } from '@apollo/client'
-import {Tab} from '@headlessui/react'
-import React, {Fragment, useContext} from 'react'
-import {FaPowerOff, FaSearch} from 'react-icons/fa'
-import {FiCheck} from 'react-icons/fi'
-import {useNavigate} from 'react-router-dom'
+import { Tab } from '@headlessui/react'
+import React, { Fragment, useContext } from 'react'
+import { FaPowerOff, FaSearch } from 'react-icons/fa'
+import { FiCheck } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 import { GET_OWNER_NFTS } from '../../../graphql/queries/nftQueries'
-import {useAuth} from '../../../hooks/useAuth'
-import {AuthContext} from '../../../Provider/AuthProvider'
-import {truncateAddress} from '../../../utils/global'
+import { useAuth } from '../../../hooks/useAuth'
+import { AuthContext } from '../../../Provider/AuthProvider'
+import { truncateAddress } from '../../../utils/global'
 import Activities from './Activities'
 import Item from './Item'
 import ListedItems from './ListedItems'
 
 const MyItems = () => {
-  const {user, address, isConnected} = useContext(AuthContext)
-  const {signOut, signInUser} = useAuth()
+  const { user, address, isConnected } = useContext(AuthContext)
+  const { signOut, signInUser } = useAuth()
   const navigate = useNavigate()
+
+  const { data } = useQuery(GET_OWNER_NFTS, {
+    skip: !isConnected,
+    variables: {
+      ownerAddress: address
+    }
+  })
+
 
   return (
     <div className='mt-8 p-8'>
@@ -48,13 +56,13 @@ const MyItems = () => {
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold  whitespace-nowrap" title="TOTAL ITEMS">TOTAL ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-1" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">0</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-1" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.totalItems.length}</span></div>
                   </div>
                 </div>
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold  whitespace-nowrap" title="UNLISTED ITEMS">UNLISTED ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-2" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">0</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-2" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.unlistedItems}</span></div>
                   </div>
                 </div>
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
@@ -67,7 +75,7 @@ const MyItems = () => {
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold whitespace-nowrap" title="LISTED ITEMS">LISTED ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-4" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">0</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-4" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.listedItems.length}</span></div>
                   </div>
                 </div>
               </div>
@@ -82,7 +90,7 @@ const MyItems = () => {
       <Tab.Group as={'div'} className={`mt-4`}>
         <Tab.List className={`flex gap-4 mb-3 `}>
           <Tab as={Fragment}>
-            {({selected}) => (
+            {({ selected }) => (
               <button
                 className={
                   `text-lg pb-3  border-b-4  ui-selected:border-black ui-selected:font-bold`
@@ -94,7 +102,7 @@ const MyItems = () => {
 
           </Tab>
           <Tab as={Fragment}>
-            {({selected}) => (
+            {({ selected }) => (
               <button
                 className={
                   `text-lg pb-3  border-b-4  ui-selected:border-black ui-selected:font-bold`
@@ -106,7 +114,7 @@ const MyItems = () => {
 
           </Tab>
           <Tab as={Fragment}>
-            {({selected}) => (
+            {({ selected }) => (
               <button
                 className={
                   `text-lg pb-3  border-b-4  ui-selected:border-black ui-selected:font-bold`
@@ -148,17 +156,14 @@ const MyItems = () => {
               />
             </div>
           </div>
-
         </div>
-
-
 
         <Tab.Panels className={`mt-4`}>
           <Tab.Panel className={``}>
-            <Item />
+            <Item items={data?.getOwnerNfts?.totalItems}/>
           </Tab.Panel>
           <Tab.Panel className={``}>
-            <ListedItems />
+            <ListedItems items={data?.getOwnerNfts?.listedItems}/>
           </Tab.Panel>
           <Tab.Panel className={``}>
             <Activities />

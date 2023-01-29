@@ -23,6 +23,11 @@ mutation Mutation($walletAddress: String!, $planName: String!) {
     telegram
     twitter
     bio
+    wallets {
+      _id
+      walletAddress
+      walletType
+    }
   }
 }`
 

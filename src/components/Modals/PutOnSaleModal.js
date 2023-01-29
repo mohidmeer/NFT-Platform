@@ -21,7 +21,7 @@ const PutOnSaleModal = ({ isSaleModal, handleSaleModal, selectedNft }) => {
 
         const listingParams = [selectedNft?.collectionAddress, selectedNft?.tokenId, startTime, endTime, quantityToList, currencyToAccept, reservePrice, buyoutPrice, "0"]
 
-        await handlePutNftOnSale(listingParams, selectedNft?.collectionAddress, selectedNft?.tokenId, values.price, endTime)
+        await handlePutNftOnSale(listingParams, selectedNft?.collectionAddress, selectedNft?.tokenId, values.price, endTime, selectedNft?.listingMetadata?._id, handleSaleModal)
     }
     return (
         <Transition appear show={isSaleModal}>

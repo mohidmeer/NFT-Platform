@@ -1,25 +1,37 @@
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
 
 export const AUCTION_NFTS = gql`query AuctionNfts {
-    auctionNfts {
+  auctionNfts {
+    _id
+    name
+    description
+    tokenId
+    imageUrl
+    metadataUrl
+    royalty
+    collectionAddress
+    creatorAddress
+    ownerAddress
+    network
+    chainId
+    nftType
+    auctionMetadata {
       _id
-      name
-      description
-      tokenId
-      imageUrl
-      metadataUrl
-      price
-      royalty
-      collectionAddress
-      network
-      chainId
-      nftType
+      startTime
       endTime
-      collection {
-        slug
+      roadmap
+      team
+      description
+      minimumBid
+      bids {
+        _id
+        bidAmount
+        bidderAddress
+        createdAt
       }
     }
-  }`
+  }
+}`
 
 export const SINGLE_AUCTION_NFTS = gql`
 query SingleAuctionNft($collectionAddress: String) {
@@ -30,76 +42,117 @@ query SingleAuctionNft($collectionAddress: String) {
     tokenId
     imageUrl
     metadataUrl
-    price
     royalty
     collectionAddress
+    creatorAddress
+    ownerAddress
     network
     chainId
     nftType
-    endTime
-    currentBid
-    creatorAddress
-    ownerAddress
-    creator {
-      displayName
-    }
-    bids {
+    auctionMetadata {
       _id
-      bidAmount
-      bidderAddress
-      createdAt
+      startTime
+      endTime
+      roadmap
+      team
+      description
+      minimumBid
+      bids {
+        _id
+        bidAmount
+        bidderAddress
+        createdAt
+      }
     }
   }
   getSingleCollection(collectionAddress: $collectionAddress) {
     _id
     blockchain
-    collectionAddress
-    collectionImage
-    characteristics {
-      name
-      type
-    }
-    collectionName
-    collectionSymbol
     copyright
-    creatorAddress
-    discordServer
-    primaryCategory
-    roadmap
-    secondaryCategory
+    websiteUrl
+    collectionName
+    collectionAddress
+    collectionSymbol
     shortDescription
+    primaryCategory
+    secondaryCategory
+    collectionImage
+    whitepaper
+    roadmap
     slug
     twitterAccount
-    websiteUrl
-    whitepaper
-    team {
-      kycVerified
-      linkedin
-      name
-      position
-    }
+    discordServer
+    creatorAddress
   }
 
 }
 `
-export const GET_OWNER_NFTS = gql `
-query GetOwnerNfts($ownerAddress: String) {
+export const GET_OWNER_NFTS = gql`
+query GetOwnerListedNfts($ownerAddress: String) {
   getOwnerNfts(ownerAddress: $ownerAddress) {
-    _id
-    name
-    description
-    tokenId
-    imageUrl
-    metadataUrl
-    price
-    royalty
-    collectionAddress
-    network
-    chainId
-    nftType
-    endTime
-    currentBid
-    creatorAddress
-    ownerAddress
+    totalItems {
+      _id
+      startTime
+      endTime
+      listingId
+      price
+      isMarketplace
+      nft {
+        _id
+        name
+        description
+        tokenId
+        imageUrl
+        metadataUrl
+        royalty
+        collectionAddress
+        creatorAddress
+        ownerAddress
+        network
+        chainId
+        nftType
+        listingMetadata {
+          _id
+          startTime
+          endTime
+          listingId
+          price
+          isMarketplace
+        }
+      }
+    }
+    listedItems {
+      _id
+      startTime
+      endTime
+      listingId
+      price
+      isMarketplace
+      nft {
+        _id
+        name
+        description
+        tokenId
+        imageUrl
+        metadataUrl
+        royalty
+        collectionAddress
+        creatorAddress
+        ownerAddress
+        network
+        chainId
+        nftType
+        listingMetadata {
+          _id
+          startTime
+          endTime
+          listingId
+          price
+          isMarketplace
+        }
+    
+      }
+    }
+    unlistedItems
   }
 }`

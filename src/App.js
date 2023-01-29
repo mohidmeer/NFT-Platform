@@ -41,6 +41,7 @@ import MyItems from "./components/Pages/Myitems/MyItems";
 import SwitchNetWorkModal from "./components/Modals/SwitchNetworkModal";
 import NetworksModal from "./components/Modals/NetworkModal";
 import ApplicationProvider, {ApplicationContext} from "./Provider/ApplicationProvider";
+import CreateNft from "./components/Pages/CreateNft/CreateNft";
 
 function App() {
   const [sidebarstate, setSideBarState] = useState(1);
@@ -107,7 +108,7 @@ function App() {
                   <Route path="communities" element={<Communities />} />
                   <Route path="me" element={<MyItems />} />
                   <Route path="list" element={<Listing />} />
-                  <Route path="list-collection" element={<CreateCollection />} />
+                  <Route path="list-collection" element={<CreateNft />} />
                   <Route path="tickets" element={<Tickets />} />
                 </Route>
 

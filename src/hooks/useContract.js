@@ -6,9 +6,26 @@ import MarketplaceAbi from "../constants/abi/marketplace.abi.json"
 import { CollectionBytecode } from "../constants/bytecode/collection.bytecode"
 import { AuthContext } from "../Provider/AuthProvider"
 import { calculateGasMargin } from "../utils/global"
+import erc20ABI from "../constants/abi/erc20.abi.json"
+import { MaxUint256 } from "@ethersproject/constants"
 
 export const useContract = () => {
   const { signer, address, chain } = useContext(AuthContext)
+
+  const erc20Contract = () => {
+    const approveCollection = async (collectionAddress) => {
+      console.log(chain.id)
+      const erc20Contract = new ethers.Contract(ChainsInfo[chain.id].AUCTION_TOKEN, erc20ABI, signer)
+      console.log(collectionAddress)
+      const data = await erc20Contract.approve(
+        collectionAddress,
+        MaxUint256,
+      )
+      return data.wait();
+    }
+
+    return { approveCollection }
+  }
 
   const erc721Contract = () => {
     const deployCollection = async (name, symbol) => {
@@ -58,6 +75,7 @@ export const useContract = () => {
     }
 
     const buyNft = async (listingId, price) => {
+      console.log(parseInt(price._hex))
       const marketplaceContract = new ethers.Contract(ChainsInfo[chain.id].MARKETPLACE_CONTRACT, MarketplaceAbi, signer)
       const data = await marketplaceContract.buy(
         listingId,
@@ -75,5 +93,5 @@ export const useContract = () => {
     return { directListNft, buyNft }
   }
 
-  return { erc721Contract, marketplaceContract }
+  return { erc721Contract, marketplaceContract, erc20Contract }
 }

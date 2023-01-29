@@ -10,40 +10,6 @@ const Listing = () => {
     <div className="p-4">
       <Collection/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* <Tab.Group  >
       <Tab.List  className={`flex gap-3 mb-3`}>
         <Tab as='button' className={ `tab-menu  `}>Applications</Tab>
