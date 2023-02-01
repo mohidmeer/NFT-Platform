@@ -2,13 +2,20 @@ import { useQuery } from "@apollo/client";
 import { ConfigProvider, DatePicker } from "antd";
 import { useContext, useState } from "react";
 import { GET_USER_COLLECTIONS } from "../../../graphql/queries/collectionQueries";
+import useStorage from "../../../hooks/useStorage";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { useNft } from "../../../hooks/useNft"
+import { ApplicationContext } from "../../../Provider/ApplicationProvider";
+
 
 const CreateNft = () => {
   const { user } = useContext(AuthContext)
+  const { appLoading, setAppLoading } = useContext(ApplicationContext)
   const [nftDetails, setNftDetails] = useState({})
   const [previewImageUrl, setPreviewImageUrl] = useState("")
   const [selectedCollection, setSelectedCollection] = useState("")
+  const { uploadOnIpfs, downloadJSONFromIpfs } = useStorage()
+  const { mintNft } = useNft()
   const { data } = useQuery(GET_USER_COLLECTIONS, {
     variables: {
       userId: user._id
@@ -16,16 +23,12 @@ const CreateNft = () => {
   })
 
   const createNft = () => {
+    setAppLoading(true)
     uploadOnIpfs(nftDetails)
       .then(async (url) => {
-        const data = await downloadJSONFromIpfs(url)
-          .then(async () => {
-            await mintNft(selectedCollection, url, nftDetails, data)
-          })
-          .catch((err) => {
-            console.log(err)
-            setAppLoading(false)
-          })
+        const ipfsData = await downloadJSONFromIpfs(url)
+        console.log(ipfsData, selectedCollection)
+        await mintNft(selectedCollection, url, nftDetails, ipfsData)
       })
       .catch((err) => {
         setAppLoading(false)
@@ -65,6 +68,7 @@ const CreateNft = () => {
                 className="mt-2 bg-[#f9fafb] p-2 rounded"
                 onChange={(e) => setSelectedCollection(e.target.value)}
               >
+                <option value={""}>None</option>
                 {
                   data?.getAllUserCollections.map((d, i) => (
                     <option value={d?.collectionAddress}>{d?.collectionName}</option>
@@ -213,6 +217,14 @@ const CreateNft = () => {
                 </label>
               </div>
             </div>*/}
+          </div>
+          <div>
+            <button
+              onClick={() => createNft()}
+              className={`text-xs text-pink-600 p-1 px-2 rounded hover:bg-pink-600 hover:text-white font-bold border border-green-400 truncate w-full`}
+            >
+              Create
+            </button>
           </div>
         </div>
         <div>

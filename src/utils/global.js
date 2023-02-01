@@ -18,6 +18,7 @@ export const decimalConverter = (value) => {
 
 export const formatValues = (value) => {
   const returnValue = ethers.utils.formatEther(value)
+  console.log(returnValue)
   return returnValue;
 }
 

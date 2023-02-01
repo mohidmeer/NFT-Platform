@@ -30,7 +30,8 @@ export const useNft = () => {
   const mintNft = async (collectionAddress, url, nftDetails, data) => {
     mintOwnerNft(collectionAddress, url)
       .then((nft) => {
-        const tokenId = parseInt(formatValues(nft.events[0]?.args?.tokenId))
+        console.log(nft.events[0]?.args?.tokenId)
+        const tokenId = parseInt(nft.events[0]?.args?.tokenId._hex)
         const startTime = parseInt(new Date().getTime() / 1000)
         const endTime = nftDetails.endTime
         const quantityToList = 1
