@@ -25,8 +25,8 @@ query GetFilteredCollections($blockchain: String) {
 `
 
 export const GET_SINGLE_COLLECTION = gql`
-query CollectionNfts($collectionAddress: String) {
-  getSingleCollection(collectionAddress: $collectionAddress) {
+query CollectionNfts($collectionAddress: String, $chainId: Int, $creatorAddress: String) {
+  getSingleCollection(collectionAddress: $collectionAddress, chainId: $chainId, creatorAddress: $creatorAddress) {
     _id
     blockchain
     copyright
@@ -44,16 +44,6 @@ query CollectionNfts($collectionAddress: String) {
     twitterAccount
     discordServer
     creatorAddress
-    team {
-      name
-      position
-      linkedin
-      kycVerified 
-    } 
-    characteristics {
-      type
-      name
-    }
   }
 
   collectionNfts(collectionAddress: $collectionAddress) {
@@ -82,7 +72,7 @@ query CollectionNfts($collectionAddress: String) {
 }
 `
 
-export const GET_USER_COLLECTIONS = gql `
+export const GET_USER_COLLECTIONS = gql`
 query GetAllUserCollections($userId: String) {
   getAllUserCollections(userId: $userId) {
     _id

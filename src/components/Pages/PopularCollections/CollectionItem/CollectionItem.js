@@ -1,7 +1,8 @@
 import { useQuery } from '@apollo/client'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { GET_SINGLE_COLLECTION } from '../../../../graphql/queries/collectionQueries'
+import { AuthContext } from '../../../../Provider/AuthProvider'
 
 import Content from './Content'
 import Items from './Items'
@@ -11,17 +12,20 @@ import Top from './Top'
 
 const CollectionItem = () => {
   const { collectionAddress } = useParams()
+  const {chain, address} = useContext(AuthContext)
 
   const { data: collectionData } = useQuery(GET_SINGLE_COLLECTION, {
     variables: {
-      collectionAddress: collectionAddress
+      collectionAddress: collectionAddress,
+      chainId: chain.id,
+      creatorAddress: address
     }
   })
   return (
     <div className='flex lg:flex-row md: gap-3 '>
       <Top collection={collectionData?.getSingleCollection} />
       <div className='border w-[80%]' >
-        <Content  nfts={collectionData?.collectionNfts}/>
+        <Content nfts={collectionData?.collectionNfts}/>
       </div>
       <div className='w-1/3'>
         <RightPannel collection={collectionData?.getSingleCollection} />

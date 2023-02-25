@@ -49,7 +49,7 @@ const Top = ({ collection }) => {
                     {collection?.shortDescription}
                 </p>
             </div>
-            <div class="mt-5">
+            {/* <div class="mt-5">
                 <h2 class="text-white-2 text-[16px] font-semibold" level="2"><strong>Founding Team</strong></h2>
                 {
                     collection?.team.map((d, i) => (
@@ -66,7 +66,7 @@ const Top = ({ collection }) => {
                     ))
                 }
 
-            </div>
+            </div> */}
 
 
         </div>

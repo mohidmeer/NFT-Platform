@@ -56,13 +56,13 @@ const MyItems = () => {
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold  whitespace-nowrap" title="TOTAL ITEMS">TOTAL ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-1" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.totalItems.length}</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-1" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{}</span></div>
                   </div>
                 </div>
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold  whitespace-nowrap" title="UNLISTED ITEMS">UNLISTED ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-2" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.unlistedItems}</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-2" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{}</span></div>
                   </div>
                 </div>
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
@@ -75,7 +75,7 @@ const MyItems = () => {
                 <div class="bg-white truncate p-2 space-x-2 rounded-[4px] flex items-center justify-between flex-col sm:flex-row">
                   <div class="flex justify-center items-center space-x-2"><span class="text-xs font-bold whitespace-nowrap" title="LISTED ITEMS">LISTED ITEMS</span></div>
                   <div class="flex gap-1 items-center max-w-full">
-                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-4" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{data?.getOwnerNfts?.listedItems.length}</span></div>
+                    <div class="cursor-help max-w-full truncate" data-tooltipped="" aria-describedby="tippy-tooltip-4" data-original-title="0" ><span class="flex items-center text-white-1 text-xs truncate" title="0">{}</span></div>
                   </div>
                 </div>
               </div>
@@ -160,10 +160,10 @@ const MyItems = () => {
 
         <Tab.Panels className={`mt-4`}>
           <Tab.Panel className={``}>
-            <Item items={data?.getOwnerNfts?.totalItems}/>
+            <Item items={data?.getOwnerNfts} />
           </Tab.Panel>
           <Tab.Panel className={``}>
-            <ListedItems items={data?.getOwnerNfts?.listedItems}/>
+            <ListedItems />
           </Tab.Panel>
           <Tab.Panel className={``}>
             <Activities />

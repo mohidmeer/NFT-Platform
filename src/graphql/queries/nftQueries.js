@@ -88,71 +88,16 @@ query SingleAuctionNft($collectionAddress: String) {
 }
 `
 export const GET_OWNER_NFTS = gql`
-query GetOwnerListedNfts($ownerAddress: String) {
-  getOwnerNfts(ownerAddress: $ownerAddress) {
-    totalItems {
-      _id
-      startTime
-      endTime
-      listingId
-      price
-      isMarketplace
-      nft {
-        _id
-        name
-        description
-        tokenId
-        imageUrl
-        metadataUrl
-        royalty
-        collectionAddress
-        creatorAddress
-        ownerAddress
-        network
-        chainId
-        nftType
-        listingMetadata {
-          _id
-          startTime
-          endTime
-          listingId
-          price
-          isMarketplace
-        }
-      }
-    }
-    listedItems {
-      _id
-      startTime
-      endTime
-      listingId
-      price
-      isMarketplace
-      nft {
-        _id
-        name
-        description
-        tokenId
-        imageUrl
-        metadataUrl
-        royalty
-        collectionAddress
-        creatorAddress
-        ownerAddress
-        network
-        chainId
-        nftType
-        listingMetadata {
-          _id
-          startTime
-          endTime
-          listingId
-          price
-          isMarketplace
-        }
-    
-      }
-    }
-    unlistedItems
+query GetOwnerNfts($ownerAddress: String, $network: String) {
+  getOwnerNfts(ownerAddress: $ownerAddress, network: $network) {
+    token_address
+    token_id
+    amount
+    owner_of
+    token_hash
+    name
+    symbol
+    token_uri
+    metadata
   }
 }`

@@ -54,3 +54,13 @@ export const usdPrice = (nftChainId) => {
   })
   return price
 }
+
+export const convertToIpfsUrl = (metadata) => {
+  if(metadata){
+    const imageUrl = JSON.parse(metadata).image
+    return imageUrl?.replace("ipfs://", "https://gateway.ipfscdn.io/ipfs/")
+  }
+  else {
+    console.log("Hello")
+  }
+}
