@@ -1,6 +1,6 @@
-import {Tab} from "@headlessui/react";
-import React, {Fragment, useState} from "react";
-import {FiCheck} from "react-icons/fi";
+import { Tab } from "@headlessui/react";
+import React, { Fragment, useState } from "react";
+import { FiCheck } from "react-icons/fi";
 import PhaseModal from "../../Modals/PhaseModal";
 import AuctionNft from "./NftSubmitTypes/AuctionNft";
 import DropCollection from "./NftSubmitTypes/DropCollection";
@@ -9,22 +9,22 @@ import ListNft from "./NftSubmitTypes/ListNft";
 const Launch = ({
   setListingType,
   nftDetails,
+  setPhases,
+  phases,
+  dropData,
+  setDropData,
   setNftDetails,
   handleSubmit,
+  setIsLive,
+  isLive,
 }) => {
-  const [phaseModal, setPhaseModal] = useState(false)
-  const [phases, setPhases] = useState([])
-  const [isLive, setIsLive] = useState(false)
-  const [dropData, setDropData] = useState({})
-
+  const [phaseModal, setPhaseModal] = useState(false);
   const openPhaseModal = () => {
-    setPhaseModal(true)
-  }
-
+    setPhaseModal(true);
+  };
   const closePhaseModal = () => {
-    setPhaseModal(false)
-  }
-
+    setPhaseModal(false);
+  };
   return (
     <div className="p-6 ">
       <p className="font-bold text-sm text-gray-700">Step 6 of 6</p>
@@ -32,7 +32,7 @@ const Launch = ({
         <Tab.Group>
           <Tab.List className={`flex gap-2 mb-3 justify-center`}>
             <Tab as={Fragment}>
-              {({selected}) => (
+              {({ selected }) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("nft")}
@@ -48,7 +48,7 @@ const Launch = ({
               )}
             </Tab>
             <Tab as={Fragment}>
-              {({selected}) => (
+              {({ selected }) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("auction")}
@@ -64,7 +64,7 @@ const Launch = ({
               )}
             </Tab>
             <Tab as={Fragment}>
-              {({selected}) => (
+              {({ selected }) => (
                 /* Use the `selected` state to conditionally style the selected tab. */
                 <button
                   onClick={() => setListingType("drop")}

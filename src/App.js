@@ -1,18 +1,16 @@
 import Launchpad from "./components/Pages/Launchpad/Launchpad";
 import Auction from "./components/Pages/Auction/Auction";
 import Landing from "./components/Pages/Landing/Landing";
-import {ToastContainer, toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-tippy/dist/tippy.css";
 import "react-toastify/dist/ReactToastify.css";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PopularCollections from "./components/Pages/PopularCollections/PopularCollections";
 import UpcomingDrops from "./components/Pages/UpcomingDrops/UpcomingDrops";
 import Tickets from "./components/Pages/Tickets/Tickets";
 import Error from "./components/Pages/404/Error";
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import Communities from "./components/Pages/Communities/Communities";
-import Whitelist from "./components/Pages/WhiteList/Whitelist";
-import CreateC from "./components/Pages/Creator/CreateC";
 import LaunchServices from "./components/Pages/LaunchServices/LaunchServices";
 import SocialMintShare from "./components/Pages/SocialMintShare/SocialMintShare";
 import Discord from "./components/Pages/Discord/Discord";
@@ -38,9 +36,7 @@ import Plans from "./components/Pages/Profile/Plans";
 import WalletProvider from "./Provider/WalletProvider";
 import AuthProvider from "./Provider/AuthProvider";
 import MyItems from "./components/Pages/Myitems/MyItems";
-import SwitchNetWorkModal from "./components/Modals/SwitchNetworkModal";
-import NetworksModal from "./components/Modals/NetworkModal";
-import ApplicationProvider, {ApplicationContext} from "./Provider/ApplicationProvider";
+import ApplicationProvider from "./Provider/ApplicationProvider";
 import CreateNft from "./components/Pages/CreateNft/CreateNft";
 
 function App() {
@@ -98,7 +94,10 @@ function App() {
                     path="whitelist/:name"
                     element={<WhitelistRegisterItem name={"Galactic Robots"} />}
                   />
-                  <Route path="socialmint-share" element={<SocialMintShare />} />
+                  <Route
+                    path="socialmint-share"
+                    element={<SocialMintShare />}
+                  />
                   <Route path="launch-services" element={<LaunchServices />} />
                   <Route path="drops" element={<UpcomingDrops />} />
                   <Route
@@ -121,7 +120,10 @@ function App() {
                   <Route path="offers" element={<Offers />} />
                 </Route>
 
-                <Route path="collection/:collectionAddress" element={<CollectionDetail />}>
+                <Route
+                  path="collection/:collectionAddress"
+                  element={<CollectionDetail />}
+                >
                   <Route index element={<CollectionItem />} />
                 </Route>
 

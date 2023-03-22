@@ -1,11 +1,11 @@
-import {Dialog, Transition} from "@headlessui/react"
-import {Button, ConfigProvider, DatePicker, Form, Input, InputNumber} from "antd";
-import TextArea from "antd/es/input/TextArea";
-import {Fragment} from "react";
-import {AiFillCloseCircle, AiOutlineCloseCircle} from "react-icons/ai";
-import {FaRegTrashAlt} from "react-icons/fa";
-
-const PhaseModal = ({isOpen, closeModal, phases, setPhases}) => {
+import { Dialog, Transition } from "@headlessui/react"
+import { DatePicker, Form, Input, InputNumber, Switch } from "antd";
+import { Fragment } from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { ethers } from "ethers";
+import dayjs from "dayjs"
+const PhaseModal = ({ isOpen, closeModal, phases, setPhases }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -42,9 +42,24 @@ const PhaseModal = ({isOpen, closeModal, phases, setPhases}) => {
                     <div className="flex-1 w-full">
                       <Form
                         name="dynamic_form_nest_item"
+
                         className=""
                         onFinish={(e) => {
-                          setPhases(e.phases)
+
+                          console.log(e.phases)
+                          let stages = []
+                          e.phases.forEach(element => {
+                            console.log(element)
+                            stages.push({
+                              price: ethers.utils.parseUnits(element.price.toString()),
+                              nftDrop: element.nftDrop,
+                              claimPerWallet: (element.claimPerWallet),
+                              startDate: dayjs(element.startDate).unix(),
+                              endDate: dayjs(element.endDate).unix(),
+                            })
+                          });
+                          setPhases(stages)
+
                         }}
                         layout="vertical"
                         autoComplete="off"
@@ -53,9 +68,9 @@ const PhaseModal = ({isOpen, closeModal, phases, setPhases}) => {
                         }}
                       >
                         <Form.List name="phases" className="divide-y divide-solid">
-                          {(fields, {add, remove}) => (
+                          {(fields, { add, remove }) => (
                             <>
-                              {fields.map(({key, name, ...restField}) => (
+                              {fields.map(({ key, name, ...restField }) => (
                                 <div className="pt-5">
                                   <div className="flex items-center justify-between text-xl mb-4">
                                     <h1 className="font-bold">Stage {key + 1}</h1>
@@ -63,18 +78,7 @@ const PhaseModal = ({isOpen, closeModal, phases, setPhases}) => {
                                       remove(name)
                                     }}><FaRegTrashAlt /></button>
                                   </div>
-                                  <Form.Item
-                                    {...restField}
-                                    name={[name, "phaseName"]}
-                                    rules={[
-                                      {
-                                        required: true,
-                                        message: "Missing first name",
-                                      },
-                                    ]}
-                                  >
-                                    <Input placeholder="Phase Name" />
-                                  </Form.Item>
+
                                   <div className="flex gap-10 w-full">
                                     <Form.Item
                                       {...restField}
@@ -152,19 +156,16 @@ const PhaseModal = ({isOpen, closeModal, phases, setPhases}) => {
                                     </Form.Item>
                                   </div>
                                   <div>
+
                                     <Form.Item
                                       {...restField}
-                                      label="Who can claim NFTs during this phase?"
-                                      name={[name, "claimNft"]}
+                                      label="Enable Whitelist User"
+                                      name={[name, "isWhitelist"]}
                                       className="w-full"
-                                      rules={[
-                                        {
-                                          required: true,
-                                          message: "Missing Claim NFT",
-                                        },
-                                      ]}
+                                      valuePropName="checked"
+
                                     >
-                                      <TextArea placeholder="2" />
+                                      <Switch defaultChecked />
                                     </Form.Item>
                                   </div>
                                   {/*<AiFillCloseCircle

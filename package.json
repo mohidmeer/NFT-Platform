@@ -15,6 +15,7 @@
     "@thirdweb-dev/storage": "^1.0.6",
     "antd": "^5.1.2",
     "axios": "^1.2.5",
+    "dayjs": "^1.11.7",
     "ethers": "^5.7.2",
     "moment": "^2.29.4",
     "react": "^17.0.1",
